@@ -1,0 +1,122 @@
+//colors
+$bg-primary: #ffffff;
+$bg-add: #f7f7f7;
+$font-black: #3d464d;
+$font-hover: #007ee5;
+$font-footer: #007ee5;
+$nav-border-top: #007ee5;
+$nav-border-bottom:  #d0d4d9;
+$separator:  #d0d4d9;
+$button: #0071e0;
+$button-border: #0071e0;
+$button-hover: #3398ea;
+$font-button: #ffffff;
+
+//fonts
+@font-face {
+  font-family: PNB;
+  src: url(../fonts/proxima-nova-bold.otf);
+}
+@font-face {
+  font-family: PNR;
+  src: url(../fonts/proxima-nova-regular.otf);
+}
+$bold: PNB;
+$reg : PNR;
+
+//mixins
+@mixin transition-color() {
+  transition: color .25s ease-in-out;
+}
+@mixin transition-bg() {
+  transition: background .25s ease-in-out;
+}
+
+//primary options
+body{
+  font-size:16px;
+}
+
+h1 {
+  font-size: 2.25em; //36px
+}
+
+h2 {
+  font-size: 1.875em; //30px
+}
+
+h3 {
+  font-size: 1.5em; //24px
+}
+
+h4 {
+  font-size: 1.125em; //18px
+}
+
+h5 {
+  font-size: 0.875em; //14px
+}
+
+h6 {
+  font-size: 0.75em; //12px
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $bold;
+}
+p, a, li, span, button {
+  font-family: $reg;
+}
+a, .navbar-default .navbar-nav > li > a {
+  @include transition-color();
+  &:hover{
+    @include transition-color();
+    color: $font-hover;
+  }
+}
+h1, h2, h3, h4, h5, h6, p, a, li, span, .navbar-default .navbar-nav > li > a {
+  color:$font-black;
+}
+
+a{
+  &:hover, &:active{
+    text-decoration: none;
+  }
+}
+
+.bottom-border{
+  border-bottom: 2px solid $nav-border-bottom;
+}
+
+.btn{
+  background: $button;
+  border: 1px solid $button-border;
+  color: $font-button;
+  @include transition-bg();
+  &:hover{
+    @include transition-bg();
+    background: $button-hover;
+  }
+}
+
+.wrapper{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.indent-5{
+  margin: 5% 0;
+}
+.indent-10{
+  margin: 10% 0;
+}
+.indent-15{
+  margin: 15% 0;
+}
+.collapse.in{
+  height: 100vh;
+}
+
+.img-responsive {
+  display: inline-block;
+}
