@@ -1,0 +1,18 @@
+$bg-add: #f7f7f7;
+.how{
+   background: $bg-add;
+  .step1,
+  .step2{
+    display: inline-block;
+  }
+  .indent-5{
+    @media (min-width: 0px) and (max-width: 991px) {
+      margin: 0;
+    }
+  }
+  .indent-10{
+    @media (min-width: 0px) and (max-width: 991px) {
+      margin: 5% 0;
+    }
+  }
+}

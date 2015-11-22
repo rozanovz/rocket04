@@ -1,0 +1,40 @@
+@import 'var';
+
+.navbar {
+  border-top: 2px solid $nav-border-top;
+  background: $bg-primary;
+
+  .navbar-brand img{
+    width: 120px;
+  }
+}
+
+footer{
+  background: $bg-add;
+  padding-top: 5%;
+  padding-bottom: 5%;
+
+  li:not(.heading){
+    margin-bottom: 4%;
+    a{
+      position: relative;
+      color: $font-footer;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: $font-footer;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.3s ease-in-out 0s;
+      }
+      &:hover:before {
+        visibility: visible;
+        transform: scaleX(1);
+      }
+    }
+  }
+}
