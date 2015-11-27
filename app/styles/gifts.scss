@@ -1,0 +1,15 @@
+@import 'var';
+
+.gifts{
+  background: $bg-grey;
+  .intro{
+    background-image: url("../images/gifts/hero.jpg");
+  }
+  .content {
+    li{
+      img{
+        width: 30%;
+      }
+    }
+  }
+}

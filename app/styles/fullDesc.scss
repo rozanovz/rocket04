@@ -1,0 +1,62 @@
+@import 'var';
+
+.fullDesc{
+  .second{
+    margin-top:3.5%;
+  }
+  img{
+    width: 100%;
+  }
+  .photo{
+    border-radius: 10px; 
+    border:1px solid lightgrey;
+  }
+  .descriptionTable{
+    th{
+      color: $orange;
+      background: $white;
+    }
+  }
+  .price{
+      color: $orange;
+  }
+
+  a.download{
+    color:$orange !important;
+  }
+  .underImageLinks{
+    a{
+      margin-right: 10px;
+    }
+  }
+  .spriteelement{
+    vertical-align: middle;
+    display: inline-block;
+  }
+  .complexity {
+    background: url('../images/store/web_2x_sprites-vflJeuqkg.png') no-repeat 0 -3062px;
+    background-size: 40px 4990px;
+    width: 16px;
+    height: 15px;
+  }
+  .time{
+    background: url('../images/store/web_2x_sprites-vflJeuqkg.png') no-repeat -2px -4127px;
+    background-size: 40px 4990px;
+    width: 15px;
+    height: 15px;
+  }
+
+  .portions {
+    background: url('../images/store/web_2x_sprites-vflJeuqkg.png') no-repeat 0 -2705px;
+    background-size: 40px 4990px;
+    width: 19px;
+    height: 15px;
+  }
+
+  .downloadReipe {
+    background: url("../images/store/web_2x_sprites-vflJeuqkg.png") no-repeat -3px -3599px;
+    background-size: 40px 4990px;
+    width: 13px;
+    height: 16px;
+  }
+}
