@@ -9,10 +9,7 @@
  */
 angular.module('ocean04App')
   .controller('MainCtrl', function ($rootScope) {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-    $rootScope.rocketStart = false;
+  	$rootScope.landing = true;
+  	$rootScope.store = false;
+  	$rootScope.description = false;
   });

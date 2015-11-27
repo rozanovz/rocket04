@@ -1,4 +1,4 @@
-<div ng-controller="storeCtrl as s" ng-show="rocketStart" class="store" style="margin-top: 20px;">
+<div ng-controller="storeCtrl as s" class="store" style="margin-top: 20px;">
   <div class="container-fluid">
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 sidebarNav navbar-default navbar" style="padding-left: 0; padding-right: 0">
         <div class="input-group">
@@ -27,14 +27,14 @@
     </div>
     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 card" ng-repeat="i in receipeLst | filter:search:strict">
-        <a ng-href="#/desc/{{i.id}}"><img ng-src="{{i.photo.url}}" class="thumbnail"></a> 
+        <a ng-href="#/desc/{{i.id}}" ng-click="description = true; store = false"><img ng-src="{{i.photo.url}}" class="thumbnail"></a> 
         <h3 class="itemTitle">{{i.title | limitTo: 29}}</h3>
         <p class="small-description text-muted">{{i.description | limitTo: 60}}</p>
         <ngcart-addtocart id="{{ i.id }}" name="{{ i.title }}" price="{{ i.price }}" quantity="1"> Добавить в корзину</ngcart-addtocart>
         <span class="price pull-right">{{i.price}} UAH</span>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 card" ng-repeat="i in receipeLst | filter:search:strict">
-        <a ng-href="#/desc/{{i.id}}"><img ng-src="{{i.photo.url}}" class="thumbnail"></a> 
+        <a ng-href="#/desc/{{i.id}}" ng-click="description = true; store = false"><img ng-src="{{i.photo.url}}" class="thumbnail"></a> 
         <h3 class="itemTitle">{{i.title | limitTo: 29}}</h3>
         <p class="small-description text-muted">{{i.description | limitTo: 60}}</p>
         <ngcart-addtocart id="{{ i.id }}" name="{{ i.title }}" price="{{ i.price }}" quantity="1"> Добавить в корзину</ngcart-addtocart> 

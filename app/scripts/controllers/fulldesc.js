@@ -10,8 +10,10 @@
 angular.module('ocean04App')
   .controller('FulldescCtrl', ['$scope', 'api', '$rootScope', '$routeParams','loader' , function ($scope, api, $rootScope, $routeParams, loader) {
 
+    $rootScope.store = false;
+    $rootScope.description = true;
+
     var id = $routeParams.id;
-    $rootScope.fulldesc = true;
 
     this.getReceipe = function(id) {
       loader.notAllowed();

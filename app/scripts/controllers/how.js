@@ -9,10 +9,4 @@
  */
 angular.module('ocean04App')
   .controller('HowCtrl', function ($rootScope) {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-    $rootScope.rocketStart = false;
   });

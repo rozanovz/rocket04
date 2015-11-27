@@ -9,5 +9,6 @@
  */
 angular.module('ocean04App')
   .controller('cartCtrl', function ($scope, $rootScope) {
-    $rootScope.rocketStart = true;
+    $rootScope.store = true;
+    $rootScope.description = true;
   });

@@ -40,20 +40,10 @@ angular
         controller: 'HowCtrl',
         controllerAs: 'how'
       })
-      .when('/team', {
-        templateUrl: 'views/team.html',
-        controller: 'TeamCtrl',
-        controllerAs: 'team'
-      })
       .when('/rocket04', {
         templateUrl: 'views/rocket04.html',
         controller: 'storeCtrl',
         controllerAs: 'store'
-      })
-      .when('/account', {
-        templateUrl: 'views/account.html',
-        controller: 'accountCtrl',
-        controllerAs: 'account'
       })
       .when('/cart', {
         templateUrl: 'views/cart.html',
