@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/styles.css -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="ocean04App">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    
+    <rocket-navigation></rocket-navigation>
+    <!--Slick nav menu-->
+    <ul id="menuStick" style="display:none;" ng-hide="rocketStart">
+      <li class="bottom-border"><a href="#/how">Принцип работы</a></li>
+      <li class="bottom-border"><a href="#/gifts">Подарки</a></li>
+      <li class="bottom-border"><a href="#/about">О нас</a></li>
+      <li><a href="#/rocket04" class="btn">Посмотреть меню</a></li>
+    </ul>
+
+    <div class="loader" ng-show="isLoading">
+      <div class="c-loader"></div>
+    </div>
+    <!--Main view-->
+    <div ng-view ng-show="!isLoading"></div>
+
+    <rocket-footer></rocket-footer>
+    
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/gifts.js"></script>
+    <script src="scripts/controllers/how.js"></script>
+    <script src="scripts/controllers/store.js"></script>
+    <script src="scripts/controllers/cart.js"></script>
+    <script src="scripts/services/api.js"></script>
+    <script src="scripts/controllers/fulldesc.js"></script>
+    <script src="scripts/services/loader.js"></script>
+    <script src="scripts/directives/nav/nav.js"></script>
+    <script src="scripts/directives/footer/footer.js"></script>
+    <script src="scripts/directives/ngCart/ngCart.js"></script>
+    <!-- endbuild -->
+
+    <script src="scripts/slicknav.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        $('#menuStick').slicknav({
+            brand:"<a href=\"#/\"><img src=\"../images/rocket.svg\" alt=\"\"></a>",
+            label:"Меню"
+          });
+      });
+    </script>
+
+</body>
+</html>

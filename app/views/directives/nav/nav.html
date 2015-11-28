@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default navbar-fixed-top bottom-border hidden-xs hidden-sm">
+  <div class="container-fluid">
+    <div class="wrapper">
+      <ul class="nav navbar-nav">
+        <li ng-hide="store || description"><a href="#/how">Принцип работы</a></li>
+        <li ng-hide="store || description"><a href="#/about">О нас</a></li>
+        <li ng-show="store" ng-hide="description || landing"><a href="#/" ng-click="store = false; landing = true">Назад на сайт</a></li>
+        <li ng-show="description"><a href="#/rocket04" ng-click="store = true; description = false">Назад к меню</a></li>
+      </ul>
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#/" ng-click="store = false; landing = true">
+          <img src="images/rocket.svg" alt="logo" />
+          <p></p>
+        </a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-hide="store || description"><a href="#/gifts">Подарки</a></li>
+        <li ng-hide="store || description"><a href="#/rocket04" ng-click="store = true;">Посмотреть меню</a></li>
+        <li ng-show="store || description"><a href="#/cart">Корзина <ngcart-summary></ngcart-summary></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

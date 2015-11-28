@@ -1,0 +1,15 @@
+@import 'var';
+.about{
+  div.about1{
+  	background: $bg-grey;
+  }
+  img{
+  	width:100%;
+  }
+  .double{
+  	width:100%;
+  	img{
+  		width:35%;
+  	}
+  }
+}

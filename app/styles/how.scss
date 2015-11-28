@@ -1,0 +1,15 @@
+@import 'var';
+.how{
+   .intro{
+    background-image: url("../images/how/hero1.jpg");
+  }
+
+  .ending{
+    background-image: url("../images/how/hero.jpg");
+  } 
+   background: $bg-grey;
+  .step1,
+  .step2{
+    display: inline-block;
+  }
+}
