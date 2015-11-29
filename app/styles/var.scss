@@ -71,7 +71,7 @@ a, .navbar-default .navbar-nav > li > a {
   }
 }
 
-h1, h2, h3, h4, h5, h6, p, a, li, span, .navbar-default .navbar-nav > li > a {
+h1, h2, h3, h4, h5, h6, p, a, li, .navbar-default .navbar-nav > li > a {
   color:$black;
 }
 
@@ -95,7 +95,21 @@ a{
     background: $orange-hover !important;
     color: $white;
   }
+  &:focus,
+  &:active
+  &:visited{
+    color:$white !important;
+  }
+  .span{
+    color:$white !important;
+  }
 }
+
+btn.focus,
+btn.active
+btn.visited{
+    color:$white !important;
+  }
 
 .wrapper{
   margin-left: 5%;

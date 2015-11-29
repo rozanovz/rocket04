@@ -1,45 +1,56 @@
 <div ng-controller="storeCtrl as s" class="store" style="margin-top: 20px;">
   <div class="container-fluid">
-    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 sidebarNav navbar-default navbar" style="padding-left: 0; padding-right: 0">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Поиск" ng-model="search.title">
-          <span class="input-group-btn">
-            <button class="btn btn-default " type="button"><i class="glyphicon glyphicon-search"></i></button>
-          </span>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="wrapper">
+           <dvi class="col-xs-12 col-sm-12 col-md-4 col-lg-4 text-md-left text-sm-center text-xs-center">
+             <div class="input-group">
+              <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            </div>
+           </dvi>
+           <dvi class="col-xs-6 col-sm-6 col-md-4 col-lg-4 text-center">
+             <div class="dropdown">
+                <button class="btn dropdown-toggle filters" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Фильтры
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" style="left: 115px;">
+                  <li><p>Завтраки</p></li>
+                    <li role="separator" class="divider"></li>
+                  <li><p>Салаты</p></li>
+                    <li role="separator" class="divider"></li>
+                  <li><p>Супы</p></li>
+                    <li role="separator" class="divider"></li>
+                  <li><p>Мясо</p></li>
+                    <li role="separator" class="divider"></li>
+                  <li>Риззото</p></li>
+                    <li role="separator" class="divider"></li>
+                  <li><p>Рыба</p></li>
+                </ul>
+              </div>
+           </dvi>
+           <dvi class="col-xs-6 col-sm-6 col-md-4 col-lg-4 text-md-right text-sm-center text-xs-center">
+             <a href="#/cart"><ngcart-summary></ngcart-summary></a>
+           </dvi>
         </div>
-        <ul class="list-unstyled">
-          <li><h4>Основной Ингредиент</h4></li>
-          <li><a href="">Говядина</a></li>
-          <li><a href="">Рыба</a></li>
-          <li><a href="">Свинина</a></li>
-          <li><a href="">Птица</a></li>
-          <li><a href="">Вегетарианское</a></li>
-        </ul>
-        <ul class="list-unstyled">
-          <li><h4>Кухня</h4></li>
-          <li><a href="">Итальянская</a></li>
-          <li><a href="">Азиатская</a></li>
-          <li><a href="">Африканская</a></li>
-          <li><a href="">Американская</a></li>
-          <li><a href="">Французская</a></li>
-          <li><a href="">Национальная</a></li>
-        </ul>
-    </div>
-    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 card" ng-repeat="i in receipeLst | filter:search:strict">
-        <a ng-href="#/desc/{{i.id}}" ng-click="description = true; store = false"><img ng-src="{{i.photo.url}}" class="thumbnail"></a> 
-        <h3 class="itemTitle">{{i.title | limitTo: 29}}</h3>
-        <p class="small-description text-muted">{{i.description | limitTo: 60}}</p>
-        <ngcart-addtocart id="{{ i.id }}" name="{{ i.title }}" price="{{ i.price }}" quantity="1"> Добавить в корзину</ngcart-addtocart>
-        <span class="price pull-right">{{i.price}} UAH</span>
       </div>
+    </nav>
+
+    <div class="wrapper">
+
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 card" ng-repeat="i in receipeLst | filter:search:strict">
-        <a ng-href="#/desc/{{i.id}}" ng-click="description = true; store = false"><img ng-src="{{i.photo.url}}" class="thumbnail"></a> 
+        <a ng-href="#/desc/{{i.id}}" ng-click="description = true; store = false">
+          <div class="quantity" ng-show=""> <span>1<br>в Вашей корзине </span> {{ngCart.get.getTotalItems()}}</div>
+          <img ng-src="{{i.photo.url}}" class="">
+        </a> 
         <h3 class="itemTitle">{{i.title | limitTo: 29}}</h3>
-        <p class="small-description text-muted">{{i.description | limitTo: 60}}</p>
-        <ngcart-addtocart id="{{ i.id }}" name="{{ i.title }}" price="{{ i.price }}" quantity="1"> Добавить в корзину</ngcart-addtocart> 
-        <span class="price pull-right">{{i.price}} UAH</span>
+        <p class="small-description text-muted">{{i.description | limitTo: 55}}</p>
+        <div class="separator"></div>
+        <span>{{i.price | currency:"\u20b4 " }}</span>
+        <ngcart-addtocart id="{{ i.id }}" name="{{ i.title }}" price="{{ i.price }}" quantity="1" quantity-max="9" class="price pull-right">Добавить <i class="glyphicon glyphicon-plus"></i></ngcart-addtocart>
+        
       </div>
-    </div>
+
   </div>
 </div>

@@ -1,21 +1,18 @@
 <div ng-controller = "FulldescCtrl" class="wrapper fullDesc">
-    <!-- <div class="row">
-      <a ng-href="#/rocket04" class="btn"> back </a>
-    </div> -->
   <div class="indent-5">
     <div class="row">
       <div class="col-xs-12 col-lg-5 text-center">
-          <img ng-src="{{receipe.photo.url}}" class="photo img-thumbnail">
+          <img ng-src="{{receipe.photo.url}}" class="photo">
       </div>
 
       <div class="col-xs-12 col-lg-7">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-left">
           <h3>{{receipe.title}}</h3>
           <p class="text-muted small-description">small description</p>
-          <a href="" class="btn">Добавить в корзину</a>
+          <ngcart-addtocart id="{{ receipe.id }}" name="{{ receipe.title }}" price="{{ receipe.price }}" quantity="1" quantity-max="9" class="price">Добавить <i class="glyphicon glyphicon-plus"></i></ngcart-addtocart>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-md-right text-xs-left">
-          <h3 class="price">UAH {{receipe.price}}</h3>
+          <h3 class="price">{{receipe.price | currency:"\u20b4 "}}</h3>
           <p>Сложность: {{receipe.complexity}} <span class="complexity spriteelement"></span></p>
           <p>Время приготовления: {{receipe.time}} <span class="time spriteelement"></span></p>
           <p>Количество порций: {{receipe.portions}} <span class="portions spriteelement"></span></p>
@@ -23,41 +20,49 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-lg-7">
-        <table class="table table-bordered descriptionTable">
-          <th class="text-center">Описание</th>
-          <tr>
-              <td class="text-muted">{{receipe.description}}</td>
-          </tr>
-        </table>
-      </div>
+      <uib-tabset class="col-xs-12 col-lg-7">
+        <uib-tab heading="Описание">
+          <table class="table table-bordered descriptionTable">
+            <!-- <th class="text-center">Описание</th> -->
+            <tr>
+                <td class="text-muted">{{receipe.description}}</td>
+            </tr>
+          </table>
+        </uib-tab>
+        <uib-tab heading="Ингредиенты">
+          <table class="table table-bordered descriptionTable">
+            <!-- <th class="text-center" colspan="2">Что входит в упаковку</th> -->
+            <tr ng-repeat="ing in receipe.Ingri">
+                <td><strong>{{ing.quantity}}</strong></td>
+                <td>{{ing.name}}</td>
+            </tr>
+          </table>
+        </uib-tab>
+        <uib-tab heading="Нутриены">
+          <table class="table table-bordered descriptionTable">
+            <!-- <th class="text-center" colspan="2">Нутриены</th> -->
+            <tr>
+              <tr ng-repeat="nu in receipe.nu">
+                <td>{{nu.name}}</td>
+                <td><strong>{{nu.quantity}} гр.</strong></td>
+              </tr>
+            </tr>
+          </table>
+        </uib-tab>
+      </uib-tabset>
     </div>
 
-    <div class="row second">
+    <!-- <div class="row second">
       <div class="col-xs-12 col-lg-5 text-center">
           <img ng-src="{{receipe.ingridientsPhoto.url}}">
       </div>
 
       <div class="col-xs-12 col-lg-7">
         <div class="col-xs-12 col-lg-6">
-          <table class="table table-bordered descriptionTable">
-            <th class="text-center" colspan="2">Что входит в упаковку</th>
-            <tr ng-repeat="ing in receipe.Ingri">
-                <td><strong>{{ing.quantity}}</strong></td>
-                <td>{{ing.name}}</td>
-            </tr>
-          </table>
+          
         </div>
         <div class="col-xs-12 col-lg-6">
-          <table class="table table-bordered descriptionTable">
-            <th class="text-center" colspan="2">Нутриены</th>
-            <tr>
-                <tr ng-repeat="nu in receipe.nu">
-                    <td>{{nu.name}}</td>
-                    <td><strong>{{nu.quantity}} гр.</strong></td>
-                </tr>
-            </tr>
-          </table>
+          
           <table class="table table-bordered descriptionTable">
             <th class="text-center" colspan="2">Поделиться</th>
             <tr>
@@ -71,6 +76,6 @@
           </table>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

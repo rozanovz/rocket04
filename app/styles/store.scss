@@ -35,4 +35,34 @@
     width:100%;
     height: 100vh;
   }
+  .price{
+    color:$black !important;
+  }
+
+  .btn.itemsQuantity{
+    background:none;
+    color:$black !important;
+    &:hover{
+      background:none;
+    }
+  }
+  .separator{
+    height: 1px;
+    width: 100%;
+    background: lightgray;
+    margin: 2px 0 10px 0;
+  }
+
+  .quantity{
+    position: absolute;
+    background: darken($orange, 10);
+    width: 93.6%;
+    height: 70%;
+    opacity: .65;
+    font-size: 3em;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
 }
