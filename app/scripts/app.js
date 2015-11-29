@@ -16,7 +16,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngCart',
+    'ngCart.fulfilment', 
     'ui.bootstrap'
   ])
   .config(function ($routeProvider) {

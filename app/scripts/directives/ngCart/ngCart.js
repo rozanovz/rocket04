@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('ngCart', ['ngCart.directives'])
+angular.module('ocean04App')
 
     .config([function () {
 
@@ -335,9 +335,9 @@ angular.module('ngCart', ['ngCart.directives'])
 ;'use strict';
 
 
-angular.module('ngCart.directives', ['ngCart.fulfilment'])
+angular.module('ocean04App')
 
-    .controller('CartController',['$scope', 'ngCart', function($scope, ngCart) {
+    .controller('CartController',['$rootScope','$scope', 'ngCart', function($rootScope,$scope, ngCart) {
         $scope.ngCart = ngCart;
     }])
 

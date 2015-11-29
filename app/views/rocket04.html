@@ -2,7 +2,6 @@
   <div class="container-fluid">
 
     <div class="wrapper">
-
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 card" ng-repeat="i in receipeLst | filter:search:strict">
         <a ng-href="#/desc/{{i.id}}" ng-click="description = true; store = false">
           <div class="quantity" ng-show=""> <span>1<br>в Вашей корзине </span> {{ngCart.get.getTotalItems()}}</div>
