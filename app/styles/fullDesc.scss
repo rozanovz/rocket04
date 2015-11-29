@@ -58,4 +58,27 @@
     width: 13px;
     height: 16px;
   }
+
+
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background: $bg-grey;
+    border: none;
+    border-bottom: 1px solid $orange;
+  }
+
+  .nav-tabs {
+    border-bottom: none;
+    li{
+      width: 33.333%;
+      text-align: center;
+      border: 1px solid #ddd;
+
+      a{
+        margin-right: 0;
+        line-height: 1.428571429;
+        border: none;
+        border-radius: 0;
+      }
+    }
+  }
 }

@@ -10,6 +10,9 @@
 angular.module('ocean04App')
   .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart) {
 
+    $rootScope.store = true;
+    $rootScope.description = false;
+
     this.getReceipes = function() {
       loader.notAllowed();
       api.receipe.list().then(function(response) {

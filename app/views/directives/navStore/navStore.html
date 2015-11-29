@@ -1,0 +1,53 @@
+<nav class="navbar navbar-default" style="    margin-top: 10px;    border: none;">
+  <div class="container-fluid">
+    <div class="wrapper">
+       <dvi class="col-xs-12 col-sm-12 col-md-4 col-lg-4 text-md-left text-sm-center text-xs-center">
+         <div class="input-group">
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" ng-model="search.title">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+        </div>
+       </dvi>
+       <dvi class="col-xs-6 col-sm-6 col-md-4 col-lg-4 text-center">
+         <div class="dropdown">
+            <button class="btn dropdown-toggle filters" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Фильтры <img src="../../../images/store/filterMenu.svg" alt="">
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" style="left: 115px;">
+              <li>
+                <!-- Завтраки -->
+                <input type="checkbox" id="1"> <label for="1">aaaa</label>
+              </li>
+                <li role="separator" class="divider"></li>
+              <li>
+                <!-- Салаты -->
+                <input type="checkbox" id="1"> <label for="1">aaaa</label>
+              </li>
+                <li role="separator" class="divider"></li>
+              <li>
+                <!-- Супы -->
+                <input type="checkbox" id="1"> <label for="1">aaaa</label>
+              </li>
+                <li role="separator" class="divider"></li>
+              <li>
+                <!-- Мясо -->
+                <input type="checkbox" id="1"> <label for="1">aaaa</label>
+              </li>
+                <li role="separator" class="divider"></li>
+              <li>
+                <!-- Риззото -->
+                <input type="checkbox" id="1"> <label for="1">aaaa</label>
+              </li>
+                <li role="separator" class="divider"></li>
+              <li>
+                <!-- Рыба -->
+                <input type="checkbox" id="1"> <label for="1">aaaa</label>
+              </li>
+            </ul>
+          </div>
+       </dvi>
+       <dvi class="col-xs-6 col-sm-6 col-md-4 col-lg-4 text-md-right text-sm-center text-xs-center">
+         <a href="#/cart"><ngcart-summary></ngcart-summary></a>
+       </dvi>
+    </div>
+  </div>
+</nav>

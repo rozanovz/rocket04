@@ -38,7 +38,7 @@ $orange-hover: #f15a22;
   src: url(../fonts/antenna-regular.otf);
 }
 
-$body-font: 17px;
+$body-font: 16px;
 
 //mixins
 @mixin transition() {
@@ -245,4 +245,15 @@ img {
 
 input, textarea{
   outline-color: $orange;
+}
+
+.btn.filters{
+  background: none;
+  color: black;
+  &:hover,
+  &:active,
+  &:focus{
+    background:none !important;
+    color: black !important;
+  }
 }
