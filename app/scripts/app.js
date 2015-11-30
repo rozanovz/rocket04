@@ -43,7 +43,7 @@ angular
         controllerAs: 'how'
       })
       .when('/rocket04', {
-        templateUrl: 'views/rocket04.html',
+        templateUrl: 'views/store.html',
         controller: 'storeCtrl',
         controllerAs: 'store'
       })
