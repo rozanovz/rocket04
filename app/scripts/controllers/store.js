@@ -8,7 +8,7 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart) {
+  .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart, ngCartItem) {
 
     $rootScope.store = true;
     $rootScope.description = false;
@@ -26,5 +26,4 @@ angular.module('ocean04App')
     };
 
     this.getReceipes();
-
   });

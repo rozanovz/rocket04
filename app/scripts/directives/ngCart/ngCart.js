@@ -263,6 +263,7 @@ angular.module('ocean04App')
                 this._quantity = 1;
                 $log.info('Quantity must be an integer and was defaulted to 1');
             }
+            $rootScope.itemQuantity = this._quantity;
             $rootScope.$broadcast('ngCart:change', {});
 
         };
