@@ -1,8 +1,8 @@
-<div ng-controller = "FulldescCtrl" class="wrapper fullDesc">
-  <div class="indent-5">
-    <div class="row">
+<div ng-controller = "FulldescCtrl" class="container-fluid fullDesc">
+  <div class="wrapper">
+    <div class="indent-5">
       <div class="col-xs-12 col-lg-5 text-center">
-          <img ng-src="{{receipe.photo.url}}" class="photo">
+        <img ng-src="{{receipe.photo.url}}" class="photo">
       </div>
 
       <div class="col-xs-12 col-lg-7">
@@ -24,15 +24,15 @@
         <uib-tab heading="Описание">
           <table class="table table-bordered descriptionTable">
             <tr>
-                <td class="text-muted">{{receipe.description}}</td>
+              <td class="text-muted">{{receipe.description}}</td>
             </tr>
           </table>
         </uib-tab>
         <uib-tab heading="Ингредиенты">
           <table class="table table-bordered descriptionTable">
             <tr ng-repeat="ing in receipe.Ingri">
-                <td><strong>{{ing.quantity}}</strong></td>
-                <td>{{ing.name}}</td>
+              <td><strong>{{ing.quantity}}</strong></td>
+              <td>{{ing.name}}</td>
             </tr>
           </table>
         </uib-tab>
@@ -48,31 +48,5 @@
         </uib-tab>
       </uib-tabset>
     </div>
-
-    <!-- <div class="row second">
-      <div class="col-xs-12 col-lg-5 text-center">
-          <img ng-src="{{receipe.ingridientsPhoto.url}}">
-      </div>
-
-      <div class="col-xs-12 col-lg-7">
-        <div class="col-xs-12 col-lg-6">
-          
-        </div>
-        <div class="col-xs-12 col-lg-6">
-          
-          <table class="table table-bordered descriptionTable">
-            <th class="text-center" colspan="2">Поделиться</th>
-            <tr>
-                <td>VK</td>
-                <td>Twitter</td>
-            </tr>
-            <tr>
-                <td>Facebook</td>
-                <td>Email</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div> -->
   </div>
 </div>

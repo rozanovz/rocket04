@@ -32,8 +32,6 @@
       <li><a href="#/rocket04" class="btn">Посмотреть меню</a></li>
     </ul>
 
-    <rocket-navstore ng-show="store" ng-hide="description || landing"></rocket-navstore>
-
     <div class="loader" ng-show="isLoading">
       <div class="c-loader"></div>
     </div>
@@ -41,7 +39,7 @@
   
     <div ng-view ng-show="!isLoading"></div>
 
-    <rocket-footer ng-hide="store || description"></rocket-footer>
+    <rocket-footer></rocket-footer>
     
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
