@@ -20,18 +20,20 @@
           <div class="description">
             <div class="title">
               <h3>{{i.title | limitTo: 29}}</h3>
+              <a href="" ng-click="getLocalData(i.id)">click</a>
             </div>
             <div class="tags">
               <p class="text-muted">
                 {{i.description | limitTo: 55}}
               </p>
-              <p>{{ i.id }}</p>
             </div>
             <div class="separator"></div>
             <div class="actions">
               <div class="price" style="display: inline;">{{i.price | currency:"\u20b4" }}</div>
               <div class="buttons" style="display: inline;">
-                <ngcart-addtocart id="{{ i.id }}" name="{{ i.title }}" price="{{ i.price }}" quantity="1" quantity-max="9" class="price pull-right"><i class="glyphicon glyphicon-plus"></i></ngcart-addtocart>
+                <!-- <ngcart-addtocart id="{{ i.id }}" name="{{ i.title }}" price="{{ i.price }}" quantity="1" quantity-max="9" class="price pull-right"><i class="glyphicon glyphicon-plus"></i></ngcart-addtocart> -->
+                <a class="btn btn-sm" ng-click="s.AddToCart(i.id, i.title, i.price, 1)"><i class="glyphicon glyphicon-plus"></i></a>
+                <a class="btn btn-sm" ng-click="s.removeFromCart(i.id)"><i class="glyphicon glyphicon-minus"></i></a>
               </div>
             </div>
           </div>

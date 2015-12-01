@@ -37,9 +37,19 @@ angular.module('ocean04App')
       });
     };
 
-    this.getLocalData = function () {
-      var c = JSON.parse(JSON.parse(window.localStorage.getItem("cart")));
-      console.log(c);
+    this.removeFromCart = function (id) {
+      ngCart.removeItemById(id);
+    };
+
+    this.getLocalData = function (id) {
+      var a = ngCart.getItemById(id);
+      console.log(a._quantity);
+    };
+
+    this.AddToCart = function (id, name, price, q, data) {
+      console.log(arguments);
+      ngCart.addItem(id, name, price, q, data);
+      this.getLocalData(id);
     };
 
     this.getReceipes();
