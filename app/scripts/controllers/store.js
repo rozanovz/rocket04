@@ -37,15 +37,22 @@ angular.module('ocean04App')
       });
     };
 
-    this.removeFromCartFull = function (id) {
-      ngCart.removeItemById(id);
-    }; 
+    $scope.a = [];
+    this.getCart = function () {
+      $scope.a = ngCart.getCart().items;
+      console.log($scope.a);
+    }
 
     this.removeFromCart = function (id) {
-      // ngCart.removeItemById(id);
       var inCart = ngCart.getItemById(id);
       console.log(inCart);
-      inCart.setQuantity(-1, true)
+      if(inCart._quantity === 1){
+        ngCart.removeItemById(id);
+      }else if(inCart._quantity > 1){
+        inCart.setQuantity(-1, true)
+      }else{
+        return;
+      }
     };
 
     this.getLocalData = function (id) {
@@ -61,8 +68,10 @@ angular.module('ocean04App')
       }
 
       ngCart.addItem(id, name, price, q, data);
+      this.getCart();
     };
 
     this.getReceipes();
     this.getReceipesList();
+    this.getCart();
   });
