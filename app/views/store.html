@@ -25,12 +25,13 @@
               <p class="text-muted">
                 {{i.description | limitTo: 55}}
               </p>
+              <p>{{ i.id }}</p>
             </div>
             <div class="separator"></div>
             <div class="actions">
               <div class="price" style="display: inline;">{{i.price | currency:"\u20b4" }}</div>
               <div class="buttons" style="display: inline;">
-                <ngcart-addtocart id="{{ i.id }}" name="{{ i.title }}" price="{{ i.price }}" quantity="1" quantity-max="9" class="price pull-right">Добавить <i class="glyphicon glyphicon-plus"></i></ngcart-addtocart>
+                <ngcart-addtocart id="{{ i.id }}" name="{{ i.title }}" price="{{ i.price }}" quantity="1" quantity-max="9" class="price pull-right"><i class="glyphicon glyphicon-plus"></i></ngcart-addtocart>
               </div>
             </div>
           </div>

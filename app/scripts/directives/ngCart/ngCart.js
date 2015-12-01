@@ -1,6 +1,6 @@
 'use strict';
 
-
+//first module
 angular.module('ocean04App')
 
     .config([function () {
@@ -335,7 +335,7 @@ angular.module('ocean04App')
     .value('version', '1.0.0');
 ;'use strict';
 
-
+//second module
 angular.module('ocean04App')
 
     .controller('CartController',['$rootScope','$scope', 'ngCart', function($rootScope,$scope, ngCart) {
@@ -454,6 +454,8 @@ angular.module('ocean04App')
         };
     }]);
 ;
+
+//third module
 angular.module('ngCart.fulfilment', [])
     .service('fulfilmentProvider', ['$injector', function($injector){
 
