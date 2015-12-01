@@ -25,5 +25,18 @@ angular.module('ocean04App')
       });
     };
 
+    this.getReceipesList = function() {
+      loader.notAllowed();
+      api.receipe.data().then(function(response) {
+        $scope.receipeLst1 = response.data;
+        console.log($scope.receipeLst1);
+        loader.allowed();
+      }, function(err) {
+        $scope.receipeLst = [];
+        loader.allowed();
+      });
+    };
+
     this.getReceipes();
+    this.getReceipesList();
   });

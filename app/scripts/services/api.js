@@ -2,14 +2,91 @@
 
 angular.module('ocean04App')
   .service('api', function ($http,$q,$cookies,$cookieStore,$window) {
-      $http.defaults.useXDomain = true;
-    var parse,
-      proxyPath = 'pacific-earth-4031.herokuapp.com/';
-    parse = {
+    $http.defaults.useXDomain = true;
+    var url = 'http://www.rocket04.com/'
+
+// MAIN API REQUEST METHODS STARTS============================================================================
+    var get =  function (suburl){
+      return $q(function(resolve, reject) {
+        $http({
+          method:'GET',
+          url: url+suburl
+        }).success(function (data) {
+          if (data.status === 'ok'){
+            delete data.status;
+            resolve(data);
+          }else if (data.status === 'error'){
+            delete data.status;
+            reject(data);
+          }
+        }).error(function (data, status, headers, config) {
+          if(reject){
+            reject(data);
+          }
+        });
+      });
+    };
+
+    var list =  function (suburl,field,param){
+      return $q(function(resolve, reject) {
+        $http({
+          method:'GET',
+          url: $window.location.protocol+'//'+config.api.url+suburl,
+          params:param
+        }).success(function (data) {
+          if (data.status === 'ok'){
+            delete data.status;
+            var list = [];
+            Object.keys(data[field]).forEach(function(key){
+              list.push({
+                id:parseInt(key),
+                title:data[field][key]
+              });
+            });
+            resolve(list);
+          }else if (data.status === 'error'){
+            delete data.status;
+            reject(data);
+          }
+        }).error(function (data, status, headers, config) {
+          if(reject){
+            reject(data);
+          }
+        });
+      });
+    };
+
+    var post = function(suburl,param){
+      return $q(function(resolve, reject) {$http.post(
+        $window.location.protocol+'//'+config.api.url+suburl,
+          param,
+          {
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }
+        ).success(function (data) {
+          if (data.status === 'ok'){
+            delete data.status;
+            resolve(data);
+          }else if (data.status === 'error'){
+            delete data.status;
+            reject(data);
+          }
+        }).error(function (data, status, headers, config) {
+          if(reject){
+            reject(data);
+          }
+        });
+      });
+    };
+// MAIN API REQUEST METHODS ENDS ============================================================================
+
+    var parse = {
       baseUrl: 'api.parse.com/1/',
       protocol: 'https:'
     };
-
+    
     function convertUrl(url, id, params, isFunction, restrictions) {
       var where = '',
         restr = '';
@@ -165,15 +242,13 @@ angular.module('ocean04App')
           data = convertErrors(data);
         }
       }
-
-      //console.dir(data);
       return data;
     }
 
+// PARSE REQUEST METHODS START ==============================================================================
+    //GETTING DATA BY ID OF ELEMENT
     var _get = function (suburl, id, restrictions) {
-      // var fullUrl = $window.location.protocol + '//' + config.api.url + suburl + '/' + id;
       var fullUrl = convertUrl(suburl, id, null, null, restrictions);
-
       return $q(function (resolve, reject) {
         if (id) {
           $http({
@@ -183,23 +258,21 @@ angular.module('ocean04App')
               'X-Parse-Application-Id': 'umNhBAQqVJS3wHtgC52ggA6zA87ic83bSvzUBkap',
               'X-Parse-REST-API-Key': '14jzZ1LRkMSqFFUjAiYObXURIckKlDQP47Ey8Ja4'
             }
+          }).success(function (data) {
+            if(parse) data = convertData(data, 'get');
+            resolve(data);
           })
-            .success(function (data) {
-              if(parse) data = convertData(data, 'get');
-              resolve(data);
-            })
-            .error(function (data, status, headers, config) {
-              if(parse) data = convertData(data, 'get');
-              reject(data);
-            });
+          .error(function (data, status, headers, config) {
+            if(parse) data = convertData(data, 'get');
+            reject(data);
+          });
         }
       });
     };
 
+    //GETTING LIST OF DATA FROM INJECTED SUBURL
     var _list =  function (suburl, param, restr) {
-        // var fullUrl = $window.location.protocol + '//' + config.api.url + suburl;
         var fullUrl = convertUrl(suburl, '', param, false, restr); param = {};
-
         return $q(function(resolve, reject) {
         $http({
           method:'GET',
@@ -209,28 +282,26 @@ angular.module('ocean04App')
             'X-Parse-Application-Id': 'umNhBAQqVJS3wHtgC52ggA6zA87ic83bSvzUBkap',
             'X-Parse-REST-API-Key': '14jzZ1LRkMSqFFUjAiYObXURIckKlDQP47Ey8Ja4'
           }
+        }).success(function (data) {
+          var data = convertData(data, 'list');
+          if (data.status === 'success') {
+            resolve(data);
+          } else if (data.status === 'error') {
+            reject(data);
+          }
         })
-          .success(function (data) {
-            var data = convertData(data, 'list');
-            if (data.status === 'success') {
-              resolve(data);
-            } else if (data.status === 'error') {
-              reject(data);
-            }
-          })
-          .error(function (data, status, headers, config) {
-            var data = convertData(data, 'list');
-            if(reject){
-              reject(data);
-            }
-          });
+        .error(function (data, status, headers, config) {
+          var data = convertData(data, 'list');
+          if(reject){
+            reject(data);
+          }
+        });
       });
     };
 
+    //POSTING NEW DATA TO INJECTED SUBURL
     var _post = function(suburl,param, isFunction){
-      // var fullUrl = $window.location.protocol + '//' + config.api.url + suburl;
       var fullUrl = convertUrl(suburl, '', {}, isFunction);
-
       return $q(function (resolve, reject) {
         $http.post(
           fullUrl,
@@ -242,26 +313,25 @@ angular.module('ocean04App')
               'X-Parse-REST-API-Key': '14jzZ1LRkMSqFFUjAiYObXURIckKlDQP47Ey8Ja4'
             }
           }
-        )
-          .success(function (data) {
-            var data = convertData(data, 'post', isFunction);
-            if (data.status === 'success') {
-              resolve(data);
-            } else if (data.status === 'error') {
-              reject(data);
-            }
-          })
-          .error(function (data, status, headers, config) {
-            var data = convertData(data, 'post');
-            if(reject){
-              reject(data);
-            } 
-          });
+        ).success(function (data) {
+          var data = convertData(data, 'post', isFunction);
+          if (data.status === 'success') {
+            resolve(data);
+          } else if (data.status === 'error') {
+            reject(data);
+          }
+        })
+        .error(function (data, status, headers, config) {
+          var data = convertData(data, 'post');
+          if(reject){
+            reject(data);
+          } 
+        });
       });
     };
 
+    //UPDATING DATA BY IT'S ID
     var _put = function(suburl, id, param){
-      // var fullUrl = $window.location.protocol + '//' + config.api.url + suburl+ '/' + id;
       var fullUrl = convertUrl(suburl, id);
 
       return $q(function (resolve, reject) {
@@ -275,26 +345,24 @@ angular.module('ocean04App')
               'X-Parse-REST-API-Key': '14jzZ1LRkMSqFFUjAiYObXURIckKlDQP47Ey8Ja4'
             }
           }
-        )
-          .success(function (data) {
-            var data = convertData(data, 'put');
-            if (data.status === 'success') {
-              resolve(data);
-            } else if (data.status === 'error') {
-              reject(data);
-            }
-          })
-          .error(function (data, status, headers, config) {
-            var data = convertData(data, 'put');
+        ).success(function (data) {
+          var data = convertData(data, 'put');
+          if (data.status === 'success') {
+            resolve(data);
+          } else if (data.status === 'error') {
             reject(data);
-          });
+          }
+        })
+        .error(function (data, status, headers, config) {
+          var data = convertData(data, 'put');
+          reject(data);
+        });
       });
     };
 
+    //DELETING DATA BY ID
     var _delete = function(suburl, id){
-      // var fullUrl = $window.location.protocol + '//' + config.api.url+ suburl+ '/' + id;
       var fullUrl = convertUrl(suburl, id);
-
       return $q(function (resolve, reject) {
         $http.delete(
           fullUrl,
@@ -305,20 +373,20 @@ angular.module('ocean04App')
               'X-Parse-REST-API-Key': '14jzZ1LRkMSqFFUjAiYObXURIckKlDQP47Ey8Ja4'
             }
           }
-        )
-          .success(function (data) {
-            var data = convertData(data, 'delete');
-            if (data.status === 'success') {
-              resolve(data);
-            } else if (data.status === 'error') {
-              reject(data);
-            }
-          })
-          .error(function (data, status, headers, config) {
+        ).success(function (data) {
+          var data = convertData(data, 'delete');
+          if (data.status === 'success') {
+            resolve(data);
+          } else if (data.status === 'error') {
             reject(data);
-          });
+          }
+        })
+        .error(function (data, status, headers, config) {
+          reject(data);
+        });
       });
     };
+// PARSE REQUEST METHODS ENDS ==============================================================================
 
     /**
      * API functionality
@@ -331,6 +399,9 @@ angular.module('ocean04App')
         get: function (id) {
           return _get('recipesList', id);
         },
+        data: function () {
+          return get('get_recipes');
+        }
       }
     };
   });
