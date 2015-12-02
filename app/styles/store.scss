@@ -59,16 +59,35 @@ $orange-hover: #f15a22;
     margin: 2px 0 10px 0;
   }
 
-  .quantity{
+  .image {
+      position:relative;
+  }
+  .image img {
+      width:100%;
+      vertical-align:top;
+  }
+  .quantity:after {
+      content:'\A';
+      position:absolute;
+      width:100%; height:100%;
+      top:0; left:0;
+      background:rgba(254,213,90,0.8);
+      opacity:1;
+  }
+
+  .inCart{
     position: absolute;
-    background: darken($orange, 10);
-    width: 93.6%;
-    height: 70%;
-    opacity: .65;
-    font-size: 3em;
-    color: white;
     text-align: center;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
+    h1{
+      font-size: 10em;
+    }
+    h1, p{
+      color:white;
+    }
   }
 }

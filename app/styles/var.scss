@@ -105,9 +105,18 @@ a{
   }
 }
 
-btn.focus,
-btn.active
-btn.visited{
+.btn.removeFromCart{
+  background: $bg-grey;
+  color: $black;
+  border: 1px solid darken($bg-grey, 20%);
+  &:hover{
+    background: darken($bg-grey, 10%) !important;
+  }
+}
+
+.btn.focus,
+.btn.active
+.btn.visited{
     color:$white !important;
   }
 

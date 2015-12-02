@@ -10,14 +10,11 @@
 angular.module('ocean04App')
   .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart, ngCartItem) {
 
-    $rootScope.store = true;
-    $rootScope.description = false;
-
+    //getting data from parse
     this.getReceipes = function() {
       loader.notAllowed();
       api.receipe.list().then(function(response) {
         $scope.receipeLst = response.data;
-        // console.log($scope.receipeLst);
         loader.allowed();
       }, function(err) {
         $scope.receipeLst = [];
@@ -25,27 +22,30 @@ angular.module('ocean04App')
       });
     };
 
+    //getting data from server Artem
     this.getReceipesList = function() {
       loader.notAllowed();
-      api.receipe.data().then(function(response) {
-        $scope.receipeLst1 = response.data;
-        console.log($scope.receipeLst1);
+      api.receipe.rocket().then(function(response) {
+        $scope.receipeLst1 = response;
         loader.allowed();
       }, function(err) {
-        $scope.receipeLst = [];
+        $scope.receipeLst1 = [];
         loader.allowed();
       });
     };
 
-    $scope.a = [];
-    this.getCart = function () {
-      $scope.a = ngCart.getCart().items;
-      console.log($scope.a);
-    }
+    //getting quantity in cart by its id 
+    this.getInCartQuantity = function (id) {
+      var inCartQunatity = ngCart.getItemById(id);
+      var a = inCartQunatity._quantity;
+      console.log(a);
+      this.inCartQunatity = a;
+      return this.inCartQunatity;
+    };
 
+    //removing or decrementing item quantity in cart
     this.removeFromCart = function (id) {
       var inCart = ngCart.getItemById(id);
-      console.log(inCart);
       if(inCart._quantity === 1){
         ngCart.removeItemById(id);
       }else if(inCart._quantity > 1){
@@ -53,25 +53,20 @@ angular.module('ocean04App')
       }else{
         return;
       }
+      this.getInCartQuantity(id);
     };
 
-    this.getLocalData = function (id) {
-      var a = ngCart.getItemById(id);
-    };
-
+    //adding or incrementing item quantity in cart
     this.AddToCart = function (id, name, price, q, data) {
       var a = ngCart.getItemById(id);
       var q = q;
-      console.log(a);
       if(a._quantity >= 1){
         q = a._quantity + 1;
       }
-
       ngCart.addItem(id, name, price, q, data);
-      this.getCart();
+      this.getInCartQuantity(id);
     };
 
     this.getReceipes();
     this.getReceipesList();
-    this.getCart();
   });
