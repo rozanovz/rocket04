@@ -26,7 +26,11 @@ angular.module('ocean04App')
     this.getReceipesList = function() {
       loader.notAllowed();
       api.receipe.rocket().then(function(response) {
-        $scope.receipeLst1 = response;
+        $scope.receipeLst1 = []
+        response.forEach(function (k) {
+          $scope.receipeLst1.push(JSON.parse(k));
+        });
+        console.log($scope.receipeLst1);
         loader.allowed();
       }, function(err) {
         $scope.receipeLst1 = [];
@@ -38,7 +42,6 @@ angular.module('ocean04App')
     this.getInCartQuantity = function (id) {
       var inCartQunatity = ngCart.getItemById(id);
       var a = inCartQunatity._quantity;
-      console.log(a);
       this.inCartQunatity = a;
       return this.inCartQunatity;
     };
