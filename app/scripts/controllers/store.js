@@ -30,7 +30,6 @@ angular.module('ocean04App')
         response.forEach(function (k) {
           $scope.receipeLst1.push(JSON.parse(k));
         });
-        console.log($scope.receipeLst1);
         loader.allowed();
       }, function(err) {
         $scope.receipeLst1 = [];

@@ -10,8 +10,6 @@
 angular.module('ocean04App')
   .controller('FulldescCtrl', ['$scope', 'api', '$rootScope', '$routeParams','loader', "ngCart" , function ($scope, api, $rootScope, $routeParams, loader, ngCart) {
 
-    var id = $routeParams.id;
-
     this.getReceipe = function(id) {
       loader.notAllowed();
       api.receipe.get(id).then(function(response) {
@@ -24,14 +22,12 @@ angular.module('ocean04App')
     };
 
     var id = $routeParams.id;
-    console.log(id);
     this.getReceipe(id);
 
     //getting quantity in cart by its id 
     this.getInCartQuantity = function (id) {
       var inCartQunatity = ngCart.getItemById(id);
       var a = inCartQunatity._quantity;
-      console.log(a);
       this.inCartQunatity = a;
       return this.inCartQunatity;
     };
