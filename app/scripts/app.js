@@ -57,6 +57,16 @@ angular
         controller: 'FulldescCtrl',
         controllerAs: 'f'
       })
+      .when('/gMap', {
+        templateUrl: 'views/gmap.html',
+        controller: 'GmapCtrl',
+        controllerAs: 'gMap'
+      })
+      .when('/gMap', {
+        templateUrl: 'views/gmap.html',
+        controller: 'GmapCtrl',
+        controllerAs: 'gMap'
+      })
       .otherwise({
         redirectTo: '/'
       });
