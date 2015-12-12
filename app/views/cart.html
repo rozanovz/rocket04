@@ -1,1 +1,72 @@
-<ngcart-cart></ngcart-cart>
+<div class="container-fluid cart">
+	<div class="wrapper">
+		<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 column">
+			<div class="cartInColumnWrapper">
+				<div class="firstStep">
+					<div class="col-xs-12 bottom-border text-center stepHeading">
+						<h2>Шаг 1: Выберите окно доставки.</h2>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 date">
+							<h3>Среда, Январь 27</h3>
+						</div>
+						<div class="col-xs-12 interval">
+							<div class="intervalItem">
+								<label for="breakfast">10.00 - 13.00</label>
+								<input id="breakfast"type="radio" checked>
+							</div>
+							<div class="intervalItem">
+								<label for="lunch">13.00 - 16.00</label>
+								<input id="lunch"type="radio" >
+							</div>
+							<div class="intervalItem">
+								<label for="dinner">16.00 - 19.00</label>
+								<input id="dinner"type="radio" >
+							</div>
+							<div class="intervalItem">
+								<label for="evening">19.00 - 22.00</label>
+								<input id="evening"type="radio" >
+							</div>
+						</div>
+						<div class="col-xs-12 cart">
+							<ngcart-cart></ngcart-cart>
+						</div>
+					</div>
+					
+				</div>
+				<div class="secondStep">
+					<div class="col-xs-12 bottom-border text-center stepHeading">
+						<h2>Шаг 2: Выберите адрес для доставки.</h2>
+					</div>
+					<div class="form">
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+							<label for="name">Имя</label>
+							<input id="name" type="text" class="adressDetails name" placeholder="Имя" ng-model="name">
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+							<label for="surname">Фамилия</label>
+							<input id="surname" type="text" class="adressDetails surname" placeholder="Фамилия" ng-model="surname">
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+							<label for="phone">Номер Телефона</label>
+							<input id="phone" type="phone" class="adressDetails phone" placeholder="Телефон" ng-model="phone">
+						</div>
+						<div class="col-xs-8 col-sm-8 col-md-10 col-lg-10">
+							<label for="adress">Адрес</label>
+							<input id="adress" type="text" class="adressDetails adress" placeholder="Адрес" ng-model="adress">
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+							<label for="appartment">№ Квартиары</label>
+							<input id="appartment" type="text" class="adressDetails appartment" placeholder="№ Квартиры" ng-model="appartment">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 column" >
+			<div class="cartInColumnWrapper">
+				sadsada
+			</div>
+		</div>
+	</div>
+</div>
