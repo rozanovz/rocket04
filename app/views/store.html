@@ -13,9 +13,10 @@
       <li ng-repeat="i in receipeLst | filter:search:strict">
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 card" >
           <a ng-href="#/desc/{{i.id}}">
-            <div class="image photo-container" ng-class="{'quantity':s.getInCartQuantity(i.id)}"> 
-              <div ng-hide="!s.getInCartQuantity(i.id)" class="inCart"> 
+            <div class="image photo-container" ng-class="{'quantity':s.getInCartQuantity(i.id)}">
+              <div ng-hide="!s.getInCartQuantity(i.id)" class="inCart">
                 <h1>{{s.getInCartQuantity(i.id)}}</h1>
+                <br>
                 <p>в Вашей корзине</p>
               </div>
               <img ng-src="{{i.photo.url}}">
@@ -39,8 +40,8 @@
               </div>
             </div>
           </div>
-        </div> 
+        </div>
        </li>
-     </ul>   
+     </ul>
   </div>
 </div>
