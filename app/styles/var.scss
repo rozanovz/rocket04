@@ -145,12 +145,16 @@ a{
   display: inline-block;
 }
 
-img {
-  max-width: 100% !important;
-  height: auto !important;
-  -ms-interpolation-mode: bicubic !important;
-  display: inline-block !important;
-  vertical-align: middle !important; }
+.cartImg{
+  width: 10%;
+}
+
+// img {
+//   max-width: 100% !important;
+//   height: auto !important;
+//   -ms-interpolation-mode: bicubic !important;
+//   display: inline-block !important;
+//   vertical-align: middle !important; }
 
 .text-xs-left {
   text-align: left !important;

@@ -1,0 +1,38 @@
+.cart{
+	background:rgb(244,247,248);
+	padding-top: 3%;
+  padding-bottom: 3%;
+	.cartInColumnWrapper{
+		background:#fff; 
+		border: 1px solid lightgray; 
+		padding: 3.5%;
+		.stepHeading{
+			margin-bottom: 2%;
+		}
+		.firstStep{
+			.intervalItem{
+				width: 25%;
+				display:inline-block;
+				border:1px solid red;
+			}
+		}
+		.secondStep{
+			.form{
+				div{
+					margin-bottom: 2%;
+					.adressDetails{
+					  font-weight: 400;
+					  font-style: normal;
+					  letter-spacing: 0.5px;
+					  border: 1px solid #b9b9af;
+					  min-height: 40px;
+					  width: 100%;
+					  padding-left: 8px !important;
+					  padding-right: 8px !important;
+					  border-radius: 2px;
+					}
+				}
+			}
+		}
+	}
+}

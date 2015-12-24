@@ -60,6 +60,7 @@ angular.module('ocean04App')
 
     //adding or incrementing item quantity in cart
     this.AddToCart = function (id, name, price, q, data) {
+      console.log(data);
       var a = ngCart.getItemById(id);
       var q = q;
       if(a._quantity >= 1){

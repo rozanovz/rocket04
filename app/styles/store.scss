@@ -7,10 +7,60 @@ $orange-hover: #f15a22;
 
 .store{
   .storeNav {
-    .home{
+    .storNavItem{
+      padding: 0;
+      height: 55px;
+    }
+    .mennuFilters{
+      border-right: 1px solid $separator;
+      @media screen and (max-width:691px){
+        border: none;
+      }
+      button{
+        width: 100%;
+        height: 55px;
+        border:none;
+        border-radius: 0;
+        outline:none;
+        &:active,
+        &:focus,
+        &:hover,
+        &:visited{
+          outline:none;
+          box-shadow:none;
+        }
+      }
+    }
+    .searchMenu{
+      padding: 0 20px;
+      .searcMenuInput{
+        height: 55px;
+        border: none;
+        outline:none;
+        font-size: 1.8em;
+        &:active,
+        &:focus,
+        &:hover,
+        &:visited{
+          outline:none;
+          box-shadow:none;
+        }
+        &:focus,
+        &:active{
+          background: rgba(117,116,115,0.05);
+        }
+      }
+      .input-group-addon{
+        background: none;
+        border: none;
+      }
+    }
+    .cartIndex{
+      padding: .8%;
+      border-left: 1px solid $separator;
     }
   }
-  
+
   .navbar, .navbar-default{
     border:none;
   }
@@ -18,11 +68,11 @@ $orange-hover: #f15a22;
     ul{
       margin-top: 50px;
     }
-    
+
     li{
       margin: 10px 0;
     }
-    
+
     li>a{
       color: $orange;
     }
