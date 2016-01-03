@@ -38,26 +38,11 @@ angular.module('ocean04App')
     };
 
     var post = function(suburl,param){
-      return $q(function(resolve, reject) {$http.post(
-        $window.location.protocol+'//'+config.api.url+suburl,
-          param,
-          {
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          }
-        ).success(function (data) {
-          if (data.status === 'ok'){
-            delete data.status;
-            resolve(data);
-          }else if (data.status === 'error'){
-            delete data.status;
-            reject(data);
-          }
+      return $q(function(resolve, reject) {$http.post(url+suburl, param, {headers: {'Content-Type': 'application/json'}})
+        .success(function (data) {
+          resolve(data);
         }).error(function (data, status, headers, config) {
-          if(reject){
-            reject(data);
-          }
+          reject(data);
         });
       });
     };
@@ -368,7 +353,6 @@ angular.module('ocean04App')
       });
     };
 // PARSE REQUEST METHODS ENDS ==============================================================================
-
     /**
      * API functionality
      */
