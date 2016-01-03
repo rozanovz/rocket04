@@ -27,7 +27,6 @@ angular.module('ocean04App')
           url: url+suburl,
           params:param
         }).success(function (data) {
-          var list = [];
           resolve(data);
         }).error(function (data, status, headers, config) {
           if(reject){
