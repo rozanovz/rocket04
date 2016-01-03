@@ -20,21 +20,21 @@ angular.module('ocean04App')
       });
     };
 
-    var list =  function (suburl,field,param){
-      return $q(function(resolve, reject) {
-        $http({
-          method:'GET',
-          url: url+suburl,
-          params:param
-        }).success(function (data) {
-          resolve(data);
-        }).error(function (data, status, headers, config) {
-          if(reject){
-            reject(data);
-          }
-        });
-      });
-    };
+    // var list =  function (suburl,field,param){
+    //   return $q(function(resolve, reject) {
+    //     $http({
+    //       method:'GET',
+    //       url: url+suburl,
+    //       params:param
+    //     }).success(function (data) {
+    //       resolve(data);
+    //     }).error(function (data, status, headers, config) {
+    //       if(reject){
+    //         reject(data);
+    //       }
+    //     });
+    //   });
+    // };
 
     var post = function(suburl,param){
       return $q(function(resolve, reject) {$http.post(url+suburl, param, {headers: {'Content-Type': 'application/json'}})
