@@ -27,9 +27,10 @@ angular.module('ocean04App')
       loader.notAllowed();
       api.receipe.rocket().then(function(response) {
         $scope.receipeLst1 = []
-        response.forEach(function (k) {
-          $scope.receipeLst1.push(JSON.parse(k));
-        });
+        // response.forEach(function (k) {
+        //   var a = unescape(k.description);
+        // });
+        console.log(response);
         loader.allowed();
       }, function(err) {
         $scope.receipeLst1 = [];
