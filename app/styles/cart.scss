@@ -6,6 +6,10 @@
 		background:#fff; 
 		border: 1px solid lightgray; 
 		padding: 3.5%;
+		margin-bottom: 1%;
+		@media screen and (max-width:768px){
+			padding: 1%;
+		}
 		.stepHeading{
 			margin-bottom: 2%;
 		}
@@ -14,6 +18,19 @@
 				width: 25%;
 				display:inline-block;
 				border:1px solid red;
+			}
+			.imgPreview{
+				width:13%;
+			}
+			.cartTable{
+				overflow: auto;
+				background: #fff;
+			}
+			td{
+				vertical-align: middle;
+				.glyphicon{
+					cursor:pointer;
+				}
 			}
 		}
 		.secondStep{
@@ -31,8 +48,16 @@
 					  padding-right: 8px !important;
 					  border-radius: 2px;
 					}
+					label{
+						text-overflow: ellipsis;
+					}
 				}
 			}
 		}
+	}
+	.cartInColumnWrapperSmall{
+		padding: 1.5%;
+		background: #fff;
+		border: 1px solid lightgray;
 	}
 }

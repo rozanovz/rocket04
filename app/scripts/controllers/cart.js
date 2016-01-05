@@ -49,7 +49,6 @@ angular.module('ocean04App')
         delete key.$$hashKey;
       });
       $scope.formUser.items = items;
-      console.log(JSON.stringify($scope.formUser));
     }
 
   });

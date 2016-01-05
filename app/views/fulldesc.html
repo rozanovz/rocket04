@@ -1,56 +1,64 @@
 <div ng-controller = "FulldescCtrl as f" class="container-fluid fullDesc">
   <div class="wrapper">
-    <div class="indent-5">
-      <div class="col-xs-12 col-lg-5 text-center">
-        <div class="image photo-container" ng-class="{'quantity':f.getInCartQuantity(receipe.id)}"> 
-          <div ng-hide="!f.getInCartQuantity(receipe.id)" class="inCart"> 
-            <h1>{{f.getInCartQuantity(receipe.id)}}</h1>
-            <p>в Вашей корзине</p>
-          </div>
-          <img ng-src="{{receipe.photo.url}}">
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-lg-7">
-        <div class="text-left">
-          <div class="heading col-xs-12">
-            <h3 style="display: inline-block" class="pull-left">{{receipe.title}}</h3>
-            <h3 style="display: inline-block" class="pull-right">{{receipe.price | currency:"\u20b4"}}</h3>
-          </div>
-          <div class="description col-xs-12">
-            <p class="text-muted small-description">порция на {{receipe.portions}}, время приготовления {{receipe.time}} минут.</p>
-          </div>
-          <div class="actions col-xs-12">
-            <a class="btn btn-sm" ng-click="f.AddToCart(receipe.id, receipe.title, receipe.price, 1)"><i class="glyphicon glyphicon-plus"></i></a>
-            <a class="btn btn-sm removeFromCart" ng-click="f.removeFromCart(receipe.id)" ng-hide="!f.getInCartQuantity(receipe.id)"><i class="glyphicon glyphicon-minus"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <uib-tabset class="col-xs-12 col-lg-7">
-        <uib-tab heading="Детали">
-          <p>{{receipe.description}}</p>
-        </uib-tab>
-
-        <uib-tab heading="Ингредиенты">
-          <span ng-repeat="ing in receipe.Ingri">
-            <p>{{ing.name}}</p>
-          </span>
-        </uib-tab>
-
-        <uib-tab heading="Нутриены">
-          <table class="table table-bordered descriptionTable">
-            <tr>
-              <tr>
-                <th ng-repeat="nu in receipe.nu">{{nu.name}}</th>
-              </tr>
-              <tr>
-                <td ng-repeat="nu in receipe.nu"><strong>{{nu.quantity}} гр.</strong></td>
-              </tr>
-            </tr>
-          </table>
-        </uib-tab>
-      </uib-tabset>
+    <div class="col-xs-12 text-right">
+      <a href="#/cart"><ngcart-summary></ngcart-summary></a>
     </div>
+
+    <div class="col-xs-12 col-lg-5 text-center photoColumn columnWrapper">
+      <div class="image photo-container" ng-class="{'quantity':f.getInCartQuantity(receipe.id)}"> 
+        <div ng-hide="!f.getInCartQuantity(receipe.id)" class="inCart"> 
+          <h1>{{f.getInCartQuantity(receipe.id)}}</h1>
+          <p>в Вашей корзине</p>
+        </div>
+        <img ng-src="{{receipe.photo.url}}">
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-lg-7 primaryColumn columnWrapper">
+      <div class="text-left">
+        <div class="heading col-xs-12">
+          <h3 style="display: inline-block" class="pull-left">{{receipe.title}}</h3>
+          <h3 style="display: inline-block" class="pull-right">{{receipe.price | currency:"\u20b4"}}</h3>
+        </div>
+        <div class="description col-xs-12">
+          <p class="text-muted small-description">порция на {{receipe.portions}}, время приготовления {{receipe.time}} минут.</p>
+        </div>
+        <div class="actions col-xs-12">
+          <a class="btn btn-sm" ng-click="f.AddToCart(receipe.id, receipe.title, receipe.price, 1, {img:receipe.photo.url})"><i class="glyphicon glyphicon-plus"></i> Добавить</a>
+          <a class="btn btn-sm removeFromCart" ng-click="f.removeFromCart(receipe.id)" ng-hide="!f.getInCartQuantity(receipe.id)"><i class="glyphicon glyphicon-minus"></i> Убрать</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-lg-7 tabsetColumn columnWrapper">
+      <div class="col-xs-12">
+        <uib-tabset >
+          <uib-tab heading="Детали">
+            <p>{{receipe.description}}</p>
+          </uib-tab>
+
+          <uib-tab heading="Ингредиенты">
+            <span ng-repeat="ing in receipe.Ingri">
+              <p>{{ing.name}}</p>
+            </span>
+          </uib-tab>
+
+          <uib-tab heading="Нутриены">
+            <table class="table table-bordered descriptionTable">
+              <tr>
+                <tr>
+                  <th ng-repeat="nu in receipe.nu">{{nu.name}}</th>
+                </tr>
+                <tr>
+                  <td ng-repeat="nu in receipe.nu"><strong>{{nu.quantity}} гр.</strong></td>
+                </tr>
+              </tr>
+            </table>
+          </uib-tab>
+        </uib-tabset>
+      </div>
+    </div>
+
   </div>
-</div>
+</di
+v>
