@@ -26,18 +26,28 @@ $orange-hover: #f15a22;
 				display:inline-block;
 			}
 			.imgPreview{
-				width:13%;
+				padding:0;
+				img{
+					width:100px;
+				}
 			}
 			.cartTable{
 				overflow: auto;
 				table{
 					background: #fff;
-				}
-			}
-			td{
-				vertical-align: middle;
-				.glyphicon{
-					cursor:pointer;
+					margin-top:2.5%;
+					td{
+						vertical-align: middle;
+						.glyphicon{
+							cursor:pointer;
+						}
+					}
+					.infoBox{
+						min-width:200px;
+					}
+					.plusMinusBox{
+						min-width:75px;
+					}
 				}
 			}
 		}
