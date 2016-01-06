@@ -1,14 +1,19 @@
 <div ng-controller = "FulldescCtrl as f" class="container-fluid fullDesc">
   <div class="wrapper">
-    <div class="col-xs-12 text-right">
-      <a href="#/cart"><ngcart-summary></ngcart-summary></a>
+    
+    <div class="fullDescNav">
+      <div class="col-xs-7 pull-left">
+        <a href="#/rocket04">НАЗАД В МЕНЮ</a>
+      </div>
+      <div class="col-xs-5 text-right pull-right">
+        <a href="#/cart"><ngcart-summary></ngcart-summary></a>
+      </div>
     </div>
 
     <div class="col-xs-12 col-lg-5 text-center photoColumn columnWrapper">
       <div class="image photo-container" ng-class="{'quantity':f.getInCartQuantity(receipe.id)}"> 
         <div ng-hide="!f.getInCartQuantity(receipe.id)" class="inCart"> 
-          <h1>{{f.getInCartQuantity(receipe.id)}}</h1>
-          <p>в Вашей корзине</p>
+          <p>{{f.getInCartQuantity(receipe.id)}} в Вашей корзине</p>
         </div>
         <img ng-src="{{receipe.photo.url}}">
       </div>
@@ -17,7 +22,7 @@
     <div class="col-xs-12 col-lg-7 primaryColumn columnWrapper">
       <div class="text-left">
         <div class="heading col-xs-12">
-          <h3 style="display: inline-block" class="pull-left">{{receipe.title}}</h3>
+          <h3 style="display: inline-block" class="pull-left"><strong>{{receipe.title}}</strong></h3>
           <h3 style="display: inline-block" class="pull-right">{{receipe.price | currency:"\u20b4"}}</h3>
         </div>
         <div class="description col-xs-12">
@@ -60,5 +65,4 @@
     </div>
 
   </div>
-</di
-v>
+</div>

@@ -17,14 +17,15 @@
 			.intervalItem{
 				width: 25%;
 				display:inline-block;
-				border:1px solid red;
 			}
 			.imgPreview{
 				width:13%;
 			}
 			.cartTable{
 				overflow: auto;
-				background: #fff;
+				table{
+					background: #fff;
+				}
 			}
 			td{
 				vertical-align: middle;
@@ -60,4 +61,39 @@
 		background: #fff;
 		border: 1px solid lightgray;
 	}
+
+	.nav-tabs > li.active > a, 
+  .nav-tabs > li.active > a:hover, 
+  .nav-tabs > li.active > a:focus {
+    background: $bg-grey;
+    border: none;
+    border-bottom: 5px solid rgb(254,213,90);
+    color: rgb(254,213,90);
+  }
+
+  .nav-tabs {
+    border-bottom: none;
+    background: $white;
+    li{
+      width: 25%;
+      text-align: center;
+      border: 1px solid $separator;
+      border-bottom:none;
+      a{
+        margin-right: 0;
+        line-height: 1.428571429;
+        border: none;
+        border-radius: 0;
+        border-bottom: 5px solid $separator;
+        overflow: hidden;
+      }
+    }
+    li:nth-child(2){
+      border-right:none;
+      border-left:none;
+    }
+    li:nth-child(3){
+      border-right:none;
+    }
+  }
 }

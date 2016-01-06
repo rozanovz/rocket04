@@ -6,6 +6,13 @@ $separator:  #d0d4d9;
 $orange-hover: #f15a22;
 
 .store{
+  .banner{
+    // background:url(../images/store/banner.png);
+    // width:100%;
+    // height: ;
+    // background-size:contain;
+    // background-repeat:no-repeat;
+  }
   .storeNav {
     .storNavItem{
       padding: 0;
@@ -38,6 +45,7 @@ $orange-hover: #f15a22;
         border: none;
         outline:none;
         font-size: 1.8em;
+        z-index:1;
         &:active,
         &:focus,
         &:hover,
@@ -130,11 +138,13 @@ $orange-hover: #f15a22;
     text-align: center;
     width: 100%;
     height: 100%;
-    display: flex;
+    // display: flex;
+    z-index:2;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     h1{
-      font-size: 10em;
+      font-size: 9em;
     }
     h1, p{
       color:white;

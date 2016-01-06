@@ -6,9 +6,18 @@ $separator:  #d0d4d9;
 $orange-hover: #f15a22;
 
 .fullDesc{
-  margin-top:1%;
+  // margin-top:1%;
+  background:rgb(244,247,248);
+  padding-bottom: 20%;
+
+  .fullDescNav{
+    padding-top: 1.5%;
+    padding-bottom:3%;
+  }
   
   .descriptionTable{
+    border-left:none;
+    border-right:none;
     th{
       color: $orange;
       background: $white;
@@ -24,11 +33,12 @@ $orange-hover: #f15a22;
   .nav-tabs > li.active > a:focus {
     background: $bg-grey;
     border: none;
-    border-bottom: 1px solid $orange;
+    border-bottom: 2px solid rgb(254,213,90);
   }
 
   .nav-tabs {
     border-bottom: none;
+    background: $white;
     li{
       width: 33.333%;
       text-align: center;
@@ -39,7 +49,8 @@ $orange-hover: #f15a22;
         line-height: 1.428571429;
         border: none;
         border-radius: 0;
-        border-bottom: 1px solid $separator;
+        border-bottom: 2px solid $separator;
+        overflow: hidden;
       }
     }
     li:nth-child(2){
@@ -49,7 +60,19 @@ $orange-hover: #f15a22;
   }
 
   .tab-content{
-    margin-top: 1%;
+    border-left:1px solid $separator;
+    border-right:1px solid $separator;
+    border-bottom:1px solid $separator;
+    min-height: 300px;
+    background: $white;
+  }
+
+  .tab-pane:not(:last-child){
+    padding: 2%;
+  }
+
+  .tab-pane:last-child{
+    overflow: auto;
   }
 
   .image {
@@ -65,10 +88,10 @@ $orange-hover: #f15a22;
       content:'\A';
       position:absolute;
       width:100%; 
-      height:20%;
-      top:80%; 
+      height:15%;
+      top:85%; 
       left:0;
-      background:rgba(254,213,90,0.8);
+      background:rgba(254,213,90,0.95);
       opacity:1;
   }
 
@@ -76,8 +99,9 @@ $orange-hover: #f15a22;
     position: absolute;
     text-align: center;
     width: 100%;
-    height: 50%;
+    height: 59%;
     top: 65%;
+    z-index:2;
     display: flex;
     align-items: center;
     justify-content: center;
