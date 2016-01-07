@@ -43,10 +43,13 @@ $orange-hover: #f15a22;
 						}
 					}
 					.infoBox{
-						min-width:200px;
+						min-width:250px;
 					}
 					.plusMinusBox{
-						min-width:75px;
+						min-width:110px;
+					}
+					.removeFromCart{
+						color: $orange;
 					}
 				}
 			}
@@ -84,7 +87,10 @@ $orange-hover: #f15a22;
   .nav-tabs > li.active > a:focus {
     background: $bg-grey;
     border: none;
-    border-bottom: 5px solid rgb(254,213,90);
+    border-bottom: 1px solid rgba(252,209,91,1);
+    -webkit-box-shadow: inset 0px -5px 0px 0px rgba(252,209,91,1);
+			 -moz-box-shadow: inset 0px -5px 0px 0px rgba(252,209,91,1);
+						box-shadow: inset 0px -5px 0px 0px rgba(252,209,91,1);
     color: rgb(254,213,90);
   }
 
@@ -101,7 +107,7 @@ $orange-hover: #f15a22;
         line-height: 1.428571429;
         border: none;
         border-radius: 0;
-        border-bottom: 5px solid $separator;
+        border-bottom: 1px solid $separator;
         overflow: hidden;
       }
     }

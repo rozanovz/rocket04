@@ -3,7 +3,7 @@
     
     <div class="fullDescNav">
       <div class="col-xs-7 pull-left">
-        <a href="#/rocket04">НАЗАД В МЕНЮ</a>
+        <a href="#/rocket04"><img src="../images/store/menu.svg" alt="" width="40px"> <strong>НАЗАД В МЕНЮ</strong></a>
       </div>
       <div class="col-xs-5 text-right pull-right">
         <a href="#/cart"><ngcart-summary></ngcart-summary></a>
@@ -23,10 +23,11 @@
       <div class="text-left">
         <div class="heading col-xs-12">
           <h3 style="display: inline-block" class="pull-left"><strong>{{receipe.title}}</strong></h3>
-          <h3 style="display: inline-block" class="pull-right">{{receipe.price | currency:"\u20b4"}}</h3>
+          <i class="spaces">&nbsp;</i>
+          <h3 style="display: inline-block" class="pull-right text-xs-left text-sm-left">{{receipe.price | currency:"\u20b4"}}</h3>
         </div>
         <div class="description col-xs-12">
-          <p class="text-muted small-description">порция на {{receipe.portions}}, время приготовления {{receipe.time}} минут.</p>
+          <p class="text-muted small-description">Порция на {{receipe.portions}}. Время приготовления {{receipe.time}} минут.</p>
         </div>
         <div class="actions col-xs-12">
           <a class="btn btn-sm" ng-click="f.AddToCart(receipe.id, receipe.title, receipe.price, 1, {img:receipe.photo.url})"><i class="glyphicon glyphicon-plus"></i> Добавить</a>
@@ -48,11 +49,13 @@
             </span>
           </uib-tab>
 
-          <uib-tab heading="Нутриены">
+          <uib-tab heading="Нутриенты">
             <table class="table table-bordered descriptionTable">
               <tr>
                 <tr>
-                  <th ng-repeat="nu in receipe.nu">{{nu.name}}</th>
+                  <th ng-repeat="nu in receipe.nu">
+                    {{nu.name}}
+                  </th>
                 </tr>
                 <tr>
                   <td ng-repeat="nu in receipe.nu"><strong>{{nu.quantity}} гр.</strong></td>

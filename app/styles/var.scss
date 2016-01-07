@@ -270,3 +270,25 @@ input, textarea{
     color: black !important;
   }
 }
+
+.btn.cartBtnIcon{
+  background: url(../images/store/cart.svg) no-repeat 0 -113px;
+  width: 41px;
+  height: 41px;
+  background-repeat:no-repeat;
+  border:none;
+  h3{
+    margin-top:-10px;
+    margin-left: 2px;
+    color: $orange;
+  }
+  &:active,
+  &:hover,
+  &:focus,
+  &:visited{
+    background: url(../images/store/cart.svg) no-repeat 0 -113px !important;
+    outline:none;
+    border:none;
+    box-shadow:none;
+  }
+}

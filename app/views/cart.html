@@ -21,17 +21,7 @@
 						</div>
 		        
 						<div class="col-xs-12 cartTable">
-							<!-- <ngcart-cart></ngcart-cart> -->
 							<table class="table table-striped table-responsive">
-								<!-- <thead>
-									<tr>
-										<th></th>
-										<th>Изображение</th>
-										<th>Наименование</th>
-										<th>Количество</th>
-										<th>Цена</th>
-									</tr>
-								</thead> -->
 								<tbody>
 									<tr ng-repeat="item in cartItems.items">
 										<td class="imgPreview text-left">
@@ -42,25 +32,29 @@
 											<br> 
 											{{item._price | currency:"\u20b4"}}
 										</td>
-										<td class="text-center plusMinusBox">
+										<!-- <td class="text-center plusMinusBox">
 											<span class="glyphicon glyphicon-minus" ng-class="{'disabled':item._quantity == 1}" ng-click="item.setQuantity(-1, true); getCart(); countTotal(); checkShipping()"></span>
 											&nbsp;{{item._quantity}}&nbsp;
 											<span class="glyphicon glyphicon-plus" ng-click="item.setQuantity(1, true); getCart(); countTotal(); checkShipping()"></span>
+										</td> -->
+
+										<td class="text-center plusMinusBox">
+											<a class="btn btn-xs removeFromCart" ng-click="item.setQuantity(-1, true); getCart(); countTotal(); checkShipping()">
+												<i class="glyphicon glyphicon-minus"></i>
+											</a>
+											&nbsp;{{item._quantity}}&nbsp;
+											<a class="btn btn-xs removeFromCart" ng-click="item.setQuantity(1, true); getCart(); countTotal(); checkShipping()">
+												<i class="glyphicon glyphicon-plus"></i>
+											</a>
 										</td>
+
 										<td class="text-center">
-											<span ng-click="removeItem(item._id); getCart(); countTotal(); checkShipping()" class="glyphicon "><h5 style="color:red;">Убрать</h5></span>
+											<span ng-click="removeItem(item._id); getCart(); countTotal(); checkShipping()" class="glyphicon ">
+												<h5 class="removeFromCart">Убрать</h5>
+											</span>
 										</td>
 									</tr>
 								</tbody>
-								<!-- <tfoot>
-									<tr>
-										<td></td>
-				            <td></td>
-				            <td></td>
-				            <td>Итого:</td>
-				            <td>{{ cartTotal | currency:"\u20b4" }}</td>
-									</tr>
-								</tfoot> -->
 							</table>
 						</div>
 					</div>
@@ -108,11 +102,11 @@
 					<table class="table table-striped">
 						<tbody>
 							<tr>
-								<td class="text-left">Продукты</td>
+								<td class="text-left"><img src="../images/store/Rocket_package.svg" alt="" width="20px">&nbsp;Продукты</td>
 								<td class="text-right">{{ cartTotal | currency:"\u20b4" }}</td>
 							</tr>
 							<tr>
-								<td class="text-left">Доставка</td>
+								<td class="text-left"><img src="../images/store/Rocket_delivery.svg" alt="" width="20px">&nbsp;Доставка</td>
 								<td class="text-right">{{ shipping | currency:"\u20b4" }}</td>
 							</tr>
 						</tbody>
