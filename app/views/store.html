@@ -1,12 +1,14 @@
 <div ng-controller="storeCtrl as s" class="store">
+  <rocket-navstore></rocket-navstore>
   <div class="container-fluid">
-    <rocket-navstore></rocket-navstore>
-    <div class="banner"></div>
+    <div class="banner">
+      <img src="../images/store/banner.png" width="100%" alt="">
+    </div>
 
-    <div class="wrapper">
+    <div class="row">
 
     <div class="col-xs-12">
-      <h3 class="text-muted">Меню</h3>
+      <h3 class="text-uppercase menuHeader">Меню</h3>
     </div>
 
     <ul class="list-unstyled">
@@ -16,7 +18,6 @@
             <div class="image photo-container" ng-class="{'quantity':s.getInCartQuantity(i.id)}">
               <div ng-hide="!s.getInCartQuantity(i.id)" class="inCart">
                 <h1>{{s.getInCartQuantity(i.id)}}</h1>
-                <br>
                 <p>в Вашей корзине</p>
               </div>
               <img ng-src="{{i.photo.url}}">
@@ -24,11 +25,11 @@
           </a>
           <div class="description">
             <div class="title">
-              <h3>{{i.title | limitTo: 29}}</h3>
+              <h3>{{i.title}}</h3>
             </div>
             <div class="tags">
-              <p class="text-muted">
-                {{i.description | limitTo: 55}}
+              <p class="itemTag">
+                Завтрак
               </p>
             </div>
             <div class="separator"></div>

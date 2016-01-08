@@ -1,3 +1,10 @@
+$white: #ffffff;
+$bg-grey: #f7f7f7;
+$black: #3d464d;
+$orange: #f27242;
+$separator:  #d0d4d9;
+$orange-hover: #f15a22;
+
 .cart{
 	background:rgb(244,247,248);
 	padding-top: 3%;
@@ -6,6 +13,10 @@
 		background:#fff; 
 		border: 1px solid lightgray; 
 		padding: 3.5%;
+		margin-bottom: 1%;
+		@media screen and (max-width:768px){
+			padding: 1%;
+		}
 		.stepHeading{
 			margin-bottom: 2%;
 		}
@@ -13,7 +24,34 @@
 			.intervalItem{
 				width: 25%;
 				display:inline-block;
-				border:1px solid red;
+			}
+			.imgPreview{
+				padding:0;
+				img{
+					width:100px;
+				}
+			}
+			.cartTable{
+				overflow: auto;
+				table{
+					background: #fff;
+					margin-top:2.5%;
+					td{
+						vertical-align: middle;
+						.glyphicon{
+							cursor:pointer;
+						}
+					}
+					.infoBox{
+						min-width:250px;
+					}
+					.plusMinusBox{
+						min-width:110px;
+					}
+					.removeFromCart{
+						color: $orange;
+					}
+				}
 			}
 		}
 		.secondStep{
@@ -31,8 +69,54 @@
 					  padding-right: 8px !important;
 					  border-radius: 2px;
 					}
+					label{
+						text-overflow: ellipsis;
+					}
 				}
 			}
 		}
 	}
+	.cartInColumnWrapperSmall{
+		padding: 1.5%;
+		background: #fff;
+		border: 1px solid lightgray;
+	}
+
+	.nav-tabs > li.active > a, 
+  .nav-tabs > li.active > a:hover, 
+  .nav-tabs > li.active > a:focus {
+    background: $bg-grey;
+    border: none;
+    border-bottom: 1px solid rgba(252,209,91,1);
+    -webkit-box-shadow: inset 0px -5px 0px 0px rgba(252,209,91,1);
+			 -moz-box-shadow: inset 0px -5px 0px 0px rgba(252,209,91,1);
+						box-shadow: inset 0px -5px 0px 0px rgba(252,209,91,1);
+    color: rgb(254,213,90);
+  }
+
+  .nav-tabs {
+    border-bottom: none;
+    background: $white;
+    li{
+      width: 25%;
+      text-align: center;
+      border: 1px solid $separator;
+      border-bottom:none;
+      a{
+        margin-right: 0;
+        line-height: 1.428571429;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid $separator;
+        overflow: hidden;
+      }
+    }
+    li:nth-child(2){
+      border-right:none;
+      border-left:none;
+    }
+    li:nth-child(3){
+      border-right:none;
+    }
+  }
 }

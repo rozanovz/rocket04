@@ -42,14 +42,13 @@ angular.module('ocean04App')
     $scope.countTotal();
 
     $scope.checkout = function () {
-      var items = ngCart.getCart().items;
-      items.forEach(function (key) {
-        delete key._data;
-        delete key._id;
-        delete key.$$hashKey;
+      var order_details = [];
+      ngCart.getCart().items.forEach(function (key) {
+        order_details.push(key._name + " - " + key._quantity);
       });
-      $scope.formUser.items = items;
-      console.log(JSON.stringify($scope.formUser));
+      $scope.formUser.timegap = $("li.active>a")[0].innerText;
+      $scope.formUser.order_details = order_details.join(", ");
+      console.log($scope.formUser);
     }
 
   });

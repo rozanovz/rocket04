@@ -3,7 +3,7 @@ $white: #ffffff;
 $bg-grey: #f7f7f7;
 $black: #3d464d;
 $orange: #f27242;
-$separator:  #d0d4d9;
+$separator: #e8ebe9;
 $orange-hover: #f15a22;
 
 
@@ -25,17 +25,22 @@ $orange-hover: #f15a22;
 
 @font-face {
   font-family: GL;
-  src: url(../fonts/GothaProLig.otf);
+  src: url(../fonts/GothaProReg.otf);
+}
+
+@font-face {
+  font-family: GM;
+  src: url(../fonts/GothaProMed.otf);
 }
 
 @font-face {
   font-family: ACR;
-  src: url(../fonts/antenna-cond-regular.otf);
+  src: url(../fonts/antenna-regular.otf);
 }
 
 @font-face {
-  font-family: AR;
-  src: url(../fonts/antenna-regular.otf);
+  font-family: ARB;
+  src: url(../fonts/antenna-bold.otf);
 }
 
 $body-font: 16px;
@@ -121,8 +126,8 @@ a{
   }
 
 .wrapper{
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 0%;
+  margin-right: 0%;
   @media screen and (max-width: 768px) {
     margin-left: 0%;
     margin-right: 0%;
@@ -268,5 +273,29 @@ input, textarea{
   &:focus{
     background:none !important;
     color: black !important;
+  }
+}
+
+.btn.cartBtnIcon{
+  background: url(../images/store/cart.svg) no-repeat 0 -113px;
+  width: 41px;
+  height: 41px;
+  background-repeat:no-repeat;
+  border:none;
+  h3{
+    margin-top:-10px;
+    margin-left: 2px;
+    color: $orange-hover;
+    font-size: 14px;
+    font-family: ARB;
+  }
+  &:active,
+  &:hover,
+  &:focus,
+  &:visited{
+    background: url(../images/store/cart.svg) no-repeat 0 -113px !important;
+    outline:none;
+    border:none;
+    box-shadow:none;
   }
 }
