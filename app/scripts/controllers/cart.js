@@ -21,6 +21,42 @@ angular.module('ocean04App')
       }
     }
 
+    $scope.deliveryDate;
+
+    $scope.getDeliveryDate = function (){
+      var a = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][new Date().getDay()];
+      switch(a){
+        case "Пн":
+          $scope.deliveryDate = new Date(+new Date()+(86400000*2));
+          break;
+        case "Вт":
+          $scope.deliveryDate = new Date(+new Date()+(86400000*1));
+          break;
+        case "Ср":
+          $scope.deliveryDate = new Date(+new Date()+(86400000*4));
+          break;
+        case "Чт":
+          $scope.deliveryDate = new Date(+new Date()+(86400000*3));
+          break;
+        case "Пт":
+          $scope.deliveryDate = new Date(+new Date()+(86400000*2));
+          break;
+        case "Сб":
+          $scope.deliveryDate = new Date(+new Date()+(86400000*1));
+          break;
+        case "Вс":
+          $scope.deliveryDate = new Date(+new Date()+(86400000*3));
+          break;
+        default:
+          break;
+      }
+      console.log($scope.deliveryDate);
+    }
+
+    $scope.getDeliveryDate();
+
+    // 86400000 - one day in miliseconds
+
     $scope.cartItems = ngCart.getCart();
 
     $scope.getCart = function(){
