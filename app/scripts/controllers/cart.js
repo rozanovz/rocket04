@@ -9,8 +9,7 @@
  */
 angular.module('ocean04App')
   .controller('cartCtrl', function ($scope, $rootScope, ngCart) {
-    $rootScope.store = true;
-    $rootScope.description = true;
+    $rootScope.itemDescription = false;
 
     $scope.formUser = {};
 

@@ -10,7 +10,7 @@ angular.module('ocean04App')
       return $q(function(resolve, reject) {
         $http({
           method:'GET',
-          url: url+suburl,
+          url: url+suburl+'/'+param,
           params:param
         }).success(function (data) {
             resolve(data);
@@ -365,7 +365,10 @@ angular.module('ocean04App')
         },
         rocket: function () {
           return list('get_recipes');
-        }
+        },
+        rocketGet: function (id) {
+          return get('get_recipes', id);
+        },
       }
     };
   });

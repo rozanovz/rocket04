@@ -277,14 +277,14 @@ input, textarea{
 }
 
 .btn.cartBtnIcon{
-  background: url(../images/store/cart.svg) no-repeat 0 -113px;
-  width: 41px;
-  height: 41px;
-  background-repeat:no-repeat;
+  background: url(../images/store/cart.svg)  no-repeat 0 -56px;
+  background-size: 21px 77px;
+  width: 21px;
+  height: 21px;
   border:none;
   h3{
-    margin-top:-10px;
-    margin-left: 2px;
+    margin-top:-9px;
+    margin-left: -3px;
     color: $orange-hover;
     font-size: 14px;
     font-family: ARB;
@@ -293,7 +293,9 @@ input, textarea{
   &:hover,
   &:focus,
   &:visited{
-    background: url(../images/store/cart.svg) no-repeat 0 -113px !important;
+    background: url(../images/store/cart.svg)  no-repeat 0 -56px !important;
+    background-size: 21px 77px !important;
+    width: 21px;
     outline:none;
     border:none;
     box-shadow:none;
