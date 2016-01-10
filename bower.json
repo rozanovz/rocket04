@@ -10,7 +10,8 @@
     "angular-route": "^1.3.0",
     "angular-sanitize": "^1.3.0",
     "angular-touch": "^1.3.0",
-    "angular-bootstrap": "~0.14.3"
+    "angular-bootstrap": "~0.14.3",
+    "ngLocale": "^*"
   },
   "devDependencies": {
     "angular-mocks": "^1.3.0"
