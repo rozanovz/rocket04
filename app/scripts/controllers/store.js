@@ -9,12 +9,20 @@
  */
 angular.module('ocean04App')
   .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart, ngCartItem) {
-
+    $rootScope.itemDescription = false;
     //getting data from parse
     this.getReceipes = function() {
       loader.notAllowed();
       api.receipe.list().then(function(response) {
         $scope.receipeLst = response.data;
+        for(var i = 0; i<$scope.receipeLst.length; i++){
+          var oldPrice = $scope.receipeLst[i].price.toString().split(".");
+          $scope.receipeLst[i].price;
+          $scope.receipeLst[i].newPrice = {
+            grand:oldPrice[0],
+            cents:oldPrice[1]
+          }
+        }
         loader.allowed();
       }, function(err) {
         $scope.receipeLst = [];
@@ -27,9 +35,6 @@ angular.module('ocean04App')
       loader.notAllowed();
       api.receipe.rocket().then(function(response) {
         $scope.receipeLst1 = []
-        // response.forEach(function (k) {
-        //   var a = unescape(k.description);
-        // });
         console.log(response);
         loader.allowed();
       }, function(err) {
