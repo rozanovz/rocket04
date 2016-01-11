@@ -1,12 +1,12 @@
-<nav class="navbar navbar-default storeNav" style="margin-top: 25px;">
-  <div class="container-fluid">
+<nav class="navbar navbar-default storeNav">
+  <div class="">
     <div class="wrapper">
-      <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2 storNavItem mennuFilters">
+      <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 storNavItem mennuFilters">
         <div class="dropdown">
            <button class="btn dropdown-toggle filters" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Фильтры <img src="../../../images/store/filterMenu.svg" alt="">
+             <img src="../../../images/store/filterMenu.svg" alt=""> Фильтры
            </button>
-           <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" style="left: 115px;">
+           <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
              <li>
                <!-- Завтраки -->
                <input type="checkbox" id="1"> <label for="1">aaaa</label>
@@ -43,10 +43,10 @@
         <a href="#/cart"><ngcart-summary></ngcart-summary></a>
       </div>
 
-       <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 storNavItem searchMenu">
+       <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 storNavItem searchMenu">
          <div class="input-group">
-          <input type="text" class="form-control searcMenuInput" ng-model="search.title">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+          <input type="text" class="form-control searcMenuInput" ng-model="search.title" placeholder="Поиск Ингредиента" >
+          <span class="input-group-addon"><img src="../../../images/store/magnifer.svg" alt="" width="20px"></span>
         </div>
       </div>
 

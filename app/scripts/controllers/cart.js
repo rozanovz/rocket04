@@ -9,8 +9,7 @@
  */
 angular.module('ocean04App')
   .controller('cartCtrl', function ($scope, $rootScope, ngCart) {
-    $rootScope.store = true;
-    $rootScope.description = true;
+    $rootScope.itemDescription = false;
 
     $scope.formUser = {};
 
@@ -21,6 +20,42 @@ angular.module('ocean04App')
         $scope.shipping = 20;
       }
     }
+
+    $scope.deliveryDate;
+
+    $scope.getDeliveryDate = function (){
+      var a = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][new Date().getDay()];
+      switch(a){
+        case "Пн":
+          $scope.deliveryDate = new Date(+new Date()+(86400000*2));
+          break;
+        case "Вт":
+          $scope.deliveryDate = new Date(+new Date()+(86400000*1));
+          break;
+        case "Ср":
+          $scope.deliveryDate = new Date(+new Date()+(86400000*4));
+          break;
+        case "Чт":
+          $scope.deliveryDate = new Date(+new Date()+(86400000*3));
+          break;
+        case "Пт":
+          $scope.deliveryDate = new Date(+new Date()+(86400000*2));
+          break;
+        case "Сб":
+          $scope.deliveryDate = new Date(+new Date()+(86400000*1));
+          break;
+        case "Вс":
+          $scope.deliveryDate = new Date(+new Date()+(86400000*3));
+          break;
+        default:
+          break;
+      }
+      console.log($scope.deliveryDate);
+    }
+
+    $scope.getDeliveryDate();
+
+    // 86400000 - one day in miliseconds
 
     $scope.cartItems = ngCart.getCart();
 
@@ -42,14 +77,13 @@ angular.module('ocean04App')
     $scope.countTotal();
 
     $scope.checkout = function () {
-      var items = ngCart.getCart().items;
-      items.forEach(function (key) {
-        delete key._data;
-        delete key._id;
-        delete key.$$hashKey;
+      var order_details = [];
+      ngCart.getCart().items.forEach(function (key) {
+        order_details.push(key._name + " - " + key._quantity);
       });
-      $scope.formUser.items = items;
-      console.log(JSON.stringify($scope.formUser));
+      $scope.formUser.timegap = $("li.active>a")[0].innerText;
+      $scope.formUser.order_details = order_details.join(", ");
+      console.log($scope.formUser);
     }
 
   });
