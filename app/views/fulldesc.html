@@ -15,7 +15,7 @@
         <div ng-hide="!f.getInCartQuantity(receipe.id)" class="inCart"> 
           <p>{{f.getInCartQuantity(receipe.id)}} в Вашей корзине</p>
         </div>
-        <img ng-src="{{receipe.photo.url}}">
+        <img ng-src="{{receipe.photo}}">
       </div>
     </div>
 
@@ -25,15 +25,15 @@
           <h3 style="display: inline-block" class="pull-left"><strong>{{receipe.title}}</strong></h3>
           <i class="spaces">&nbsp;</i>
           <p style="display: inline-block" class="pull-right text-xs-left text-sm-left price">
-            &#8372;{{receipe.newPrice.grand}}.<sup>{{receipe.newPrice.cents}}</sup>
+            &#8372;{{receipe.newPrice.grand}}.<sup>{{receipe.newPrice.cents}}<span ng-hide="receipe.newPrice.cents.length">00</span></sup>
           </p>
         </div>
         <div class="description col-xs-12">
           <p class="text-muted small-description">Порция на {{receipe.portions}}. Время приготовления {{receipe.time}} минут.</p>
         </div>
         <div class="actions col-xs-12">
-          <a class="btn btn-md" ng-click="f.AddToCart(receipe.id, receipe.title, receipe.price, 1, {img:receipe.photo.url})"><i class="glyphicon glyphicon-plus"></i> Добавить</a>
-          <a class="btn btn-md" ng-click="f.removeFromCart(receipe.id)" ng-hide="!f.getInCartQuantity(receipe.id)"><i class="glyphicon glyphicon-minus"></i> Убрать</a>
+          <button class="btn btn-md" ng-click="f.AddToCart(receipe.id, receipe.title, receipe.price, 1, {img:receipe.photo})"><i class="glyphicon glyphicon-plus"></i> Добавить</button>
+          <button class="btn btn-md" ng-click="f.removeFromCart(receipe.id)" ng-hide="!f.getInCartQuantity(receipe.id)"><i class="glyphicon glyphicon-minus"></i> Убрать</button>
         </div>
       </div>
     </div>

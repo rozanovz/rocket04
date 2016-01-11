@@ -50,6 +50,9 @@
 												</span>
 											</td>
 										</tr>
+										<tr ng-hide="cartItems.items.length">
+											<td colspan="4" class="text-center">Вы ещё ничего не добавили сюда.</td>
+										</tr>
 									</tbody>
 								</table>
 							</div>
@@ -80,7 +83,7 @@
 								</div>
 								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 									<label for="phone">Номер Телефона</label>
-									<input id="phone" type="text" class="adressDetails phone" ng-model="formUser.phone" value="+38" required>
+									<input id="phone" type="tel" class="adressDetails phone" ng-model="formUser.phone" value="+38" required>
 								</div>
 							</div>
 						</div>

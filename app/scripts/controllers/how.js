@@ -9,4 +9,5 @@
  */
 angular.module('ocean04App')
   .controller('HowCtrl', function ($rootScope) {
+  	$(document).scrollTop(0);
   });
