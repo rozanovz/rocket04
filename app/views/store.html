@@ -12,7 +12,7 @@
     </div>
 
     <ul class="list-unstyled">
-      <li ng-repeat="i in receipeLst | filter:search:strict">
+      <li ng-repeat="i in receipeLst1 | filter:search:strict">
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 card" >
           <a ng-href="#/desc/{{i.id}}">
             <div class="image photo-container" ng-class="{'quantity':s.getInCartQuantity(i.id)}">
@@ -20,7 +20,7 @@
                 <h1>{{s.getInCartQuantity(i.id)}}</h1>
                 <p>в Вашей корзине</p>
               </div>
-              <img ng-src="{{i.photo.url}}">
+              <img ng-src="{{i.photo}}">
             </div>
           </a>
           <div class="description">
@@ -29,17 +29,17 @@
             </div>
             <div class="tags">
               <p class="itemTag">
-                Завтрак
+                {{i.tag}}
               </p>
             </div>
             <div class="separator"></div>
             <div class="actions">
               <div class="price" style="display: inline;">
-                &#8372;{{i.newPrice.grand}}.<sup>{{i.newPrice.cents}}</sup>
+                &#8372;{{i.newPrice.grand}}.<sup>{{i.newPrice.cents}}<span ng-hide="i.newPrice.cents.length">00</span></sup>
               </div>
               <div class="buttons pull-right" style="display: inline;">
                 <a class="btn btn-sm removeFromCart" ng-click="s.removeFromCart(i.id)" ng-hide="!s.getInCartQuantity(i.id)"><i class="glyphicon glyphicon-minus"></i></a>
-                <a class="btn btn-sm" ng-click="s.AddToCart(i.id, i.title, i.price, 1, {img:i.photo.url})"><i class="glyphicon glyphicon-plus"></i></a>
+                <a class="btn btn-sm" ng-click="s.AddToCart(i.id, i.title, i.price, 1, {img:i.photo})"><i class="glyphicon glyphicon-plus"></i></a>
               </div>
             </div>
           </div>
