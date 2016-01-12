@@ -9,9 +9,12 @@
  */
 angular.module('ocean04App')
   .controller('cartCtrl', function ($scope, $rootScope, ngCart) {
+    $(document).scrollTop(0);
     $rootScope.itemDescription = false;
-
+    $(".slicknav_menu").show();
     $scope.formUser = {};
+
+    $("#phone").mask("+38(999) 999-99-99");
 
     $scope.checkShipping = function () {
       if(ngCart.totalCost()>500){
@@ -81,7 +84,7 @@ angular.module('ocean04App')
       ngCart.getCart().items.forEach(function (key) {
         order_details.push(key._name + " - " + key._quantity);
       });
-      $scope.formUser.timegap = $("li.active>a")[0].innerText;
+      $scope.formUser.timegap = $scope.deliveryDate + '|' + $("li.active>a")[0].innerText;
       $scope.formUser.order_details = order_details.join(", ");
       console.log($scope.formUser);
     }
