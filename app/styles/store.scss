@@ -102,7 +102,7 @@ $orange-hover: #f15a22;
     .description{
       .title{
         h3{
-          font-size: 15px;
+          font-size: 16px;
           letter-spacing:0.25px;
           font-family: GM;
           color: #515252;
@@ -171,18 +171,19 @@ $orange-hover: #f15a22;
     justify-content: center;
     overflow: hidden;
     h1{
-      font-size: 2.25em;
+      font-size: 5em;
       letter-spacing: 3px;
       line-height: 1em;
-      font-family: ARB;
+      font-family: ACR;
       padding-top: 15%;
       // margin-top:-30px;
     }
     p{
-      font-size: 0.875em;
+      font-size: 1em;
       letter-spacing: 0.5px;
-      line-height: 0.5em;
+      line-height: 0.8em;
       text-transform: uppercase;
+      font-family: GM;
     }
     h1, p{
       color:white;

@@ -9,21 +9,22 @@ $darkgrey: #d9d9d9;
 
 // bootstrap navigation
 .navbar {
-  // border-top: 1px solid $orange;
   background: $white;
   height: 80px;
+  .container-fluid{
+    padding-right: 30px;
+  }
   .navbar-header{
     position: absolute;
-    left: 48.5%;
-    top: 34px;
+    left: 47.3%; 
+    top: 33px;
     .navbar-brand {
       padding: 0;
       img{
-        width: 90px;
+        width: 120px;
       }
     }
   }
-  
   .navbar-nav{
     li{
       a{
@@ -31,12 +32,12 @@ $darkgrey: #d9d9d9;
         font-size:12px;
         font-family: GL;
         padding-top:28px;
+        text-transform:capitalize;
+        &:hover{
+          color: #f15a22;
+        }
       }
     }
-  }
-
-  a.btn{
-    color: $white !important;
   }
 }
 

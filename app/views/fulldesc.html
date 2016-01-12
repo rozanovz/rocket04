@@ -32,8 +32,8 @@
           <p class="text-muted small-description">Порция на {{receipe.portions}}. Время приготовления {{receipe.time}} минут.</p>
         </div>
         <div class="actions col-xs-12">
-          <button class="btn btn-md" ng-click="f.AddToCart(receipe.id, receipe.title, receipe.price, 1, {img:receipe.photo})"><i class="glyphicon glyphicon-plus"></i> Добавить</button>
-          <button class="btn btn-md" ng-click="f.removeFromCart(receipe.id)" ng-hide="!f.getInCartQuantity(receipe.id)"><i class="glyphicon glyphicon-minus"></i> Убрать</button>
+          <button class="btn btn-md btnAdd" ng-click="f.AddToCart(receipe.id, receipe.title, receipe.price, 1, {img:receipe.photo})"><i class="glyphicon glyphicon-plus"></i> Добавить</button>
+          <button class="btn btn-md btnRemove" ng-click="f.removeFromCart(receipe.id)" ng-hide="!f.getInCartQuantity(receipe.id)"><i class="glyphicon glyphicon-minus"></i></button>
         </div>
       </div>
     </div>

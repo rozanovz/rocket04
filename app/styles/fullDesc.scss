@@ -25,8 +25,14 @@ $orange-hover: #f15a22;
       a{
         color:#515252;
         font-size: 12px;
-        font-family: GL;
+        font-family: GM;
+        font-weight: 100;
         text-transform: uppercase;
+        &:hover{
+          strong{
+            color:#f15a22;
+          }
+        }
       }
     }
   }
@@ -51,7 +57,8 @@ $orange-hover: #f15a22;
       line-height: 1.4em;
       text-transform: uppercase;
       margin-bottom: 9px;
-      font-family: GL;
+      font-family: GM;
+      font-weight: 100;
       @media screen and (max-width:499px){
         float:left !important;
         width:100%;
@@ -78,6 +85,25 @@ $orange-hover: #f15a22;
     font-style: normal;
     letter-spacing: 1px;
     font-size: 15px;
+  }
+
+  .actions{
+    .btn{
+      border-radius:2px;
+      line-height: 1.7;
+      font-size: 15px;
+      font-family: GL;
+    }
+    .btnAdd{
+      width:150px;
+      max-width:150px;
+      min-width:150px;
+    }
+    .btnRemove{
+      width:65px;
+      max-width:65px;
+      min-width:65px;
+    }
   }
   .columnWrapper{
     margin-bottom: 1%;
@@ -116,10 +142,14 @@ $orange-hover: #f15a22;
         border-radius: 0;
         border-bottom: 1px solid #e8ebe9;
         overflow: hidden;
-        font-size: 14px;
-        line-height: 23px;
+        font-size: 12px;
+        line-height: 35px;
         text-transform:uppercase;
-        font-family: GM;
+        font-family: GL;
+      }
+      &:active,
+      &.active{
+        background-color: #f7f7f7;      
       }
     }
     li:nth-child(2){
@@ -135,6 +165,10 @@ $orange-hover: #f15a22;
     border-radius: 3px;
     min-height: 300px;
     background: $white;
+
+    .description{
+      ine-height: 1.6;
+    }
 
     .description,
     .ingredients,
@@ -164,7 +198,10 @@ $orange-hover: #f15a22;
         border:none;
       }
       th{
-        color: #515252;
+        width: 25%;
+        p{
+          color: #515252;
+        }
         background: $white;
         border:none;
         border-bottom: 1px solid #e8ebe9;
@@ -176,9 +213,10 @@ $orange-hover: #f15a22;
         .content{
           font-family: ACR;
           font-size: 14px;
+          font-weight: 100;
         }
         &:not(:nth-child(4)){
-          border-left: 1px solid #e8ebe9;
+          border-right: 1px solid #e8ebe9;
         }
       }
     }

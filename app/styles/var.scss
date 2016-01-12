@@ -116,7 +116,7 @@ a{
   color: $black;
   border: 1px solid darken($bg-grey, 20%);
   &:hover{
-    background: darken($bg-grey, 10%) !important;
+    background: none !important;
   }
 }
 
@@ -284,11 +284,11 @@ input, textarea{
   height: 31px;
   border:none;
   h3{
-    margin-top: -3px;
-    margin-left: -5px;
+    margin-top: -5px;
+    margin-left: -1px;
     color: $orange-hover;
-    font-size: 14px;
-    font-family: ARB;
+    font-size: 13px;
+    font-family: ACR;
   }
   &:active,
   &:hover,
