@@ -15,41 +15,11 @@ angular.module('ocean04App')
     $scope.receipeLst1 = [];
     $scope.recepie;
 
-    //getting data from parse
-    // this.getReceipes = function() {
-    //   loader.notAllowed();
-    //   api.receipe.list().then(function(response) {
-    //     $scope.receipeLst = response.data;
-    //     for(var i = 0; i<$scope.receipeLst.length; i++){
-    //       var oldPrice = $scope.receipeLst[i].price.toString().split(".");
-    //       $scope.receipeLst[i].price;
-    //       $scope.receipeLst[i].newPrice = {
-    //         grand:oldPrice[0],
-    //         cents:oldPrice[1]
-    //       }
-    //     }
-    //     loader.allowed();
-    //   }, function(err) {
-    //     $scope.receipeLst = [];
-    //     loader.allowed();
-    //   });
-    // };
-
     //getting data from server Artem
     this.getReceipesList = function() {
       loader.notAllowed();
-      api.receipe.rocket().then(function(response) {
+      api.receipe.store().then(function(response) {
         $scope.receipeLst1 = response;
-        for(var i = 0; i<$scope.receipeLst1.length; i++){
-          var oldPrice = $scope.receipeLst1[i].price.toString().split(".");
-          $scope.receipeLst1[i].price;
-          $scope.receipeLst1[i].newPrice = {
-            grand:oldPrice[0],
-            cents:oldPrice[1]
-          }
-        }
-        localStorage.setItem('items', JSON.stringify($scope.receipeLst1));
-        console.log(response);
         loader.allowed();
       }, function(err) {
         $scope.receipeLst1 = [];

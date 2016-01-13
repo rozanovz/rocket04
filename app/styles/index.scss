@@ -6,31 +6,107 @@ $separator:  #d0d4d9;
 $orange-hover: #f15a22;
 
 .index{
+  margin-top: 28px;
+  @media screen and (max-width:991px){
+    margin-top: 4px;
+  }
   .intro{
-  	background-image: url("../images/index/hero.jpg");
-  }
+    background: url(https://rocket04.imgix.net/main_1.png?s=bb1632e76cca545ea114f1fb3b40cf58);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    min-height: 600px;
+    width: 100%;
 
-  .ending{
-    background-image: url("../images/index/hero2.jpg");
-  }
-
-  .content{
-  	background: $bg-grey;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    .advantages{
-      margin-bottom: 4.5%;
-      li{
-        img{
-          width: 30%;
+    .card{
+      background-color: rgba(244,247,248,0.97);
+      padding: 3%;
+      margin-top: 15%;
+      margin-bottom: 20%;
+      min-height: 250px;
+      &:before{
+        display: block;
+        position: absolute;
+        content: " ";
+        top: 14px;
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        border: 1px solid #c8c8c1;
+        pointer-events: none;
+      }
+      .card{
+        h3{
+          color: #42413e;
+          font-family: GM;
+          font-style: normal;
+          font-size: 1.625rem;
+          letter-spacing: 0;
+          line-height: 2rem;
+          text-transform: uppercase;
+        }
+        h1{
+          color: #42413e;
+          font-family: GM;
+          font-style: normal;
+          font-size: 2.5rem;
+          letter-spacing: 0.125rem;
+          line-height: 3rem;
+          text-transform: uppercase;
+        }
+        h1:after{
+          display: block;
+          height: 0.2rem;
+          background-color: #515252;
+          content: " ";
+          margin-left: auto;
+          margin-right: auto;
+          width: 3rem;
+          margin-top: 0.5rem;
+        }
+        h5{
+          font-family: GL;
+          color: #42413e;
+          font-size: 14px;
+          letter-spacing: 0.05rem;
+          line-height: 1.5rem;
+          margin-top: 0.9rem;
+        }
+        p{
+          font-family: GM;
+          text-transform: capitalize;
+          color: #515252;
+          font-style: normal;
+          font-size: 12px;
+          letter-spacing: 0.0625rem;margin-top: 2rem;
+          margin-bottom: 0.625rem;
+        }
+        a{
+          border-radius:2px;
+          font-family: GM;
+          font-size: 14px;
+          letter-spacing: 0.05rem;
+          color: white;
+          text-transform: capitalize;
         }
       }
     }
-    .betterLife{
-      .text{
-        margin-top: 9.5%;
-        vertical-align: middle;
-      }
+  }
+  .rules{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background: $white;
+    h2{
+      font-family: GM;
+      color: #42413e;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 2rem;
+      letter-spacing: 0.125rem;
+      line-height: 2.2rem;
+    }
+    .rulesImage{
+      width:50%;
     }
   }
 }

@@ -55,6 +55,7 @@ body{
   font-size:$body-font;
   padding-top:52px !important;
   background: #f4f7f8 !important;
+  min-width: 300px !important;
 }
 
 h1{font-size:(32px/$body-font)+0em;}

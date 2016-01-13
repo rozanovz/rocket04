@@ -10,6 +10,15 @@ $orange-hover: #f15a22;
 	padding-top: 3%;
 	padding-bottom: 3%;
 
+	.wrapper{
+		margin-right:8%;
+		margin-left:8%;
+		@media screen and (max-width: 768px){
+			margin-left: 0%;
+	    margin-right: 0%;
+		}
+	}
+
 	//first card
 	.cartInColumnWrapper{
 		background:#fff; 
@@ -17,7 +26,7 @@ $orange-hover: #f15a22;
 		border-radius: 2px; 
 		padding: 3.5%;
 		margin-bottom: 1%;
-		width:98%;
+		width:97%;
 		@media screen and (max-width:768px){
 			width: 100%;
 		}
@@ -70,6 +79,10 @@ $orange-hover: #f15a22;
 				table{
 					background: #fff;
 					margin-top:2.5%;
+					min-width: 666px;
+					@media screen and (max-width:768px){
+						border:none;
+					}
 					tr{
 						border: none;
 					}
@@ -213,20 +226,26 @@ $orange-hover: #f15a22;
 	}
 
 	// time interval
-	.nav-tabs > li.active > a, 
+	.nav-tabs > li.active > a,
   .nav-tabs > li.active > a:hover, 
   .nav-tabs > li.active > a:focus {
-    border: none;
+    border: 1px solid #e8ebe9;
     border-bottom: 1px solid rgba(252,209,91,1);
     -webkit-box-shadow: inset 0px -5px 0px 0px rgba(252,209,91,1);
 			 -moz-box-shadow: inset 0px -5px 0px 0px rgba(252,209,91,1);
 						box-shadow: inset 0px -5px 0px 0px rgba(252,209,91,1);
   }
+	
+	.nav-tabs > li.active:not(:nth-child(1)) > a,
+  .nav-tabs > li.active:not(:nth-child(1)):hover > a,
+  .nav-tabs > li.active:not(:nth-child(1)):focus > a,{
+  	border-left:none;
+  }
 
   .nav > li > a:hover,
   a:hover{
-  	color: #515252 !important;
-  	background: none !important;
+    color: #515252 !important;
+    background: none !important;
   }
 
   .nav-tabs {
@@ -235,20 +254,29 @@ $orange-hover: #f15a22;
     li{
       width: 25%;
       text-align: center;
-      border: 1px solid $separator;
+      // border: 1px solid #e8ebe9;
       border-bottom:none;
       a{
         margin-right: 0;
         line-height: 1.428571429;
         border: none;
         border-radius: 0;
-        border-bottom: 1px solid $separator;
+        border: 1px solid #e8ebe9;
         overflow: hidden;
         padding: 16px 15px;
-        font-family: ACR;
-        font-weight: 600;
 				font-style: normal;
-				font-size: 14px;
+				font-size: 12px;
+        // line-height: 35px;
+        text-transform:uppercase;
+        font-family: GL;
+        font-weight: 100;
+      }
+      &:active > a,
+      &.active > a{
+        background-color: #f7f7f7;      
+      }
+      &:not(:nth-child(1))>a,{
+      	border-left:none;
       }
     }
     li:nth-child(2){

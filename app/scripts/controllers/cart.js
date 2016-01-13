@@ -14,7 +14,7 @@ angular.module('ocean04App')
     $(".slicknav_menu").show();
     $scope.formUser = {};
 
-    $("#phone").mask("+38(999) 999-99-99");
+    $("#phone").mask("+38(999)999-99-99");
 
     $scope.checkShipping = function () {
       if(ngCart.totalCost()>500){
@@ -55,9 +55,7 @@ angular.module('ocean04App')
       }
       console.log($scope.deliveryDate);
     }
-
     $scope.getDeliveryDate();
-
     // 86400000 - one day in miliseconds
 
     $scope.cartItems = ngCart.getCart();
@@ -84,8 +82,22 @@ angular.module('ocean04App')
       ngCart.getCart().items.forEach(function (key) {
         order_details.push(key._name + " - " + key._quantity);
       });
-      $scope.formUser.timegap = $scope.deliveryDate + '|' + $("li.active>a")[0].innerText;
       $scope.formUser.order_details = order_details.join(", ");
+
+      $scope.formUser.timegap = $scope.deliveryDate + '|' + $("li.active>a")[0].innerText;
+
+      var newPhone = [];
+      for (var i = 0; i<$scope.formUser.phone.length;i++){
+        if($scope.formUser.phone[i] !== ")"){
+          if($scope.formUser.phone[i] !== "("){
+            if($scope.formUser.phone[i] !== "-"){
+              newPhone.push($scope.formUser.phone[i]);
+            }
+          }
+        } 
+      }
+      $scope.formUser.phone = newPhone.join('');
+      
       console.log($scope.formUser);
     }
 

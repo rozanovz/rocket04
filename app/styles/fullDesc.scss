@@ -147,8 +147,8 @@ $orange-hover: #f15a22;
         text-transform:uppercase;
         font-family: GL;
       }
-      &:active,
-      &.active{
+      &:active>a,
+      &.active>a{
         background-color: #f7f7f7;      
       }
     }
