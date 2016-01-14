@@ -8,7 +8,7 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('cartCtrl', function ($scope, $rootScope, ngCart) {
+  .controller('cartCtrl', function ($scope, $rootScope, ngCart, api) {
     $(document).scrollTop(0);
     $rootScope.itemDescription = false;
     $(".slicknav_menu").show();
@@ -99,6 +99,11 @@ angular.module('ocean04App')
       $scope.formUser.phone = newPhone.join('');
       
       console.log($scope.formUser);
+      api.receipe.orders($scope.formUser).then(function(response){
+        console.log(response);
+      },function(err) {
+        console.log(err);
+      });
     }
 
   });
