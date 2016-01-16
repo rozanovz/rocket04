@@ -33,8 +33,12 @@ angular.module('ocean04App')
 
     var post = function(suburl,param){
       return $q(function(resolve, reject) {
-        $http.post(url+suburl,param, {headers: {'Content-Type': 'application/json'}})
+        $http.post(url+suburl,param, {headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        }})
         .success(function (data) {
+          console.log(data);
           resolve(data);
         }).error(function (data, status, headers, config) {
           reject(data);
@@ -48,8 +52,8 @@ angular.module('ocean04App')
         store: function () {
           return list('get_recipes');
         },
-        orders: function (argument) {
-          return;
+        orders: function (order) {
+          return post('order', order);
         }
       }
     };
