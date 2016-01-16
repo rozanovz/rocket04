@@ -70,16 +70,16 @@ $orange-hover: #f15a22;
       font-size: 3.6rem;
       letter-spacing: 0.125rem;
       line-height: 3rem;
-    }
-    h1:after{
-      display: block;
-      height: .4rem;
-      background-color: #515252;
-      content: " ";
-      margin-left: auto;
-      margin-right: auto;
-      width: 5rem;
-      margin-top: 2rem;
+      &:after{
+        display: block;
+        height: .4rem;
+        background-color: #515252;
+        content: " ";
+        margin-left: auto;
+        margin-right: auto;
+        width: 5rem;
+        margin-top: 2rem;
+      }
     }
     h5{
       font-family: GL;
