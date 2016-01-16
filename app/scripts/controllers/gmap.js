@@ -14,4 +14,11 @@ angular.module('ocean04App')
       'AngularJS',
       'Karma'
     ];
+    function initialize() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: new google.maps.LatLng(-19.257753, 146.823688),
+    zoom: 2,
+    mapTypeId: google.maps.MapTypeId.TERRAIN
+  });
+}
   });
