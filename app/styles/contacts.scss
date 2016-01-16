@@ -1,0 +1,14 @@
+$white: #ffffff;
+$bg-grey: #f7f7f7;
+$black: #3d464d;
+$orange: #f27242;
+$separator: #e8ebe9;
+$orange-hover: #f15a22;
+
+.contacts{
+	margin-top: 28px;
+  @media screen and (max-width:991px){
+    margin-top: 4px;
+  }
+  background: $white;
+}

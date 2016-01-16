@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('ocean04App')
-  .service('api', function ($http,$q,$cookies,$cookieStore,$window) {
+  .service('api', function ($http,$q,$window) {
     $http.defaults.useXDomain = true;
-    var url = window.location.protocol+'//rocket04.com/'
+    var url = 'https://rocket04.com/'
 
 // MAIN API REQUEST METHODS
     var list =  function (suburl,field,param){
@@ -32,11 +32,13 @@ angular.module('ocean04App')
     };
 
     var post = function(suburl,param){
+      console.log(JSON.stringify(param));
       return $q(function(resolve, reject) {
-        $http.post(url+suburl,param, {headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
-        }})
+         $http.post(url+suburl,param,
+          {
+            headers: {'Content-Type': 'application/json'}
+          }
+        )
         .success(function (data) {
           console.log(data);
           resolve(data);
