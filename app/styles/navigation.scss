@@ -16,7 +16,7 @@ $darkgrey: #d9d9d9;
   }
   .navbar-header{
     position: absolute;
-    left: 47.3%; 
+    left: 46.65%; 
     top: 33px;
     .navbar-brand {
       padding: 0;
@@ -34,7 +34,10 @@ $darkgrey: #d9d9d9;
         padding-top:28px;
         text-transform:capitalize;
         &:hover{
-          color: #f15a22;
+          color: $orange-hover;
+        }
+        &:focus{
+          color: $navblack
         }
       }
     }
