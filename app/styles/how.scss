@@ -6,16 +6,136 @@ $separator:  #d0d4d9;
 $orange-hover: #f15a22;
 
 .how{
-   .intro{
-    background-image: url("../images/how/hero1.jpg");
+  .heroContent{
+    background:$white;
+    h3{
+      color: #42413e;
+      font-family: GL;
+      font-style: normal;
+      font-size: 2.6rem;
+      letter-spacing: 0;
+      line-height: 2rem;
+      margin-top:0;
+      margin-bottom: 15px;
+    }
+    h1{
+      color: #42413e;
+      font-family: GM;
+      font-style: normal;
+      font-size: 3.6rem;
+      letter-spacing: 0.125rem;
+      line-height: 3rem;
+      &:after{
+        display: block;
+        height: .4rem;
+        background-color: #515252;
+        content: " ";
+        margin-left: auto;
+        margin-right: auto;
+        width: 5rem;
+        margin-top: 2rem;
+      }
+    }
+    h5{
+      font-family: GL;
+      font-size: 13px;
+      color: #42413e;
+      letter-spacing: 0.05rem;
+      line-height: 2rem;
+      margin-top: 2rem;
+    }
+    p{
+      font-family: GM;
+      font-size: 13px;
+      font-style: normal;
+      color: #515252;
+      letter-spacing: 0.0625rem;
+      margin-top: 2.5rem;
+      margin-bottom: 0.625rem;
+    }
+  }
+
+  .intro{
+    background-image: url("https://rocket04.imgix.net/how_it_works_main.jpg?s=5e44adc77418471e7f3f3f4ad27cf8b7");
+    .heroContent:before{
+      display: block;
+      position: absolute;
+      content: " ";
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      border: 1px solid #F1EFF1;
+      pointer-events: none;
+    }
+  }
+
+  .middleHero{
+    min-height:initial;
+    .heroContent{
+      margin-top:0;
+      margin-bottom:0;
+      h1{
+        font-size: 2.6rem;
+      }
+    }
   }
 
   .ending{
-    background-image: url("../images/how/hero.jpg");
+    background-image: url("https://rocket04.imgix.net/how_it_works_5.jpg?s=f142c38a74f716a6459fedff6b802efe");
+    min-height: initial;
+    .heroContent{
+      h1{
+        font-size: 2.6rem;
+      }
+    }
   } 
-   background: $bg-grey;
-  .step1,
-  .step2{
-    display: inline-block;
+
+  .howHeading{
+    h2{
+      color: #79776b;
+      font-family: GL;
+    }
+    margin-top: 1.3%;
+    margin-bottom: 3%;
+  }
+
+  .howContent{
+    .howCard{
+      background: $white;
+      margin-top:1%;
+      margin-bottom: 1%;
+      &:nth-child(odd){
+        padding-right:0;
+        @media screen and (max-width:991px){
+          padding: 0;
+        }
+      }
+      &:nth-child(even){
+        padding-left:0;
+        @media screen and (max-width:991px){
+          padding: 0;
+        }
+      }
+
+      .image{
+        padding: 0;
+        img{
+          width: 100%;
+        }
+      }
+      .cardText{
+        padding: 2%;
+        h3{
+          font-family: GM;
+          font-size: 1.9em;
+          margin-bottom:10%;
+        }
+        p{
+          font-family: GL;
+          margin-bottom:5%;
+        }
+      }
+    }
   }
 }

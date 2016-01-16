@@ -6,14 +6,101 @@ $separator:  #d0d4d9;
 $orange-hover: #f15a22;
 
 .gifts{
-  background: $bg-grey;
-  .intro{
-    background-image: url("../images/gifts/hero.jpg");
+  .heroContent{
+    h1{
+      color: #42413e;
+      font-family: GM;
+      font-style: normal;
+      font-size: 3.6rem;
+      letter-spacing: 0.125rem;
+      line-height: 3rem;
+      &:after{
+        display: block;
+        height: .4rem;
+        background-color: #515252;
+        content: " ";
+        margin-left: auto;
+        margin-right: auto;
+        width: 5rem;
+        margin-top: 2rem;
+      }
+    }
+    h5{
+      font-family: GL;
+      font-size: 13px;
+      color: #42413e;
+      letter-spacing: 0.05rem;
+      line-height: 2rem;
+      margin-top: 2rem;
+    }
   }
-  .content {
-    li{
-      img{
-        width: 30%;
+
+  .giftsContent{
+    .step{
+      margin-bottom: 6%;
+      h4{
+        color: #79776b;
+        margin-bottom: 20px;
+        strong{
+          color: #42413e;
+          font-family: GM;
+        }
+      }
+    }
+    
+    .giftCard{
+      
+      .giftCardHeading{
+        background: $white;
+        padding: 3%;
+        h3{
+          font-family:GM;
+          color: #79776b;
+          margin:0;
+        }
+      }
+
+      .giftCardImg{
+        height: 150px;
+        background-size: cover;
+      }
+
+      .giftCardDescr{
+        background: $white;
+        padding: 3%;
+        height: 100px;
+        p{
+          font-family:GL;
+          color: #79776b;
+        }
+      }
+    }
+    
+
+    .form{
+      div{
+        margin-bottom: 2%;
+        .adressDetails{
+          width: 100%;
+          padding-left: 8px !important;
+          padding-right: 8px !important;
+          font-weight: 400;
+          font-style: normal;
+          letter-spacing: 0.5px;
+          font-size: 14px;
+          color: #42413e;
+          border: 1px solid #b9b9af;
+          background-color: #FFF;
+          min-height: 35px;
+          border-radius: 2px;
+          outline: none !important;
+        }
+        label{
+          font-family: GM;
+          letter-spacing: 0.5px;
+          color: #42413e;
+          font-size: 13px;
+        }
       }
     }
   }
