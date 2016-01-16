@@ -19,7 +19,7 @@ angular
     'ngCart.fulfilment', 
     'ui.bootstrap'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider,$httpProvider) {
 
     $routeProvider
       .when('/', {
@@ -66,6 +66,16 @@ angular
         templateUrl: 'views/gmap.html',
         controller: 'GmapCtrl',
         controllerAs: 'gMap'
+      })
+      .when('/contract', {
+        templateUrl: 'views/contract.html',
+        controller: 'ContractCtrl',
+        controllerAs: 'contract'
+      })
+      .when('/contacts', {
+        templateUrl: 'views/contacts.html',
+        controller: 'ContactsCtrl',
+        controllerAs: 'contacts'
       })
       .otherwise({
         redirectTo: '/'

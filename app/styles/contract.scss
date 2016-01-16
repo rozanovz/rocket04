@@ -1,0 +1,21 @@
+.contract {
+	margin-top: 28px;
+	margin-bottom:2%;
+  @media screen and (max-width:991px){
+    margin-top: 4px;
+  }
+  .contractHeading{
+  	margin-top: 2%;
+  	margin-bottom:2%;
+  	font-family: GM;
+  }
+  .contractbody{
+  	border: 1px solid;
+    height: 750px;
+    overflow: auto;
+    padding: 2%;
+    @media screen and (max-width:767px){
+      padding: .5%;
+    }
+  }
+}
