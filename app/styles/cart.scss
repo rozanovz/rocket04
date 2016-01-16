@@ -267,13 +267,16 @@ $orange-hover: #f15a22;
 				font-style: normal;
 				font-size: 12px;
         // line-height: 35px;
+        color: #79776b;
         text-transform:uppercase;
         font-family: GL;
         font-weight: 100;
       }
       &:active > a,
-      &.active > a{
-        background-color: #f7f7f7;      
+      &.active > a,
+      &.active>a:hover{
+        background-color: #f7f7f7 !important;  
+        color: #515252 !important;     
       }
       &:not(:nth-child(1))>a,{
       	border-left:none;

@@ -146,10 +146,13 @@ $orange-hover: #f15a22;
         line-height: 35px;
         text-transform:uppercase;
         font-family: GL;
+        color: #79776b;
       }
       &:active>a,
-      &.active>a{
-        background-color: #f7f7f7;      
+      &.active>a,
+      &.active>a:hover{
+        background-color: #f7f7f7 !important; 
+        color: #515252 !important;     
       }
     }
     li:nth-child(2){

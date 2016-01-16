@@ -55,49 +55,51 @@ $orange-hover: #f15a22;
     }
     h3{
       color: #42413e;
-      font-family: GM;
+      font-family: GL;
       font-style: normal;
-      font-size: 1.625rem;
+      font-size: 2.6rem;
       letter-spacing: 0;
       line-height: 2rem;
+      margin-top:0;
+      margin-bottom: 15px;
     }
     h1{
       color: #42413e;
       font-family: GM;
       font-style: normal;
-      font-size: 2.5rem;
+      font-size: 3.6rem;
       letter-spacing: 0.125rem;
       line-height: 3rem;
     }
     h1:after{
       display: block;
-      height: 0.2rem;
+      height: .4rem;
       background-color: #515252;
       content: " ";
       margin-left: auto;
       margin-right: auto;
-      width: 3rem;
-      margin-top: 0.5rem;
+      width: 5rem;
+      margin-top: 2rem;
     }
     h5{
       font-family: GL;
       font-size: 14px;
       color: #42413e;
       letter-spacing: 0.05rem;
-      line-height: 1.5rem;
-      margin-top: 0.9rem;
+      line-height: 2rem;
+      margin-top: 2rem;
     }
     p{
       font-family: GM;
-      font-size: 12px;
+      font-size: 13px;
       font-style: normal;
       color: #515252;
       letter-spacing: 0.0625rem;
-      margin-top: 2rem;
+      margin-top: 2.5rem;
       margin-bottom: 0.625rem;
     }
     a{
-      font-family: GM;
+      font-family: GL;
       font-size: 14px;
       letter-spacing: 0.05rem;
     }
@@ -105,14 +107,14 @@ $orange-hover: #f15a22;
 
   .content{
     background: $white;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 7%;
+    padding-bottom: 0%;
     .advantages{
-      margin-bottom: 4.5%;
+      margin-bottom: 7%;
       
       li{
         img{
-          width: 15%;
+          width: 18%;
         }
       }
       h2{
@@ -124,6 +126,7 @@ $orange-hover: #f15a22;
         font-weight: 400;
         font-style: normal;
         letter-spacing: 0.075em;
+        margin-top: 15px;
       }
       p{
         font-family: GL;
@@ -140,15 +143,23 @@ $orange-hover: #f15a22;
       }
     }
     .teamQuote{
-      background:grey;
-      padding-bottom: 10%;
-      padding-top: 10%;
+      background:#ECECEC;
+      padding-bottom: 15%;
+      padding-top: 15%;
+    }
+    .principalsHeading{
+      margin-top:30px;
     }
     .princepals{
       .principalsImg{
         img{
           width: initial !important;
           vertical-align: baseline;
+        }
+        h5{
+          font-size: 2em;
+          margin-top: 40px;
+          margin-bottom: 0px;
         }
       }
       .principalsHeading>h2{
@@ -160,10 +171,14 @@ $orange-hover: #f15a22;
       }
     }
   }
-
+  .ending{
+    min-height: initial;
+  }
   .ending,
   .endingintro{
     .heroContent{
+      margin-top:2%;
+      margin-bottom:2%;
       &:before{
         border:none;
       }

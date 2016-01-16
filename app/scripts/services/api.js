@@ -3,7 +3,7 @@
 angular.module('ocean04App')
   .service('api', function ($http,$q,$cookies,$cookieStore,$window) {
     $http.defaults.useXDomain = true;
-    var url = 'http://www.rocket04.com/'
+    var url = window.location.protocol+'//rocket04.com/'
 
 // MAIN API REQUEST METHODS
     var list =  function (suburl,field,param){
