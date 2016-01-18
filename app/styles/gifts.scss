@@ -6,14 +6,22 @@ $separator:  #d0d4d9;
 $orange-hover: #f15a22;
 
 .gifts{
+  .hero{
+    min-height: initial;
+  }
   .heroContent{
+    margin-bottom: 0;
+    margin-top: 0;
     h1{
       color: #42413e;
-      font-family: GM;
+      font-family: GN;
       font-style: normal;
-      font-size: 3.6rem;
+      font-size: 3rem;
       letter-spacing: 0.125rem;
       line-height: 3rem;
+      @media screen and (max-width:499px){
+        font-size: 2rem;
+      }
       &:after{
         display: block;
         height: .4rem;
@@ -28,8 +36,8 @@ $orange-hover: #f15a22;
     h5{
       font-family: GL;
       font-size: 13px;
-      color: #42413e;
-      letter-spacing: 0.05rem;
+      color: #515252;
+      letter-spacing: 0rem;
       line-height: 2rem;
       margin-top: 2rem;
     }
@@ -41,23 +49,33 @@ $orange-hover: #f15a22;
       h4{
         color: #79776b;
         margin-bottom: 20px;
+        font-size:17px;
         strong{
           color: #42413e;
-          font-family: GM;
+          font-family: GL;
         }
       }
     }
     
     .giftCard{
-      
+      margin-bottom: 2%;
       .giftCardHeading{
         background: $white;
         padding: 3%;
         h3{
-          font-family:GM;
           color: #79776b;
           margin:0;
+          line-height: 2;
+          font-family: GL; 
+          font-size: 1.2em;
+          span{
+            float:right;
+            font-family: GL;
+            color: #79776b;
+            font-size: 1em;
+          }
         }
+        
       }
 
       .giftCardImg{
@@ -68,40 +86,100 @@ $orange-hover: #f15a22;
       .giftCardDescr{
         background: $white;
         padding: 3%;
-        height: 100px;
+        height: 120px;
         p{
           font-family:GL;
           color: #79776b;
+          font-size:13px;
+          margin-top:30px;
         }
       }
     }
     
-
-    .form{
-      div{
-        margin-bottom: 2%;
-        .adressDetails{
-          width: 100%;
-          padding-left: 8px !important;
-          padding-right: 8px !important;
-          font-weight: 400;
-          font-style: normal;
-          letter-spacing: 0.5px;
-          font-size: 14px;
-          color: #42413e;
-          border: 1px solid #b9b9af;
-          background-color: #FFF;
-          min-height: 35px;
-          border-radius: 2px;
-          outline: none !important;
-        }
-        label{
-          font-family: GM;
-          letter-spacing: 0.5px;
-          color: #42413e;
-          font-size: 13px;
+    .secondStep{
+      margin-bottom: 0;
+      .form{
+        div{
+          margin-bottom: 2%;
+          .adressDetails{
+            width: 100%;
+            padding-left: 8px !important;
+            padding-right: 8px !important;
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: 0.5px;
+            font-size: 14px;
+            color: #42413e;
+            border: 1px solid #e8ebe9;
+            background-color: #FFF;
+            min-height: 35px;
+            border-radius: 2px;
+            outline: none !important;
+          }
+          label{
+            font-family: GM;
+            letter-spacing: 0.5px;
+            color: #42413e;
+            font-size: 13px;
+            font-weight: 100;
+          }
         }
       }
+    }
+  }
+  .separator{
+    height:1px;
+    width: 100%;
+    background:#b9b9af;
+  }
+
+  .makeOrder{
+    font-family:GL;
+    font-size: 14px;
+    &[disabled],
+    &[disabled]:hover{
+      background-color: #b9b9af !important;
+      border-color: #b9b9af;
+      opacity: 0.5;
+    }
+  }
+
+  .quantity:after {
+    content:'\A';
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgba(254,213,90,0.9);
+    opacity:1;
+  }
+
+  .inCart{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    // display: flex;
+    z-index:2;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    h1{
+      font-size: 5em;
+      letter-spacing: 3px;
+      line-height: 1em;
+      font-family: ACR;
+      padding-top: 15%;
+      // margin-top:-30px;
+    }
+    p{
+      font-size: 1em;
+      letter-spacing: 0.5px;
+      line-height: 0.8em;
+      text-transform: uppercase;
+      font-family: GM;
+    }
+    h1, p{
+      color:white;
     }
   }
 }

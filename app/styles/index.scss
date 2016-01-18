@@ -7,10 +7,6 @@ $orange-hover: #f15a22;
 
 
 .index{
-  margin-top: 28px;
-  @media screen and (max-width:991px){
-    margin-top: 4px;
-  }
   .intro{
     background-image: url("https://rocket04.imgix.net/main_1.png?s=bb1632e76cca545ea114f1fb3b40cf58");
   }
@@ -38,10 +34,14 @@ $orange-hover: #f15a22;
     font-size: 14px !important;
     line-height: 20px !important;
     margin-top: 20px !important;
+    letter-spacing: 0.05rem !important; 
   }
 
   .heroContent{
     background-color: rgba(244,247,248,0.97);
+    @media screen and (max-width:499px){
+      padding:7%;
+    }
     &:before{
       display: block;
       position: absolute;
@@ -62,6 +62,9 @@ $orange-hover: #f15a22;
       line-height: 2rem;
       margin-top:0;
       margin-bottom: 15px;
+      @media screen and (max-width:499px){
+        font-size: 2rem;
+      }
     }
     h1{
       color: #42413e;
@@ -79,6 +82,9 @@ $orange-hover: #f15a22;
         margin-right: auto;
         width: 5rem;
         margin-top: 2rem;
+      }
+      @media screen and (max-width:499px){
+        font-size: 3rem;
       }
     }
     h5{
@@ -125,7 +131,7 @@ $orange-hover: #f15a22;
         margin-bottom: 0.5em;
         font-weight: 400;
         font-style: normal;
-        letter-spacing: 0.075em;
+        letter-spacing: 0.025em;
         margin-top: 15px;
       }
       p{
@@ -163,9 +169,9 @@ $orange-hover: #f15a22;
         }
       }
       .principalsHeading>h2{
-        font-family: GM;
+        font-family: GL;
         color: #515252;
-        font-weight: 600;
+        font-weight: 100;
         font-style: normal;
         font-size: 0.87em;
       }

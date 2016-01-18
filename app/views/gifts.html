@@ -1,7 +1,9 @@
 <div class="gifts">
 
   <div class="container-fluid">
-    <img src="https://rocket04.imgix.net/banner_gifts.jpg?s=416b94cf6608ed05f7b259e789195785" alt="" width="100%">
+    <div class="row">
+      <img src="https://rocket04.imgix.net/banner_gifts.jpg?s=416b94cf6608ed05f7b259e789195785" alt="" width="100%">
+    </div>
   </div>
 
   <div class="container-fluid intro  hero">
@@ -18,10 +20,12 @@
       <h4 class="text-left"><strong>Шаг 1</strong> &nbsp;&nbsp;&nbsp;&nbsp;Выберите подарочный сертификат</h4>
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 giftCard">
+          <div class="inCart">
+          </div>
           <div class="giftCardHeading">
             <h3>&#8372;50.<sup>00</sup></h3>
           </div>
-          <div class="giftCardImg" style="background:url(https://rocket04.imgix.net/gifts_1.jpg?s=fa9dea2977649ce50e30185840863067)">
+          <div class="giftCardImg" style="background:url(https://rocket04.imgix.net/gifts_1.jpg?s=fa9dea2977649ce50e30185840863067); background-size: cover;">
           </div>
           <div class="giftCardDescr">
             <p class="text-center">
@@ -35,7 +39,7 @@
           <div class="giftCardHeading">
             <h3>&#8372;100<sup>00</sup></h3>
           </div>
-          <div class="giftCardImg" style="background:url(https://rocket04.imgix.net/gifts_2.jpg?s=77307f3ac2cd865f502625a63ad84970)">
+          <div class="giftCardImg" style="background:url(https://rocket04.imgix.net/gifts_2.jpg?s=77307f3ac2cd865f502625a63ad84970); background-size: cover;">
           </div>
           <div class="giftCardDescr">
             <p class="text-center">Целая неделя вкусных обедов и ужинов на двоих.</p>
@@ -44,20 +48,21 @@
 
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 giftCard">
           <div class="giftCardHeading">
-            <h3>&#8372;250<sup>00</sup></h3>
+            <h3>&#8372;250<sup>00</sup><span pull-right>Популярное</span></h3>
+            
           </div>
-          <div class="giftCardImg" style="background:url(https://rocket04.imgix.net/gifts_3.jpg?s=67d0cef4aafa8c934c57a971ee6f4e22)">
+          <div class="giftCardImg" style="background:url(https://rocket04.imgix.net/gifts_3.jpg?s=67d0cef4aafa8c934c57a971ee6f4e22); background-size: cover;">
           </div>
           <div class="giftCardDescr">
             <p class="text-center">Идеальные выходные без головной боли на двоих.</p>
           </div>
         </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 giftCard">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 giftCard active">
           <div class="giftCardHeading">
             <h3>&#8372;500<sup>00</sup></h3>
           </div>
-          <div class="giftCardImg" style="background:url(https://rocket04.imgix.net/gifts_4.jpg?s=bf19b02e7d7a5a76de7773444db6656f)">
+          <div class="giftCardImg" style="background:url(https://rocket04.imgix.net/gifts_4.jpg?s=bf19b02e7d7a5a76de7773444db6656f); background-size: cover;">
           </div>
           <div class="giftCardDescr">
             <p class="text-center">Целая неделя вкусных обедов и ужинов на двоих.</p>
@@ -66,7 +71,7 @@
       </div>
     </div>
 
-    <div class="col-xs-12 col-md-10 col-md-offset-1 step secondStep">
+    <div class="col-xs-12 col-md-10 col-md-offset-1 step secondStep" ng-form="giftForm">
       <h4 class="text-left"><strong>Шаг 2</strong> &nbsp;&nbsp;&nbsp;Предоставьте свои данные</h4>
       <div class="form row" ng-form="customerDetails" novalidate>
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -83,6 +88,20 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="container-fluid">
+    <dvi class="row">
+      <div class="separator"></div>
+    </dvi>
+  </div>
+
+  <div class="container-fluid">
+    <dvi class="row text-center">
+      <div class="col-xs-2 div col-xs-offset-5">
+        <button ng-disabled="giftForm.$invalid" class="btn text-center makeOrder" ng-click="checkout();">Сделать Заказ</button>
+      </div>
+    </dvi>
   </div>
 
 </div>

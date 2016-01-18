@@ -10,4 +10,7 @@
 angular.module('ocean04App')
   .controller('GiftsCtrl', function ($rootScope) {
   	$(document).scrollTop(0);
+
+  	var giftCards = $('.giftCard');
+
   });

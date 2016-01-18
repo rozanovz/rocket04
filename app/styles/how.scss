@@ -6,8 +6,15 @@ $separator:  #d0d4d9;
 $orange-hover: #f15a22;
 
 .how{
+  .hero{
+    min-height: 620px;
+  }
   .heroContent{
+    margin-top: 10%;
     background:$white;
+    @media screen and (max-width:499px){
+      padding:8%;
+    }
     h3{
       color: #42413e;
       font-family: GL;
@@ -17,14 +24,17 @@ $orange-hover: #f15a22;
       line-height: 2rem;
       margin-top:0;
       margin-bottom: 15px;
+      @media screen and (max-width:499px){
+        font-size: 2rem;
+      }
     }
     h1{
       color: #42413e;
       font-family: GM;
       font-style: normal;
-      font-size: 3.6rem;
+      font-size: 4rem;
       letter-spacing: 0.125rem;
-      line-height: 3rem;
+      line-height: 2rem;
       &:after{
         display: block;
         height: .4rem;
@@ -35,23 +45,17 @@ $orange-hover: #f15a22;
         width: 5rem;
         margin-top: 2rem;
       }
+      @media screen and (max-width:499px){
+        font-size: 3rem;
+      }
     }
     h5{
       font-family: GL;
       font-size: 13px;
-      color: #42413e;
-      letter-spacing: 0.05rem;
+      color: #515252;
+      letter-spacing: 0rem;
       line-height: 2rem;
       margin-top: 2rem;
-    }
-    p{
-      font-family: GM;
-      font-size: 13px;
-      font-style: normal;
-      color: #515252;
-      letter-spacing: 0.0625rem;
-      margin-top: 2.5rem;
-      margin-bottom: 0.625rem;
     }
   }
 
@@ -77,6 +81,7 @@ $orange-hover: #f15a22;
       margin-bottom:0;
       h1{
         font-size: 2.6rem;
+        font-family: GL;
       }
     }
   }
@@ -93,11 +98,13 @@ $orange-hover: #f15a22;
 
   .howHeading{
     h2{
-      color: #79776b;
       font-family: GL;
+      font-size: 26px;
+      color: #515252;
+      font-family: GN;
     }
-    margin-top: 1.3%;
-    margin-bottom: 3%;
+    margin-top: 30px;
+    margin-bottom: 0px
   }
 
   .howContent{
@@ -121,19 +128,24 @@ $orange-hover: #f15a22;
       .image{
         padding: 0;
         img{
-          width: 100%;
+          width: 90%;
+          @media screen and (max-width:991px){
+            width:100%;
+          }
         }
       }
       .cardText{
         padding: 2%;
         h3{
-          font-family: GM;
-          font-size: 1.9em;
+          font-family: GN;
+          font-size: 1.8em;
           margin-bottom:10%;
         }
         p{
           font-family: GL;
           margin-bottom:5%;
+          font-size:14px;
+          color: #515252;
         }
       }
     }

@@ -6,19 +6,25 @@ $separator:  #d0d4d9;
 $orange-hover: #f15a22;
 
 .about{
-
+  .hero{
+    min-height: 620px;
+  }
   .heroContent{
     background:$white;
     margin-bottom: 12%;
     padding: 3%;
+    opacity: .95;
     @media screen and (max-width:991px){
       margin-bottom: 6%;
+    }
+    @media screen and (max-width:499px){
+      padding: 7%;
     }
     h1{
       color: #42413e;
       font-family: GM;
       font-style: normal;
-      font-size: 3.6rem;
+      font-size: 3rem;
       letter-spacing: 0.125rem;
       line-height: 3rem;
       &:after{
@@ -32,11 +38,14 @@ $orange-hover: #f15a22;
         margin-top: 2rem;
       }
     }
+    @media screen and (max-width:499px){
+      font-size: 2rem;
+    }
     h5{
       font-family: GL;
       font-size: 13px;
       color: #42413e;
-      letter-spacing: 0.05rem;
+      letter-spacing: 0rem;
       line-height: 2rem;
       margin-top: 2rem;
     }
@@ -78,19 +87,24 @@ $orange-hover: #f15a22;
       .image{
         padding: 0;
         img{
-          width: 100%;
+          width: 90%;
+          @media screen and (max-width:991px){
+            width:100%;
+          }
         }
       }
       .cardText{
         padding: 2%;
         h3{
-          font-family: GM;
-          font-size: 1.9em;
+          font-family: GN;
+          font-size: 1.8em;
           margin-bottom:10%;
         }
         p{
           font-family: GL;
           margin-bottom:5%;
+          font-size:14px;
+          color: #515252;
         }
       }
     }

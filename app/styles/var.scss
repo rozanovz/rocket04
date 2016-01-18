@@ -41,7 +41,7 @@ $body-font: 16px;
 //primary options
 body{
   font-size:$body-font;
-  padding-top:52px !important;
+  padding-top:0 !important;
   background: #f4f7f8 !important;
   min-width: 300px !important;
 }
@@ -192,7 +192,7 @@ a{
 }
 
 .btn.cartBtnIcon{
-  background: url(../images/store/cart.svg) no-repeat 0 -71px;
+  background: url(https://rocket04.imgix.net/Cart.svg?s=11a33e5e353ec427d7085b8583548826) no-repeat 0 -71px;
   background-size: 26px 102px;
   width: 31px;
   height: 31px;
@@ -208,7 +208,7 @@ a{
   &:hover,
   &:focus,
   &:visited{
-    background: url(../images/store/cart.svg) no-repeat 0 -71px !important;
+    background: url(https://rocket04.imgix.net/Cart.svg?s=11a33e5e353ec427d7085b8583548826) no-repeat 0 -71px !important;
     background-size: 26px 102px !important;
     width: 31px;
     outline:none;

@@ -13,11 +13,11 @@ $orange-hover: #f15a22;
 }
 
 .fullDesc{
-  // margin-top:1%;
   background:rgb(244,247,248);
   padding-bottom: 20%;
 
   .fullDescNav{
+    margin-top: 60px;
     padding-top: 1.5%;
     padding-bottom:3%;
     height: 80px;
@@ -88,6 +88,7 @@ $orange-hover: #f15a22;
   }
 
   .actions{
+    margin-bottom: 2%;
     .btn{
       border-radius:2px;
       line-height: 1.7;
