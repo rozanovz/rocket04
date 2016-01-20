@@ -46,22 +46,29 @@ $darkgrey: #d9d9d9;
 }
 
 footer{
-  background: $bg-grey;
-  padding-top: 2%;
-  padding-bottom: 2%;
+  background: #fff;
+  padding-top: 5%;
+  padding-bottom: 5%;
   .heading{
     color: #42413e;
-    font-family: GM;
-    font-size: 0.75rem;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
+    font-family: GM; 
+    font-size: 1.1rem; 
+    text-transform: uppercase; 
+    margin-bottom: 1.5rem;
+    font-weight: 100; 
+    line-height: 1.5;
   }
 
   li:not(.heading){
     color: #79776b;
     font-family: GM;
-    font-size: 0.75rem;
-    line-height: 1.8rem;
+    font-size: 1.2rem; 
+    line-height: 3rem;
+    .time{
+      font-family: GL;
+    }
     a{
       position: relative;
       &:before {
@@ -103,7 +110,7 @@ footer{
     margin-top:3%;
     color:$white;
     // padding-left:12px;
-    padding-top: 10px;
+    padding-top: 8px;
 
   }
   div.footerDiv1{
@@ -130,13 +137,13 @@ footer{
   .instagram{
         background-color: #517fa4;
       }
-  .icon-logo-facebook:before { content: '\e800'; font-size: 20px;} /* '' */
+  .icon-logo-facebook:before { content: '\e800'; font-size: 18px;} /* '' */
 
-  .icon-logo-instagram:before { content: '\e801'; font-size: 20px;} /* '' */
+  .icon-logo-instagram:before { content: '\e801'; font-size: 18px;} /* '' */
 
-  .icon-logo-vk:before { content: '\e802'; font-size: 20px;} /* '' */
+  .icon-logo-vk:before { content: '\e802'; font-size: 18px;} /* '' */
 
-  .icon-logo-twitter-bird:before { content: '\e803'; font-size: 20px;} /* '' */
+  .icon-logo-twitter-bird:before { content: '\e803'; font-size: 18px;} /* '' */
 
 }
 

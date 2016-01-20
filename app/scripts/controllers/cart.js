@@ -78,6 +78,8 @@ angular.module('ocean04App')
     $scope.countTotal();
 
     $scope.checkout = function () {
+      $scope.formUser.total = "Общая сумма заказа: " + (ngCart.totalCost() + $scope.shipping);
+
       var order_details = [];
       ngCart.getCart().items.forEach(function (key) {
         order_details.push(key._name + " - " + key._quantity);

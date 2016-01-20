@@ -12,7 +12,7 @@
     </div>
 
     <ul class="list-unstyled">
-      <li ng-repeat="i in receipeLst1 | filter:search:strict">
+      <li ng-repeat="i in receipeLst1 | filter:search:strict | filter:colourFilter">
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 card" >
           <a ng-href="#/desc/{{i.id}}">
             <div class="image photo-container" ng-class="{'quantity':s.getInCartQuantity(i.id)}">
@@ -28,7 +28,7 @@
               <h3>{{i.title}}</h3>
             </div>
             <div class="tags">
-              <p class="itemTag">
+              <p class="itemTag text-capitalize">
                 {{i.tag}}
               </p>
             </div>

@@ -32,13 +32,22 @@ angular.module('ocean04App')
     };
 
     var post = function(suburl,param){
-      console.log(JSON.stringify(param));
       return $q(function(resolve, reject) {
-         $http.post(url+suburl,param,
-          {
-            headers: {'Content-Type': 'application/json'}
-          }
-        )
+        //  $http.post(url+suburl,param,
+        //   {
+        //     headers: {'Content-Type': 'application/json'}
+        //   }
+        // )
+        var data =  JSON.stringify(param);
+        $.ajax({
+          url: url+suburl,
+          type: 'post',
+          data: data ,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          dataType: 'json'
+        })
         .success(function (data) {
           console.log(data);
           resolve(data);

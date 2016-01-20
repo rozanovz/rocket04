@@ -20,10 +20,10 @@
       <h4 class="text-left"><strong>Шаг 1</strong> &nbsp;&nbsp;&nbsp;&nbsp;Выберите подарочный сертификат</h4>
       <div class="row">
 
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 giftCard" ng-repeat="gift in gifts" ng-click="selectGift(gift.id);" >
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 giftCard" ng-repeat="gift in gifts" ng-click="selectGift(gift.id, gift);" ng-class="{active :(selectedGift == gift.id)}">
           
           <div class="giftCardHeading">
-            <h3>&#8372;{{gift.price}}<sup>00</sup><span pull-right>{{gift.popular}}</span></h3>
+            <h3 ng-model="formUser.gift">&#8372;{{gift.price}}<sup>00</sup><span pull-right>{{gift.popular}}</span></h3>
           </div>
           <div class="giftCardImg" style="background-image:url({{gift.img}}); background-size: cover;" ng-class="{quantity :(selectedGift == gift.id)}">
             <div class="inCart">
@@ -66,7 +66,7 @@
   <div class="container-fluid">
     <dvi class="row text-center">
       <div class="col-xs-2 div col-xs-offset-5">
-        <button ng-disabled="giftForm.$invalid" class="btn text-center makeOrder" ng-click="checkout();">Сделать Заказ</button>
+        <button ng-disabled="giftForm.$invalid" class="btn text-center makeOrder" ng-click="buyGift();">Сделать Заказ</button>
       </div>
     </dvi>
   </div>

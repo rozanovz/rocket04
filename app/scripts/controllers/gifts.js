@@ -8,22 +8,27 @@
  * Controller of the ocean04App
  */
 angular.module("ocean04App")
-  .controller("GiftsCtrl", function ($rootScope, $scope) {
+  .controller("GiftsCtrl", function ($rootScope, $scope, api) {
   	$(document).scrollTop(0);
 
   	var giftCards = $(".giftCard");
 
+    $("#phone").mask("+38(999)999-99-99");
+
+    $scope.formUser = {};
+
   	$scope.selectedGift;
 
-  	$scope.selectGift = function(id){
+  	$scope.selectGift = function(id, gift){
   		$scope.selectedGift = id;
+      $scope.formUser.order_details = "Подарочный сертификат стоимостью: " + gift.price;
   	}
 
   	$scope.gifts = [
   		{
   			img:"https://rocket04.imgix.net/gifts_1.jpg?s=fa9dea2977649ce50e30185840863067",
   			price:50,
-  			text:"Быстро. Вкусно. Надёжно. <br> Идеальный вариант, если других вариантов нет.",
+  			text:"Быстро. Вкусно. Надёжно. Идеальный вариант, если других вариантов нет.",
   			id:1,
   			popular:""
   		},{
@@ -46,5 +51,25 @@ angular.module("ocean04App")
   			popular:""
   		}
   	];
+
+    $scope.buyGift = function () {
+      var newPhone = [];
+      for (var i = 0; i<$scope.formUser.phone.length;i++){
+        if($scope.formUser.phone[i] !== ")"){
+          if($scope.formUser.phone[i] !== "("){
+            if($scope.formUser.phone[i] !== "-"){
+              newPhone.push($scope.formUser.phone[i]);
+            }
+          }
+        } 
+      }
+      $scope.formUser.phone = newPhone.join('');
+      console.log($scope.formUser);
+      api.receipe.orders($scope.formUser).then(function(response){
+        console.log(response);
+      },function(err) {
+        console.log(err);
+      });
+    }
 
   });
