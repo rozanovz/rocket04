@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('ocean04App')
-  .service('api', function ($http,$q,$cookies,$cookieStore,$window) {
+  .service('api', function ($http,$q,$window) {
     $http.defaults.useXDomain = true;
-    var url = 'http://www.rocket04.com/'
+    var url = 'https://rocket04.com/'
 
 // MAIN API REQUEST METHODS
     var list =  function (suburl,field,param){
@@ -32,9 +32,15 @@ angular.module('ocean04App')
     };
 
     var post = function(suburl,param){
+      console.log(JSON.stringify(param));
       return $q(function(resolve, reject) {
-        $http.post(url+suburl,param, {headers: {'Content-Type': 'application/json'}})
+         $http.post(url+suburl,param,
+          {
+            headers: {'Content-Type': 'application/json'}
+          }
+        )
         .success(function (data) {
+          console.log(data);
           resolve(data);
         }).error(function (data, status, headers, config) {
           reject(data);
@@ -48,8 +54,8 @@ angular.module('ocean04App')
         store: function () {
           return list('get_recipes');
         },
-        orders: function (argument) {
-          return;
+        orders: function (order) {
+          return post('order', order);
         }
       }
     };

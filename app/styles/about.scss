@@ -6,16 +6,107 @@ $separator:  #d0d4d9;
 $orange-hover: #f15a22;
 
 .about{
-  div.about1{
-  	background: $bg-grey;
+  .hero{
+    min-height: 620px;
   }
-  img{
-  	width:100%;
+  .heroContent{
+    background:$white;
+    margin-bottom: 12%;
+    padding: 3%;
+    opacity: .95;
+    @media screen and (max-width:991px){
+      margin-bottom: 6%;
+    }
+    @media screen and (max-width:499px){
+      padding: 7%;
+    }
+    h1{
+      color: #42413e;
+      font-family: GM;
+      font-style: normal;
+      font-size: 3rem;
+      letter-spacing: 0.125rem;
+      line-height: 3rem;
+      &:after{
+        display: block;
+        height: .4rem;
+        background-color: #515252;
+        content: " ";
+        margin-left: auto;
+        margin-right: auto;
+        width: 5rem;
+        margin-top: 2rem;
+      }
+    }
+    @media screen and (max-width:499px){
+      font-size: 2rem;
+    }
+    h5{
+      font-family: GL;
+      font-size: 13px;
+      color: #42413e;
+      letter-spacing: 0rem;
+      line-height: 2rem;
+      margin-top: 2rem;
+    }
   }
-  .double{
-  	width:100%;
-  	img{
-  		width:35%;
-  	}
+
+  .intro{
+    background-image: url("https://rocket04.imgix.net/how_it_works_main.jpg?s=5e44adc77418471e7f3f3f4ad27cf8b7");
+    .heroContent:before{
+      display: block;
+      position: absolute;
+      content: " ";
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      border: 1px solid #F1EFF1;
+      pointer-events: none;
+    }
+  }
+  
+  .aboutContent{
+    .aboutCard{
+      background: $white;
+      margin-top:1%;
+      margin-bottom: 1%;
+      &:nth-child(odd){
+        padding-right:0;
+        @media screen and (max-width:991px){
+          padding: 0;
+        }
+      }
+      &:nth-child(even){
+        padding-left:0;
+        @media screen and (max-width:991px){
+          padding: 0;
+        }
+      }
+
+      .image{
+        padding: 0;
+        img{
+          width: 90%;
+          @media screen and (max-width:991px){
+            width:100%;
+          }
+        }
+      }
+      .cardText{
+        padding: 2%;
+        h3{
+          font-family: GN;
+          font-size: 1.8em;
+          margin-bottom:10%;
+        }
+        p{
+          font-family: GL;
+          margin-bottom:5%;
+          font-size:14px;
+          color: #515252;
+        }
+      }
+    }
   }
 }

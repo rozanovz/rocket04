@@ -10,7 +10,7 @@
 
 						<div class="row">
 							<div class="col-xs-12 date">
-								<h3>{{deliveryDate|date:'EEEE, d MMMM'}}</h3>
+								<h3 class="text-capitalize">{{deliveryDate|date:'EEEE, d MMMM'}}</h3>
 							</div>
 
 							<div class="col-xs-12">
@@ -23,10 +23,10 @@
 							</div>
 			        
 							<div class="col-xs-12 cartTable">
-								<table class="table table-responsive">
+								<table class="table table-responsive" cols="4">
 									<tbody>
 										<tr ng-repeat="item in cartItems.items">
-											<td class="imgPreview text-left" style="background-image:url({{item._data.img}})">
+											<td class="imgPreview text-left" background="{{item._data.img}}" width="48px" height="48px">
 												<!-- <img ng-src="{{item._data.img}}" alt=""/> -->
 											</td>
 											<td class="text-left infoBox"> 
@@ -34,7 +34,7 @@
 												<br> 
 												<span>{{item._price | currency:"\u20b4"}}</span>
 											</td>
-											<td class="text-center plusMinusBox">
+											<td class="text-center plusMinusBox" width="10%">
 												<a class="btn btn-xs removeFromCart" ng-click="item.setQuantity(-1, true); getCart(); countTotal(); checkShipping()">
 													<i class="glyphicon glyphicon-minus"></i>
 												</a>
@@ -44,7 +44,7 @@
 												</a>
 											</td>
 
-											<td class="text-center">
+											<td class="text-center" width="10%">
 												<span ng-click="removeItem(item._id); getCart(); countTotal(); checkShipping()">
 													<h5 class="removeFromCart">Убрать</h5>
 												</span>
@@ -67,7 +67,7 @@
 							<div class="form" ng-form="customerDetails" novalidate>
 								<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 									<label for="adress">Адрес</label>
-									<input id="adress" type="text" class="adressDetails adress" placeholder="Введите адрес" ng-model="formUser.adress" required>
+									<input id="adress" type="text" class="adressDetails adress" placeholder="Введите адрес" ng-model="formUser.address" required>
 								</div>
 								<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 									<label for="appartment">Номер Квартиры</label>

@@ -11,6 +11,7 @@ $darkgrey: #d9d9d9;
 .navbar {
   background: $white;
   height: 80px;
+  margin-bottom:0;
   .container-fluid{
     padding-right: 30px;
   }
@@ -34,7 +35,10 @@ $darkgrey: #d9d9d9;
         padding-top:28px;
         text-transform:capitalize;
         &:hover{
-          color: #f15a22;
+          color: $orange-hover;
+        }
+        &:focus{
+          color: $navblack
         }
       }
     }
@@ -139,22 +143,26 @@ footer{
 // slicknav navigation
 .slicknav_menu{
   background: none;
-  position: fixed;
+  // position: fixed;
   width: 100%;
   top: 0;
   background: $white !important;
   z-index: 999;
-  border-top: 1px solid $orange;
   border-bottom: 1px solid $separator;
-  visibility: hidden;
+  display: none !important;
   @media screen and (max-width: 991px) {
-    visibility: visible;
+    display: block !important;
   }
   .slicknav_brand{
     padding-top: 0;
+    position: absolute;
+    left: 35%;
+    @media screen and (max-width:370px){
+      left:29%;
+    }
     img{
       height: 45px;
-      width: 100px;
+      width: 120px;
     }
   }
   .slicknav_btn{
@@ -177,5 +185,18 @@ footer{
   ul{
     background: $white;
     height: 100vh;
+  }
+
+  .slicknav_nav a {
+      font-size: 20px;
+      font-weight: 100;
+      line-height: 55px;
+      letter-spacing: 1.1px;
+      color: #79776b;
+  }
+  .slicknav_nav a:hover {
+      border-radius: 0;
+      background: none;
+      color: #f15a22;
   }
 }

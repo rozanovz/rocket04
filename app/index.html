@@ -29,11 +29,11 @@
     
     <rocket-navigation ng-hide="itemDescription"></rocket-navigation>
     <!--Slick nav menu-->
-    <ul id="menuStick" style="display:none;" ng-hide="rocketStart" ng-hide="itemDescription">
-      <li class="bottom-border"><a href="#/how">Принцип работы</a></li>
-      <li class="bottom-border"><a href="#/gifts">Подарки</a></li>
-      <li class="bottom-border"><a href="#/about">О нас</a></li>
-      <li><a href="#/rocket04" class="btn">Посмотреть меню</a></li>
+    <ul id="menuStick" style="display:none;" ng-hide="itemDescription">
+      <li><a href="#/how">Принцип работы</a></li>
+      <li><a href="#/gifts">Подарки</a></li>
+      <li><a href="#/about">О нас</a></li>
+      <li><a href="#/rocket04">Посмотреть меню</a></li>
     </ul>
 
     <div class="loader" ng-show="isLoading">
@@ -80,13 +80,15 @@
     <!-- build:js(app) scripts/slicknav.min.js -->
     <script src="scripts/slicknav.min.js"></script>
     <script src="scripts/controllers/gmap.js"></script>
+    <script src="scripts/controllers/contract.js"></script>
+    <script src="scripts/controllers/contacts.js"></script>
     <!-- endbuild -->
 
     <script type="text/javascript">
       $(function(){
         $('#menuStick').slicknav({
-            brand:"<a href=\"#/\"><img src=\"../images/rocket.svg\" alt=\"\"></a>",
-            label:"Меню",
+            brand:"<a href=\"#/\"><img src=\"https://rocket04.imgix.net/logo.svg?s=533089706d3998f2811d218fd2fe2fa5\" alt=\"\"></a>",
+            label:"",
             closeOnClick: true
           });
       });

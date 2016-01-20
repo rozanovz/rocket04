@@ -13,11 +13,11 @@ $orange-hover: #f15a22;
 }
 
 .fullDesc{
-  // margin-top:1%;
   background:rgb(244,247,248);
   padding-bottom: 20%;
 
   .fullDescNav{
+    margin-top: 60px;
     padding-top: 1.5%;
     padding-bottom:3%;
     height: 80px;
@@ -88,6 +88,7 @@ $orange-hover: #f15a22;
   }
 
   .actions{
+    margin-bottom: 2%;
     .btn{
       border-radius:2px;
       line-height: 1.7;
@@ -146,10 +147,13 @@ $orange-hover: #f15a22;
         line-height: 35px;
         text-transform:uppercase;
         font-family: GL;
+        color: #79776b;
       }
       &:active>a,
-      &.active>a{
-        background-color: #f7f7f7;      
+      &.active>a,
+      &.active>a:hover{
+        background-color: #f7f7f7 !important; 
+        color: #515252 !important;     
       }
     }
     li:nth-child(2){

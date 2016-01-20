@@ -6,14 +6,18 @@ $separator:  #d0d4d9;
 $orange-hover: #f15a22;
 
 .store{
+  .fixed {
+  position: fixed;
+  top:0; left:0;}
   .storeNav {
-    margin-top:28px;
+    // margin-top:28px;
     padding-top:10px;
     padding-bottom:10px;
     border-bottom: 1px solid #e8ebe9 !important;
     margin-bottom:0;
+    z-index: 1;
     @media screen and (max-width:991px){
-      margin-top:5px;
+      margin-top:0px;
     }
     .storNavItem{
       padding: 0;

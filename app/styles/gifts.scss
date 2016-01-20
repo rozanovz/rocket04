@@ -6,15 +6,172 @@ $separator:  #d0d4d9;
 $orange-hover: #f15a22;
 
 .gifts{
-  background: $bg-grey;
-  .intro{
-    background-image: url("../images/gifts/hero.jpg");
+  .hero{
+    min-height: initial;
   }
-  .content {
-    li{
-      img{
-        width: 30%;
+  .heroContent{
+    margin-bottom: 0;
+    margin-top: 0;
+    h1{
+      color: #42413e;
+      font-family: GN;
+      font-style: normal;
+      font-size: 3rem;
+      letter-spacing: 0.125rem;
+      line-height: 3rem;
+      @media screen and (max-width:499px){
+        font-size: 2rem;
       }
+      &:after{
+        display: block;
+        height: .4rem;
+        background-color: #515252;
+        content: " ";
+        margin-left: auto;
+        margin-right: auto;
+        width: 5rem;
+        margin-top: 2rem;
+      }
+    }
+    h5{
+      font-family: GL;
+      font-size: 13px;
+      color: #515252;
+      letter-spacing: 0rem;
+      line-height: 2rem;
+      margin-top: 2rem;
+    }
+  }
+
+  .giftsContent{
+    .step{
+      margin-bottom: 6%;
+      h4{
+        color: #79776b;
+        margin-bottom: 20px;
+        font-size:17px;
+        strong{
+          color: #42413e;
+          font-family: GL;
+        }
+      }
+    }
+    
+    .giftCard{
+      margin-bottom: 2%;
+      .giftCardHeading{
+        background: $white;
+        padding: 3%;
+        h3{
+          color: #79776b;
+          margin:0;
+          line-height: 2;
+          font-family: GL; 
+          font-size: 1.2em;
+          span{
+            float:right;
+            font-family: GL;
+            color: #79776b;
+            font-size: 1em;
+          }
+        }
+        
+      }
+
+      .giftCardImg{
+        height: 150px;
+        background-size: cover;
+      }
+
+      .giftCardDescr{
+        background: $white;
+        padding: 3%;
+        height: 120px;
+        p{
+          font-family:GL;
+          color: #79776b;
+          font-size:13px;
+          margin-top:30px;
+        }
+      }
+    }
+    
+    .secondStep{
+      margin-bottom: 0;
+      .form{
+        div{
+          margin-bottom: 2%;
+          .adressDetails{
+            width: 100%;
+            padding-left: 8px !important;
+            padding-right: 8px !important;
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: 0.5px;
+            font-size: 14px;
+            color: #42413e;
+            border: 1px solid #e8ebe9;
+            background-color: #FFF;
+            min-height: 35px;
+            border-radius: 2px;
+            outline: none !important;
+          }
+          label{
+            font-family: GM;
+            letter-spacing: 0.5px;
+            color: #42413e;
+            font-size: 13px;
+            font-weight: 100;
+          }
+        }
+      }
+    }
+  }
+  .separator{
+    height:1px;
+    width: 100%;
+    background:#b9b9af;
+  }
+
+  .makeOrder{
+    font-family:GL;
+    font-size: 14px;
+    &[disabled],
+    &[disabled]:hover{
+      background-color: #b9b9af !important;
+      border-color: #b9b9af;
+      opacity: 0.5;
+    }
+  }
+
+  .quantity:after {
+    content:'\A';
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgba(109,110,130,.8);
+    opacity:1;
+  }
+
+  .inCart{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    z-index:2;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    h1{
+      padding-top: 40%;
+      font-size: 1.5em;
+      letter-spacing: .5px;
+      line-height: .8em;
+      font-family: GM;
+      padding-right: 12%;
+    }
+    h1{
+      color:white;
     }
   }
 }

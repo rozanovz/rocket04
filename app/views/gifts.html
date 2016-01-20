@@ -1,47 +1,73 @@
-<div class="gifts bottom-border">
+<div class="gifts" ng-controller="GiftsCtrl">
 
-  <div class="container-fluid intro bottom-border hero">
-    <div class="heroContent text-center col-lg-6 col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
-      <h2>Настройся на волну Rocket04. Подарочные сертификаты - вкусный и нестандартный способ поздравить кого-то.</h2>
+  <div class="container-fluid">
+    <div class="row">
+      <img src="https://rocket04.imgix.net/banner_gifts.jpg?s=416b94cf6608ed05f7b259e789195785" alt="" width="100%">
     </div>
   </div>
 
-  <div class="container-fluid content">
-    <div class="wrapper">
-      <div class="row indent-5">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center radio">
-          <div class="col-xs-12">
-            <img src="../images/gifts/radio.png" alt="" class="img-responsive">
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-lg-offset-2 col-md-offset-1">
-            <!-- <h2>Настройся на волну Rocket04. Подарочные сертификаты - вкусный и нестандартный способ поздравить кого-то.</h2> -->
-          </div>
-        </div>
-      </div>
+  <div class="container-fluid intro  hero">
+    <div class="heroContent text-center col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <h1 class="text-uppercase">подарите подарок, который пригодится каждому</h1>
+      <h5>
+        Идеален для молодых родителей, занятых людей, и всех кто любит вкусно покушать в Днепропетровске.
+      </h5>
+    </div>
+  </div>
 
-      <div class="row indent-5 content">
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center">
-          <ul class="list-unstyled">
-            <li><img src="../images/gifts/100.png" alt="" class="img-responsive"></li>
-            <li><h1>100 UAH</h1></li>
-            <li><p>Покрывает вкуснейший ужин на двоих.</p></li>
-          </ul>
+  <div class="container-fluid giftsContent">
+    <div class="col-xs-12 col-md-10 col-md-offset-1 step firstStep">
+      <h4 class="text-left"><strong>Шаг 1</strong> &nbsp;&nbsp;&nbsp;&nbsp;Выберите подарочный сертификат</h4>
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 giftCard" ng-repeat="gift in gifts" ng-click="selectGift(gift.id);" ng-class="{quantity :(selectedGift == gift.id)}">
+          <div class="inCart">
+            <h1 class="text-uppercase" ng-show="selectedGift == gift.id">выбрано</h1>
+          </div>
+          <div class="giftCardHeading">
+            <h3>&#8372;{{gift.price}}<sup>00</sup><span pull-right>{{gift.popular}}</span></h3>
+          </div>
+          <div class="giftCardImg" style="background:url({{gift.img}}); background-size: cover;">
+          </div>
+          <div class="giftCardDescr">
+            <p class="text-center">{{gift.text}}</p>
+          </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center">
-          <ul class="list-unstyled">
-            <li><img src="../images/gifts/250.png" alt="" class="img-responsive"></li>
-            <li><h1>250 UAH</h1></li>
-            <li><p>Несколько вкусных вечеров для одинокого волка.</p></li>
-          </ul>
+
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-10 col-md-offset-1 step secondStep" ng-form="giftForm">
+      <h4 class="text-left"><strong>Шаг 2</strong> &nbsp;&nbsp;&nbsp;Предоставьте свои данные</h4>
+      <div class="form row" ng-form="customerDetails" novalidate>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <label for="name">Ваше Имя</label>
+          <input id="name" type="text" class="adressDetails name" ng-model="formUser.name" required>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center">
-          <ul class="list-unstyled">
-            <li><img src="../images/gifts/500.png" alt="" class="img-responsive"></li>
-            <li><h1>500 UAH</h1></li>
-            <li><p>Целую неделю никто больше не спросит "а что мы будем кушать?".</p></li>
-          </ul>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <label for="surname">Ваша Фамилия</label>
+          <input id="surname" type="text" class="adressDetails surname" ng-model="formUser.surname" required>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <label for="phone">Ваш Номер Телефона</label>
+          <input id="phone" type="tel" class="adressDetails phone" ng-model="formUser.phone" value="+38" required>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="container-fluid">
+    <dvi class="row">
+      <div class="separator"></div>
+    </dvi>
+  </div>
+
+  <div class="container-fluid">
+    <dvi class="row text-center">
+      <div class="col-xs-2 div col-xs-offset-5">
+        <button ng-disabled="giftForm.$invalid" class="btn text-center makeOrder" ng-click="checkout();">Сделать Заказ</button>
+      </div>
+    </dvi>
+  </div>
+
 </div>

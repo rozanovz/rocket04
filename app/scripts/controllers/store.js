@@ -14,6 +14,7 @@ angular.module('ocean04App')
     $(".slicknav_menu").show();
     $scope.receipeLst1 = [];
     $scope.recepie;
+    $scope.spinner=false;
 
     //getting data from server Artem
     this.getReceipesList = function() {
@@ -33,6 +34,14 @@ angular.module('ocean04App')
       var a = inCartQunatity._quantity;
       this.inCartQunatity = a;
       return this.inCartQunatity;
+    };
+
+    this.loaderInQuantity = function (id) {
+      $scope.spinner=true;
+      setTimeout(function(){
+        $scope.spinner=false;
+      }, 5000)
+      return this.getInCartQuantity(id);
     };
 
     //removing or decrementing item quantity in cart
@@ -59,6 +68,14 @@ angular.module('ocean04App')
       ngCart.addItem(id, name, price, q, data);
       this.getInCartQuantity(id);
     };
+
+    $(window).scroll(function(){
+      var sticky = $('.storeNav'),
+          scroll = $(window).scrollTop();
+
+      if (scroll >= 80) sticky.addClass('fixed');
+      else sticky.removeClass('fixed');
+    });
 
     // this.getReceipes();
     this.getReceipesList();
