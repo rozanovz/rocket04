@@ -17,12 +17,12 @@ $darkgrey: #d9d9d9;
   }
   .navbar-header{
     position: absolute;
-    left: 46.65%; 
+    left: 47.3%;
     top: 33px;
     .navbar-brand {
       padding: 0;
       img{
-        width: 120px;
+        width: 100px;
       }
     }
   }
@@ -49,9 +49,19 @@ footer{
   background: $bg-grey;
   padding-top: 2%;
   padding-bottom: 2%;
+  .heading{
+    color: #42413e;
+    font-family: GM;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
 
   li:not(.heading){
-    margin-bottom: 4%;
+    color: #79776b;
+    font-family: GM;
+    font-size: 0.75rem;
+    line-height: 1.8rem;
     a{
       position: relative;
       &:before {
@@ -88,12 +98,13 @@ footer{
     border-radius: 50%;
     width:40px;
     height:40px;
-    /*background-color: $orange; */
     display:inline-block;
-    margin:2%;
+    margin: 0.5%;
+    margin-top:3%;
     color:$white;
-    padding:10px;
-      
+    // padding-left:12px;
+    padding-top: 10px;
+
   }
   div.footerDiv1{
     @media screen and (max-width: 767px) {
@@ -119,6 +130,14 @@ footer{
   .instagram{
         background-color: #517fa4;
       }
+  .icon-logo-facebook:before { content: '\e800'; font-size: 20px;} /* '' */
+
+  .icon-logo-instagram:before { content: '\e801'; font-size: 20px;} /* '' */
+
+  .icon-logo-vk:before { content: '\e802'; font-size: 20px;} /* '' */
+
+  .icon-logo-twitter-bird:before { content: '\e803'; font-size: 20px;} /* '' */
+
 }
 
 // slicknav navigation
@@ -173,7 +192,7 @@ footer{
       font-weight: 100;
       line-height: 55px;
       letter-spacing: 1.1px;
-      color: #79776b; 
+      color: #79776b;
   }
   .slicknav_nav a:hover {
       border-radius: 0;

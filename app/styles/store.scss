@@ -200,7 +200,7 @@ $orange-hover: #f15a22;
     ul{
       border-radius: 0px;
       margin-top: 12%;
-      width:300px;
+      width:260px;
       padding: 0;
       label{
         font-family: GM;
@@ -224,6 +224,8 @@ $orange-hover: #f15a22;
       margin: 0;
       overflow: auto;
     }
+    span{
+    }
     #filter-button:hover{
       span{
         color: $orange-hover;
@@ -231,18 +233,31 @@ $orange-hover: #f15a22;
       }
     }
     #filter-button input:checked + span{
+      background-color: #f9f9f9;
       color: $orange-hover;
     }
 
     #filter-button label{
-      width: 300px;
+      width: 260px;
       height: 50px;
       margin: 0;
       // position: absolute;
       // top:-30px;
       display: block;
       padding-top: 16px;
-      padding-left: 23%;
+      padding-left: 15%;
+      cursor: pointer;
+    }
+    .btn{
+      background: $white;
+      color: #8c8c8c;
+      border: 1px transparent;
+    }
+    .btn:hover{
+      background-color: #f9f9f9 !important;
+      span{
+        color: $black;
+      }
     }
     .filter-icon{
       display: inline;
