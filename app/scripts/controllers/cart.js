@@ -77,6 +77,9 @@ angular.module('ocean04App')
     $scope.checkShipping();
     $scope.countTotal();
 
+    var monthNames = ["Янв", "Фев", "Мар", "Апр", "Май", "Июнь", "Июль", "Авг", "Сен", "Окт", "Нов", "Дек"];
+
+
     $scope.checkout = function () {
       $scope.formUser.total = "Общая сумма заказа: " + (ngCart.totalCost() + $scope.shipping);
 
@@ -86,7 +89,10 @@ angular.module('ocean04App')
       });
       $scope.formUser.order_details = order_details.join(", ");
 
-      $scope.formUser.timegap = $scope.deliveryDate + '|' + $("li.active>a")[0].innerText;
+      var b = new Date ($scope.deliveryDate);
+      var date = b.getDate()+' '+monthNames[b.getMonth()];
+
+      $scope.formUser.timegap = date + '|' + $("li.active>a")[0].innerText;
 
       var newPhone = [];
       for (var i = 0; i<$scope.formUser.phone.length;i++){
