@@ -28,6 +28,32 @@ angular.module('ocean04App')
       });
     };
 
+
+    $scope.colourIncludes = [];
+      
+    $scope.includeColour = function(colour) {
+      console.log(colour);
+      var i = $.inArray(colour, $scope.colourIncludes);
+      if (i > -1) {
+        $scope.colourIncludes.splice(i, 1);
+      } else {
+        $scope.colourIncludes.push(colour);
+      }
+    }
+      
+    $scope.colourFilter = function(fruit) {
+      if ($scope.colourIncludes.length > 0) {
+        if ($.inArray(fruit.tag, $scope.colourIncludes) < 0)
+          return;
+      }  
+      return $scope.receipeLst1;
+    }
+
+    $scope.clearFilter = function () {
+      $scope.colourIncludes = [];
+      $( "input[type=\"checkbox\"]" ).prop( "checked", false );
+    }
+
     //getting quantity in cart by its id 
     this.getInCartQuantity = function (id) {
       var inCartQunatity = ngCart.getItemById(id);

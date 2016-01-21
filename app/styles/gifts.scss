@@ -59,6 +59,17 @@ $orange-hover: #f15a22;
     
     .giftCard{
       margin-bottom: 2%;
+      &:before {
+        display: block;
+        position: absolute;
+        content: " ";
+        top: 0;
+        left: 15px;
+        right: 015px;
+        bottom: 0;
+        border: 1px solid #e8ebe9;
+        pointer-events: none;
+      }
       .giftCardHeading{
         background: $white;
         padding: 3%;
@@ -72,13 +83,14 @@ $orange-hover: #f15a22;
             float:right;
             font-family: GL;
             color: #79776b;
-            font-size: 1em;
+            font-size: 0.7em;
           }
         }
         
       }
 
       .giftCardImg{
+        position: relative;
         height: 150px;
         background-size: cover;
       }
@@ -147,8 +159,8 @@ $orange-hover: #f15a22;
   .quantity:after {
     content:'\A';
     position:absolute;
-    width:100%; height:100%;
-    top:0; left:0;
+    width:100%; height:150px;
+    left:0;
     background:rgba(109,110,130,.8);
     opacity:1;
   }
@@ -157,18 +169,18 @@ $orange-hover: #f15a22;
     position: absolute;
     text-align: center;
     width: 100%;
-    height: 100%;
+    // height: 100%;
     z-index:2;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     h1{
-      padding-top: 40%;
+      padding-top: 15%;
       font-size: 1.5em;
       letter-spacing: .5px;
       line-height: .8em;
       font-family: GM;
-      padding-right: 12%;
+      padding-right: 4%;
     }
     h1{
       color:white;

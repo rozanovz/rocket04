@@ -80,4 +80,17 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }).run(['$location',function($location){
+    if(window.location.host == 'rocket04.com'){
+      window.location.protocol = "https";
+    }
+      
+
+    $(window).resize(function(){
+      var a = document.body.clientWidth;
+      var b = (((a - 120) / 2)/a)*100;
+      var c = b + "%";
+      $('.slicknav_brand').css('left', c);
+      $('.navbar-header').css('left', c);
+    });
+  }]);
