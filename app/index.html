@@ -16,17 +16,20 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/styles.css -->
     <link rel="stylesheet" href="styles/styles.css">
-    <!-- endbuild --> 
+    <!-- endbuild -->
     <style>
         html, body { height: 100%;}
           #map { height: 50%; }
-    </style>   
+    </style>
+
+
   </head>
   <body ng-app="ocean04App">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
+
+
     <rocket-navigation ng-hide="itemDescription"></rocket-navigation>
     <!--Slick nav menu-->
     <ul id="menuStick" style="display:none;" ng-hide="itemDescription">
@@ -44,7 +47,9 @@
     <div ng-view ng-show="!isLoading"></div>
 
     <rocket-footer></rocket-footer>
-    
+
+
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -60,6 +65,7 @@
     <script src="bower_components/jquery.maskedinput/dist/jquery.maskedinput.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
+
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
@@ -92,8 +98,16 @@
             closeOnClick: true
           });
       });
-      
+
     </script>
+
+    <!-- Google maps api -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLuVHO1BM3676cljsV8SK593AWth6kirs&signed_in=true&callback=initMap">
+    </script>
+
+
+
 
 </body>
 </html>
