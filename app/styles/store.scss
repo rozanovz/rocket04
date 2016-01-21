@@ -34,10 +34,13 @@ $orange-hover: #f15a22;
         border:none;
         border-radius: 0;
         outline:none;
+        font-size:12px;
+        font-weight:100;
         &:active,
         &:focus,
         &:hover,
         &:visited{
+          color:#8c8c8c !important;
           outline:none;
           box-shadow:none;
         }
@@ -233,10 +236,6 @@ $orange-hover: #f15a22;
         transition: all 0.3s ease-in-out 0s;
       }
     }
-    #filter-button input:checked + span{
-      background-color: #f9f9f9;
-      color: $orange-hover;
-    }
 
     #filter-button label{
       width: 260px;
@@ -263,7 +262,7 @@ $orange-hover: #f15a22;
     .filter-icon{
       display: inline;
       width: 12%;
-      margin-right: 5%;
+      margin-right: 10%;
     }
   }
 }

@@ -80,4 +80,7 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }).run(['$location',function($location){
+    if(window.location.host == 'rocket04.com')
+      window.location.protocol = "https";
+  }]);
