@@ -8,13 +8,14 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('cartCtrl', function ($scope, $rootScope, ngCart, api) {
+  .controller('cartCtrl', function ($scope, $rootScope, ngCart, api, $timeout) {
     $(document).scrollTop(0);
-    $rootScope.itemDescription = false;
-    $(".slicknav_menu").show();
-    $scope.formUser = {};
-
     $("#phone").mask("+38(999)999-99-99");
+    $(".slicknav_menu").show();
+    $rootScope.itemDescription = false;
+    $scope.formUser = {};
+    $scope.deliveryDate;
+    var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
     $scope.checkShipping = function () {
       if(ngCart.totalCost()>500){
@@ -23,8 +24,6 @@ angular.module('ocean04App')
         $scope.shipping = 20;
       }
     }
-
-    $scope.deliveryDate;
 
     $scope.getDeliveryDate = function (){
       var a = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][new Date().getDay()];
@@ -75,10 +74,7 @@ angular.module('ocean04App')
 
     $scope.getCart();
     $scope.checkShipping();
-    $scope.countTotal();
-
-    var monthNames = ["Янв", "Фев", "Мар", "Апр", "Май", "Июнь", "Июль", "Авг", "Сен", "Окт", "Нов", "Дек"];
-
+    $scope.countTotal();    
 
     $scope.checkout = function () {
       $scope.formUser.total = "Общая сумма заказа: " + (ngCart.totalCost() + $scope.shipping);
@@ -105,12 +101,23 @@ angular.module('ocean04App')
         } 
       }
       $scope.formUser.phone = newPhone.join('');
-      
-      console.log($scope.formUser);
+
       api.receipe.orders($scope.formUser).then(function(response){
         console.log(response);
+        $scope.notification = true;
+        $scope.successOrder = true;
+        $timeout(function(){
+          $scope.successOrder = false;
+          $scope.notification = false;
+        }, 9000);
       },function(err) {
         console.log(err);
+        $scope.notification = true;
+        $scope.errorOrder = true;
+        $timeout(function(){
+          $scope.errorOrder = false;
+          $scope.notification = false;
+        }, 9000);
       });
     }
 

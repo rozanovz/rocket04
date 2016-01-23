@@ -15,8 +15,8 @@
       <li ng-repeat="i in receipeLst1 | filter:search:strict | filter:colourFilter">
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 card" >
           <a ng-href="#/desc/{{i.id}}">
-            <div class="image photo-container" ng-class="{'quantity':s.getInCartQuantity(i.id)}">
-              <div ng-hide="!s.getInCartQuantity(i.id)" class="inCart">
+            <div class="image photo-container" ng-class="{'quantity fadein fadeout':s.getInCartQuantity(i.id)}">
+              <div ng-hide="!s.getInCartQuantity(i.id)" class="inCart fadein fadeout">
                 <h1>{{s.getInCartQuantity(i.id)}}</h1>
                 <p>в Вашей корзине</p>
               </div>

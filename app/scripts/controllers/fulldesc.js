@@ -11,7 +11,7 @@ angular.module('ocean04App')
   .controller('FulldescCtrl', ['$scope', 'api', '$rootScope', '$routeParams','loader', "ngCart" , function ($scope, api, $rootScope, $routeParams, loader, ngCart) {
     $(document).scrollTop(0);
     $rootScope.itemDescription = true;
-    $(".slicknav_menu").hide();
+    $(".slicknav_menu").css('display','none !important');
     $scope.receipe;
 
     this.getRecepieById = function (id) {

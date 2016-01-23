@@ -15,6 +15,7 @@ angular.module('ocean04App')
     $scope.receipeLst1 = [];
     $scope.recepie;
     $scope.spinner=false;
+    $scope.colourIncludes = [];
 
     //getting data from server Artem
     this.getReceipesList = function() {
@@ -27,9 +28,6 @@ angular.module('ocean04App')
         loader.allowed();
       });
     };
-
-
-    $scope.colourIncludes = [];
       
     $scope.includeColour = function(colour) {
       console.log(colour);
@@ -51,7 +49,8 @@ angular.module('ocean04App')
 
     $scope.clearFilter = function () {
       $scope.colourIncludes = [];
-      $( "input[type=\"checkbox\"]" ).prop( "checked", false );
+      $('input[type="checkbox"]').prop( "checked", false ).parent().css('background', 'white');
+      // $('input[type="checkbox"]')
     }
 
     //getting quantity in cart by its id 
@@ -60,14 +59,6 @@ angular.module('ocean04App')
       var a = inCartQunatity._quantity;
       this.inCartQunatity = a;
       return this.inCartQunatity;
-    };
-
-    this.loaderInQuantity = function (id) {
-      $scope.spinner=true;
-      setTimeout(function(){
-        $scope.spinner=false;
-      }, 5000)
-      return this.getInCartQuantity(id);
     };
 
     //removing or decrementing item quantity in cart
@@ -98,11 +89,9 @@ angular.module('ocean04App')
     $(window).scroll(function(){
       var sticky = $('.storeNav'),
           scroll = $(window).scrollTop();
-
       if (scroll >= 80) sticky.addClass('fixed');
       else sticky.removeClass('fixed');
     });
 
-    // this.getReceipes();
     this.getReceipesList();
   });

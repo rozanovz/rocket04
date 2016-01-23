@@ -15,7 +15,8 @@ $orange-hover: #f15a22;
     padding-bottom:10px;
     border-bottom: 1px solid #e8ebe9 !important;
     margin-bottom:0;
-    z-index: 1;
+    z-index: 999;
+    background: $white;
     @media screen and (max-width:991px){
       margin-top:0px;
     }
@@ -166,6 +167,10 @@ $orange-hover: #f15a22;
       top:0; left:0;
       background:rgba(254,213,90,0.9);
       opacity:1;
+  //     -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  // -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  // -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  // transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
   }
 
   .inCart{

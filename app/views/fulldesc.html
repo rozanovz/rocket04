@@ -12,7 +12,7 @@
 
     <div class="col-xs-12 col-lg-6 text-center photoColumn columnWrapper">
       <div class="image photo-container" ng-class="{'quantity':f.getInCartQuantity(receipe.id)}"> 
-        <div ng-hide="!f.getInCartQuantity(receipe.id)" class="inCart"> 
+        <div ng-hide="!f.getInCartQuantity(receipe.id)" class="inCart fadein fadeout"> 
           <p>{{f.getInCartQuantity(receipe.id)}} в Вашей корзине</p>
         </div>
         <img ng-src="{{receipe.photo}}">

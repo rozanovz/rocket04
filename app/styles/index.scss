@@ -17,7 +17,6 @@ $orange-hover: #f15a22;
       background:$white;
     }
   }
-
   .cardHeadign{
     font-family: GN !important;
     color: #42413e !important;
@@ -150,8 +149,20 @@ $orange-hover: #f15a22;
     }
     .teamQuote{
       background:#ECECEC;
-      padding-bottom: 15%;
-      padding-top: 15%;
+      // padding-bottom: 15%;
+      // padding-top: 15%;
+      .cardContent{
+        padding-top: 12%;
+        @media screen and (max-width:991px){
+          padding-top:3%;
+        }
+      }
+      .image{
+        padding-right:0;
+        @media screen and (max-width:767px){
+          padding-right:15px;
+        }
+      }
     }
     .principalsHeading{
       margin-top:30px;
