@@ -53,12 +53,13 @@ $orange-hover: #f15a22;
       color: #515252;
       font-weight: 600;
       font-style: normal;
-      font-size: 1.25em;
+      font-size: 1em;
       line-height: 1.4em;
       text-transform: uppercase;
       margin-bottom: 9px;
       font-family: GM;
       font-weight: 100;
+
       @media screen and (max-width:499px){
         float:left !important;
         width:100%;

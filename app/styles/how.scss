@@ -8,6 +8,9 @@ $orange-hover: #f15a22;
 .how{
   .hero{
     min-height: 620px;
+    @media screen and (max-width:768px){
+      min-height: 400px;
+    }
   }
   .heroContent{
     margin-top: 10%;
@@ -71,6 +74,9 @@ $orange-hover: #f15a22;
       bottom: 14px;
       border: 1px solid #F1EFF1;
       pointer-events: none;
+      @media screen and (max-width:768px){
+        border:none;
+      }
     }
   }
 
@@ -82,6 +88,9 @@ $orange-hover: #f15a22;
       h1{
         font-size: 2.6rem;
         font-family: GL;
+        @media screen and (max-width:768px){
+          line-height: initial
+        }
       }
     }
   }

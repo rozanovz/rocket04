@@ -7,6 +7,11 @@ $orange-hover: #f15a22;
 
 
 .index{
+  .hero{
+    @media screen and (max-width:768px){
+      min-height: 400px;
+    }
+  }
   .intro{
     background-image: url("https://rocket04.imgix.net/main_1.png?s=bb1632e76cca545ea114f1fb3b40cf58");
   }
@@ -51,6 +56,12 @@ $orange-hover: #f15a22;
       bottom: 14px;
       border: 1px solid #c8c8c1;
       pointer-events: none;
+    }
+    @media screen and (max-width:768px){
+      background: $white;
+      &:before{
+        border:none;
+      }
     }
     h3{
       color: #42413e;

@@ -3,13 +3,14 @@
   .contractHeading{
   	margin-top: 2%;
   	margin-bottom:2%;
-  	font-family: GM;
+  	font-family: GN;
+    font-size: 3rem;
     @media screen and (max-width:450px){
       font-size: 1em;
     }
   }
   .contractbody{
-  	border: 1px solid;
+  	border: 1px solid #AAA;
     height: 750px;
     overflow: auto;
     padding: 2%;

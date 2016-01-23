@@ -8,6 +8,9 @@ $orange-hover: #f15a22;
 .about{
   .hero{
     min-height: 620px;
+    @media screen and (max-width:768px){
+      min-height: 400px;
+    }
   }
   .heroContent{
     background:$white;
@@ -19,6 +22,12 @@ $orange-hover: #f15a22;
     }
     @media screen and (max-width:499px){
       padding: 7%;
+    }
+    @media screen and (max-width:768px){
+      opacity: 1;
+      &:before{
+        border:none;
+      }
     }
     h1{
       color: #42413e;
@@ -63,6 +72,9 @@ $orange-hover: #f15a22;
       bottom: 14px;
       border: 1px solid #F1EFF1;
       pointer-events: none;
+      @media screen and (max-width:768px){
+        border:none;
+      }
     }
   }
   

@@ -11,9 +11,9 @@ $orange-hover: #f15a22;
   }
   h1.contactsHeading{
     color: #42413e;
-    font-family: GM;
+    font-family: GN;
     font-style: normal;
-    font-size: 3.6rem;
+    font-size: 3rem;
     letter-spacing: 0.125rem;
     line-height: 3rem;
     &:after{
@@ -32,9 +32,15 @@ $orange-hover: #f15a22;
 		h3{
 			margin-bottom: 1%;
 			font-family: GM;
+      font-size:1.1em;
 		}
+    td{
+      font-size: 14px;
+      color: #515252; 
+    }
 		a{
-			color:#f27242;
+			color:#f15a22;
+      font-size:14px;
 		}
 	}
 }
