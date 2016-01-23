@@ -1,20 +1,14 @@
+<div class="map">
+  <div class="container-fluid">
+    <div class="col-xs-12 text-center text-uppercase">
+      <h2 class="mapHeading">зона доставки в днепропетровске и области</h2>
+    </div>
 
-    <div id="map" style="width:100%; height:600"></div>
-    <!-- <script>
-
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 17,
-    center: {lat: 48.46238585, lng: 35.05232421}
-  });
-
-  var ctaLayer = new google.maps.KmlLayer({
-    url: '/Users/limestore/Desktop/rocket04/app/Sloy_bez_nazvania_kml.kml',
-    map: map
-  });
-}
-
-    </script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLuVHO1BM3676cljsV8SK593AWth6kirs&signed_in=true&callback=initMap">
-    </script> -->
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 mapContainer">
+      <gm-map options="{center: [48.46238585,35.05232421], zoom: 10}">
+        <gm-kmlLayer options="{url:'https://rocket04.github.io/1.kml', opts: {suppressInfoWindows: true}}">
+        </gm-kmlLayer>
+      </gm-map>
+    </div>
+  </div>
+</div>

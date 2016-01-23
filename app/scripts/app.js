@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngCart.fulfilment', 
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'GoogleMapsNative'
   ])
   .config(function ($routeProvider,$httpProvider) {
 
@@ -62,11 +63,6 @@ angular
         controller: 'GmapCtrl',
         controllerAs: 'gMap'
       })
-      .when('/gMap', {
-        templateUrl: 'views/gmap.html',
-        controller: 'GmapCtrl',
-        controllerAs: 'gMap'
-      })
       .when('/contract', {
         templateUrl: 'views/contract.html',
         controller: 'ContractCtrl',
@@ -84,8 +80,13 @@ angular
     if(window.location.host == 'rocket04.com'){
       window.location.protocol = "https";
     }
-      
 
+    $('#menuStick').slicknav({
+      brand:"<a href=\"#/\"><img src=\"https://rocket04.imgix.net/logo.svg?s=533089706d3998f2811d218fd2fe2fa5\" alt=\"\"></a>",
+      label:"",
+      closeOnClick: true
+    });
+      
     $(window).resize(function(){
       var a = document.body.clientWidth;
       var b = (((a - 120) / 2)/a)*100;

@@ -1,0 +1,26 @@
+.map{
+	margin-bottom:2%;
+  .mapHeading{
+  	margin-top: 2%;
+  	margin-bottom:2%;
+  	font-family: GM;
+    @media screen and (max-width:450px){
+      font-size: 1em;
+    }
+    &:after{
+      display: block;
+      height: .4rem;
+      background-color: #515252;
+      content: " ";
+      margin-left: auto;
+      margin-right: auto;
+      width: 5rem;
+      margin-top: 2rem;
+    }
+  }
+	gm-map {
+    display: block;
+    width: 100%;
+    height: 500px;
+  }
+}
