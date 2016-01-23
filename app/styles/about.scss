@@ -99,6 +99,9 @@ $orange-hover: #f15a22;
           font-family: GN;
           font-size: 1.8em;
           margin-bottom:10%;
+          @media screen and (max-width:991px){
+            margin-bottom: 2%;
+          }
         }
         p{
           font-family: GL;

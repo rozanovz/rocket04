@@ -9,9 +9,5 @@
  */
 angular.module('ocean04App')
   .controller('ContactsCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    $(document).scrollTop(0);
   });
