@@ -13,6 +13,7 @@ angular.module('ocean04App')
     $("#phone").mask("+38(999)999-99-99");
     $(".slicknav_menu").show();
     $rootScope.itemDescription = false;
+    $rootScope.pageTitle = "Корзина";
     $scope.formUser = {};
     $scope.deliveryDate;
     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
@@ -52,7 +53,6 @@ angular.module('ocean04App')
         default:
           break;
       }
-      console.log($scope.deliveryDate);
     }
     $scope.getDeliveryDate();
     // 86400000 - one day in miliseconds
@@ -77,7 +77,7 @@ angular.module('ocean04App')
     $scope.countTotal();    
 
     $scope.checkout = function () {
-      $scope.formUser.total = "Общая сумма заказа: " + (ngCart.totalCost() + $scope.shipping);
+      $scope.formUser.total = (ngCart.totalCost() + $scope.shipping);
 
       var order_details = [];
       ngCart.getCart().items.forEach(function (key) {
@@ -103,7 +103,6 @@ angular.module('ocean04App')
       $scope.formUser.phone = newPhone.join('');
 
       api.receipe.orders($scope.formUser).then(function(response){
-        console.log(response);
         $scope.notification = true;
         $scope.successOrder = true;
         $timeout(function(){
@@ -111,7 +110,6 @@ angular.module('ocean04App')
           $scope.notification = false;
         }, 9000);
       },function(err) {
-        console.log(err);
         $scope.notification = true;
         $scope.errorOrder = true;
         $timeout(function(){

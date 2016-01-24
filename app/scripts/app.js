@@ -76,24 +76,35 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  }).run(['$location',function($location){
-    if(window.location.protocol !== "https:"){
-      // window.location.protocol = "https:";
-    };
+  }).run(['$location',function(){
+    // window.location.protocol = "https:";
 
     $('#menuStick').slicknav({
       brand:"<a href=\"#/\"><img src=\"https://rocket04.imgix.net/logo.svg?s=533089706d3998f2811d218fd2fe2fa5\" alt=\"\"></a>",
       label:"  ",
       closeOnClick: true
     });
-      
-    $(window).resize(function(){
-      var a = document.body.clientWidth;
-      var b = (((a - 120) / 2)/a)*100;
+
+    function centerin () {
+      var b = (((document.body.clientWidth - 120) / 2)/document.body.clientWidth)*100;
       var c = b + "%";
       $('.slicknav_brand').css('left', c);
       $('.navbar-header').css('left', c);
+
+      var d = (((document.body.clientWidth - 26) / 2)/document.body.clientWidth)*100;
+      var e = d + "%";
+      $('.c-loader').css('left', e);
+
+      var f = (((document.body.clientWidth - 105) / 2)/document.body.clientWidth)*100;
+      var a = f + "%";
+      $('.storeLoader').css ('left', a);
+    };
+      
+    $(window).resize(function(){
+      centerin();
     });
+
+    centerin();
   }]).animation('.rocket-view', function() {
     return {
       enter: function(element, done) {

@@ -17,6 +17,8 @@ angular.module("ocean04App")
 
     $scope.formUser = {};
 
+    $rootScope.pageTitle = "Подарки";
+
   	$scope.selectedGift;
 
   	$scope.selectGift = function(id, gift){
@@ -64,11 +66,8 @@ angular.module("ocean04App")
         } 
       }
       $scope.formUser.phone = newPhone.join('');
-      console.log($scope.formUser);
       api.receipe.orders($scope.formUser).then(function(response){
-        console.log(response);
       },function(err) {
-        console.log(err);
       });
     }
 

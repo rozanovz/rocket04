@@ -13,6 +13,7 @@ angular.module('ocean04App')
     $rootScope.itemDescription = true;
     $(".slicknav_menu").css('display','none !important');
     $scope.receipe;
+    $rootScope.pageTitle;
 
     this.getRecepieById = function (id) {
       var items = JSON.parse(localStorage.getItem('items')).filter(function (obj) {
@@ -38,6 +39,7 @@ angular.module('ocean04App')
         carbohydrates: oldNutrients[3]
       };
       $scope.receipe = data;
+      $rootScope.pageTitle = $scope.receipe.title;
     }
 
     //getting quantity in cart by its id 

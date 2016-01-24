@@ -8,6 +8,7 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('ContactsCtrl', function () {
+  .controller('ContactsCtrl', function ($rootScope) {
     $(document).scrollTop(0);
+    $rootScope.pageTitle = "Контакты";
   });

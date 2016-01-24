@@ -49,7 +49,6 @@ angular.module('ocean04App')
           dataType: 'json'
         })
         .success(function (data) {
-          console.log(data);
           resolve(data);
         }).error(function (data, status, headers, config) {
           reject(data);

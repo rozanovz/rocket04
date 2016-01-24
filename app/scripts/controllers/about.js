@@ -9,5 +9,6 @@
  */
 angular.module('ocean04App')
   .controller('AboutCtrl', function ($rootScope) {
+  	$rootScope.pageTitle = "О Нас";
   	$(document).scrollTop(0);
   });

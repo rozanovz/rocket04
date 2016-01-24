@@ -49,8 +49,25 @@
   background: white;
   z-index: 1;
   overflow: hidden;
-  div{
-      left: 50%;
+  .storeLoader,
+  .c-loader{
+      position: absolute;
+      // left: 50%;
       top: 40%;
+  }
+  .storeLoader{
+    .spinner{
+      background: url('spinner.svg');
+      background-repeat: no-repeat;
+      height: 50px;
+      width: 105px;
+      background-position: center;
+    }
+    p{
+      font-size: 10px;
+      text-transform: uppercase;
+      font-family: GM;
+      color: #42413e;
+    }
   }
 }

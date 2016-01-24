@@ -11,6 +11,8 @@ angular.module('ocean04App')
   .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart, ngCartItem) {
     $(document).scrollTop(0);
     $rootScope.itemDescription = false;
+    $rootScope.storeLoader = true;
+    $rootScope.pageTitle = "Ежедневное Меню";
     $(".slicknav_menu").show();
     $scope.receipeLst1 = [];
     $scope.recepie;
@@ -30,7 +32,6 @@ angular.module('ocean04App')
     };
       
     $scope.includeColour = function(colour) {
-      console.log(colour);
       var i = $.inArray(colour, $scope.colourIncludes);
       if (i > -1) {
         $scope.colourIncludes.splice(i, 1);
@@ -76,7 +77,6 @@ angular.module('ocean04App')
 
     //adding or incrementing item quantity in cart
     this.AddToCart = function (id, name, price, q, data) {
-      console.log(data);
       var a = ngCart.getItemById(id);
       var q = q;
       if(a._quantity >= 1){
