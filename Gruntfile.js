@@ -416,25 +416,25 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>/static',
+          dest: '<%= yeoman.dist %>/static/build/',
           src: ['fonts/{,*/}*.*']
         },{
           expand: true,
           dot: true,
           cwd: '<%= yeoman.app %>/styles/',
-          dest: '<%= yeoman.dist %>/static/styles',
+          dest: '<%= yeoman.dist %>/static/build/styles',
           src: ['{,*/}*.*svg']
         },{
           expand: true,
           dot: true,
           cwd: '<%= yeoman.app %>/views/directives',
-          dest: '<%= yeoman.dist %>/static/views/directives',
+          dest: '<%= yeoman.dist %>/static/build/views/directives',
           src: ['{,*/}*.*html']
         },{
           expand: true,
           cwd: '.',
           src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-          dest: '<%= yeoman.dist %>/static'
+          dest: '<%= yeoman.dist %>/static/build/'
         }]
       },
       styles: {

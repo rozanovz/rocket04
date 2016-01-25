@@ -6,18 +6,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
+    <!-- build:css(.tmp) static/build/styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    <!-- build:css(.tmp) styles/styles.css -->
+    <!-- build:css(.tmp) static/build/styles/styles.css -->
     <link rel="stylesheet" href="styles/styles.css">
     <!-- endbuild -->  
-
 
     <link rel="apple-touch-icon" sizes="57x57" href="../static/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="../static/apple-touch-icon-60x60.png">
@@ -70,8 +64,14 @@
 
     <!-- footer -->
     <rocket-footer></rocket-footer>
+
+    <script type="text/javascript">
+      // if (window.location.protocol !== "https:"){
+      //   window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+      // }
+    </script>
     
-    <!-- build:js(.) scripts/vendor.js -->
+    <!-- build:js(.) static/build/scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -88,7 +88,7 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <!-- build:js({.tmp,app}) static/build/scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
@@ -107,7 +107,7 @@
     <script src="scripts/controllers/contract.js"></script>
     <script src="scripts/controllers/contacts.js"></script>
     <!-- endbuild -->
-    <!-- build:js(app) scripts/slicknav.min.js -->
+    <!-- build:js(app) static/build/scripts/slicknav.min.js -->
     <script src="scripts/slicknav.min.js"></script>
     <!-- endbuild -->
 </body>

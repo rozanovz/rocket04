@@ -77,11 +77,6 @@ angular
         redirectTo: '/'
       });
   }).run(['$location',function(){
-
-    if(window.location.protocol != "https:"){
-      window.location.protocol = "https:";
-    }
-
     $('#menuStick').slicknav({
       brand:"<a href=\"#/\"><img src=\"https://rocket04.imgix.net/logo.svg?s=533089706d3998f2811d218fd2fe2fa5\" alt=\"\"></a>",
       label:"  ",
