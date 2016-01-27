@@ -101,7 +101,9 @@ angular.module('ocean04App')
         } 
       }
       $scope.formUser.phone = newPhone.join('');
+    }
 
+    $scope.makeOrder = function () {
       api.receipe.orders($scope.formUser).then(function(response){
         $scope.notification = true;
         $scope.successOrder = true;
