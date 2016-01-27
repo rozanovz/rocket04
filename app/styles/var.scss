@@ -45,7 +45,7 @@ $body-font: 16px;
 }
 
 
- [class^="icon-"]:before, [class*=" icon-"]:before {
+[class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
@@ -56,6 +56,28 @@ $body-font: 16px;
   width: 1em;
   text-align: center;
     line-height: 1em;
+}
+
+.notification{
+  background-color: #f15a22;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  z-index: 999;
+  h5{
+    font-weight: 100;
+    font-style: normal;
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    width: 100%;
+    color: white;
+    span{
+      cursor: pointer;
+    }
+  }
 }
 
 $body-font: 16px;
