@@ -93,6 +93,10 @@ body{
   min-width: 300px !important;
 }
 
+.storeLoader{
+  display:none;
+}
+
 h1{font-size:(32px/$body-font)+0em;}
 h2{font-size:(30px/$body-font)+0em;}
 h3{font-size:(24px/$body-font)+0em;}

@@ -88,7 +88,7 @@ angular.module('ocean04App')
       var b = new Date ($scope.deliveryDate);
       var date = b.getDate()+' '+monthNames[b.getMonth()];
 
-      $scope.formUser.timegap = date + '|' + $("li.active>a")[0].innerText;
+      $scope.formUser.timegap = date + '|' + $("li.active>a")[0].innerHTML;
 
       var newPhone = [];
       for (var i = 0; i<$scope.formUser.phone.length;i++){
