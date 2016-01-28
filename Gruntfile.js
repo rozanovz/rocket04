@@ -406,7 +406,7 @@ module.exports = function (grunt) {
           dot: true,
           cwd: '<%= yeoman.app %>/views/',
           dest: '<%= yeoman.dist %>/static/build/views/',
-          src: ['{,*/}*.*html']
+          src: ['{,*/**/*}*.*html']
         },{
           expand: true,
           cwd: '.',
