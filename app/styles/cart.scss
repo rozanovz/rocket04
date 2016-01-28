@@ -10,6 +10,11 @@ $orange-hover: #f15a22;
 	padding-top: 3%;
 	padding-bottom: 3%;
 
+	@media screen and (max-width:425px){
+		padding-right:5px;
+		padding-left: 5px;
+	}
+
 	.modal-content{
 	  padding: 5%;
 	}
@@ -83,7 +88,7 @@ $orange-hover: #f15a22;
 				table{
 					background: #fff;
 					margin-top:2.5%;
-					min-width: 666px;
+					// min-width: 666px;
 					@media screen and (max-width:768px){
 						border:none;
 					}
@@ -99,7 +104,7 @@ $orange-hover: #f15a22;
 						}
 					}
 					.infoBox{
-						min-width:250px;
+						// min-width:250px;
 						strong{
 							font-size: 14px;
 							font-family: GL;
@@ -117,6 +122,9 @@ $orange-hover: #f15a22;
 					}
 					.plusMinusBox{
 						min-width:110px;
+						@media screen and (max-width:425px){
+							min-width: initial;
+						}
 						span{
 							font-family: ACR;
 							font-weight: 400;
@@ -322,3 +330,6 @@ $orange-hover: #f15a22;
     }
   }
 }
+
+
+

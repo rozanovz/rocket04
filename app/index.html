@@ -1,6 +1,7 @@
 <!doctype html>
 <html ng-app="ocean04App">
   <head>
+      <base href="/">
     <script type="text/javascript">
       // if (window.location.protocol !== "https:"){
       //   window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
@@ -70,15 +71,15 @@
     </ul>
 
     <!-- Loader -->
-    <div class="loader" ng-hide="!isLoading">
-      <div class="storeLoader text-center" ng-show="storeLoader">
+    <div class="loader text-center" ng-show="storeLoader">
+      <div class="loaderContainer">
         <p class="spinner"></p>
         <p>Загружаем Меню</p>
       </div>
     </div>
 
     <!--Main view-->
-    <div ng-view ng-show="!isLoading" class="rocket-view"></div>
+    <div ng-view ng-hide="storeLoader" class="rocket-view"></div>
 
     <!-- footer -->
     <rocket-footer></rocket-footer>

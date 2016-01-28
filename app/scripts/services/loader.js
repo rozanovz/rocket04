@@ -11,10 +11,10 @@ angular.module('ocean04App')
   .service('loader', function ($http, $rootScope) {
     return{
       allowed:function (){
-        $rootScope.isLoading = false;
+        $rootScope.storeLoader = false;
       }, 
       notAllowed: function () {
-        $rootScope.isLoading = true;
+        $rootScope.storeLoader = true;
       }
     }
   });

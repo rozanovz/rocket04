@@ -89,13 +89,9 @@ angular
       $('.slicknav_brand').css('left', c);
       $('.navbar-header').css('left', c);
 
-      var d = (((document.body.clientWidth - 26) / 2)/document.body.clientWidth)*100;
-      var e = d + "%";
-      $('.c-loader').css('left', e);
-
       var f = (((document.body.clientWidth - 105) / 2)/document.body.clientWidth)*100;
       var a = f + "%";
-      $('.storeLoader').css ('left', a);
+      $('.spinner').css ('left', a);
     };
       
     $(window).resize(function(){
@@ -107,13 +103,13 @@ angular
     return {
       enter: function(element, done) {
         element.css('display', 'none');
-        element.fadeIn(500, done);
+        element.fadeIn(100, done);
         return function() {
           element.stop();
         };
       },
       leave: function(element, done) {
-        element.fadeOut(500, done);
+        element.fadeOut(100, done);
         return function() {
           element.stop();
         };

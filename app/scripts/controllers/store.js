@@ -11,7 +11,6 @@ angular.module('ocean04App')
   .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart, ngCartItem) {
     $(document).scrollTop(0);
     $rootScope.itemDescription = false;
-    $rootScope.storeLoader = true;
     $rootScope.pageTitle = "Ежедневное Меню";
     $(".slicknav_menu").show();
     $scope.receipeLst1 = [];
