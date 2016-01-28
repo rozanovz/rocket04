@@ -74,9 +74,10 @@ angular.module('ocean04App')
 
     $scope.getCart();
     $scope.checkShipping();
-    $scope.countTotal();    
+    $scope.countTotal();   
 
     $scope.checkout = function () {
+      $('#myModal').modal('show');
       $scope.formUser.total = (ngCart.totalCost() + $scope.shipping);
 
       var order_details = [];
@@ -104,7 +105,7 @@ angular.module('ocean04App')
     }
 
     $scope.makeOrder = function () {
-      $('#myModal').modal('hide')
+      $('#myModal').modal('hide');
       api.receipe.orders($scope.formUser).then(function(response){
         $scope.notification = true;
         $scope.successOrder = true;
