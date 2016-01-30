@@ -8,13 +8,15 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart, ngCartItem) {
+  .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart, ngCartItem, $location,$window, Page) {
     $(document).scrollTop(0);
     $rootScope.itemDescription = false;
-    $rootScope.pageTitle = "Ежедневное Меню";
+    $rootScope.pagetitle = "Ежедневное Меню";
+    Page.setTitle('Ежедневное Меню');
     $(".slicknav_menu").show();
     $scope.receipeLst1 = [];
     $scope.recepie;
+    $window.ga('send', 'pageview', { page: $location.url() });
     $scope.spinner=false;
     $scope.colourIncludes = [];
 

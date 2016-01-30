@@ -8,12 +8,13 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('FulldescCtrl', ['$scope', 'api', '$rootScope', '$routeParams','loader', "ngCart" , function ($scope, api, $rootScope, $routeParams, loader, ngCart) {
+  .controller('FulldescCtrl', function ($scope, api, $rootScope, $routeParams, loader, ngCart, $location, $window) {
     $(document).scrollTop(0);
     $rootScope.itemDescription = true;
     $(".slicknav_menu").css('display','none !important');
     $scope.receipe;
-    $rootScope.pageTitle;
+    $rootScope.pagetitle;
+    $window.ga('send', 'pageview', { page: $location.url() });
 
     this.getRecepieById = function (id) {
       var items = JSON.parse(localStorage.getItem('items')).filter(function (obj) {
@@ -39,7 +40,7 @@ angular.module('ocean04App')
         carbohydrates: oldNutrients[3]
       };
       $scope.receipe = data;
-      $rootScope.pageTitle = $scope.receipe.title;
+      $rootScope.pagetitle = $scope.receipe.title;
     }
 
     //getting quantity in cart by its id 
@@ -75,4 +76,4 @@ angular.module('ocean04App')
     };
 
     this.getRecepieById($routeParams.id);
-  }]);
+  });

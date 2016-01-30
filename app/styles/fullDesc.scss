@@ -13,8 +13,12 @@ $orange-hover: #f15a22;
 }
 
 .fullDesc{
+  sup {
+    top: -.8em;
+    font-size: 8px;
+}
   background:rgb(244,247,248);
-  padding-bottom: 20%;
+  padding-bottom: 3%;
 
   .fullDescNav{
     margin-top: 60px;

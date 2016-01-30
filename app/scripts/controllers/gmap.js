@@ -8,7 +8,8 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('GmapCtrl', function ($rootScope) {
+  .controller('GmapCtrl', function ($rootScope, $location,$window) {
     $(document).scrollTop(0);
-    $rootScope.pageTitle = "Зона Доставки";
+    $rootScope.pagetitle = "Зона Доставки";
+    $window.ga('send', 'pageview', { page: $location.url() });
   });

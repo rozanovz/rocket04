@@ -127,7 +127,12 @@ $orange-hover: #f15a22;
     padding-bottom: 0%;
     .advantages{
       margin-bottom: 7%;
-      
+      margin-right: 10%;
+      margin-left:10%;
+      @media screen and (max-width:767px){
+        margin-right: initial;
+        margin-left: initial;
+      }
       li{
         img{
           width: 18%;

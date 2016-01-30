@@ -59,6 +59,7 @@ $orange-hover: #f15a22;
     
     .giftCard{
       margin-bottom: 2%;
+      cursor: pointer;
       &:before {
         display: block;
         position: absolute;
@@ -77,8 +78,12 @@ $orange-hover: #f15a22;
           color: #79776b;
           margin:0;
           line-height: 2;
-          font-family: GL; 
+          font-family: ACR; 
           font-size: 1.2em;
+          sup{
+            font-size:10px;
+                top: -.8em;
+          }
           span{
             float:right;
             font-family: GL;
@@ -153,6 +158,15 @@ $orange-hover: #f15a22;
       background-color: #b9b9af !important;
       border-color: #b9b9af;
       opacity: 0.5;
+    }
+  }
+
+  .whatIs{
+    h3{
+      font-family: GL;
+      font-size: 10px;
+      color: #515252;
+      letter-spacing: 0;
     }
   }
 

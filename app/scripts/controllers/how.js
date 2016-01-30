@@ -8,7 +8,8 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('HowCtrl', function ($rootScope) {
+  .controller('HowCtrl', function ($rootScope, $location,$window) {
   	$(document).scrollTop(0);
-  	$rootScope.pageTitle = "Принцип Работы";
+  	$rootScope.pagetitle = "Принцип Работы";
+  	$window.ga('send', 'pageview', { page: $location.url() });
   });

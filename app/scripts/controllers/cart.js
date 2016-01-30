@@ -8,13 +8,14 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('cartCtrl', function ($scope, $rootScope, ngCart, api, $timeout) {
+  .controller('cartCtrl', function ($scope, $rootScope, ngCart, api, $timeout, $location,$window) {
     $(document).scrollTop(0);
     $("#phone").mask("+38(999)999-99-99");
     $(".slicknav_menu").show();
     $rootScope.itemDescription = false;
-    $rootScope.pageTitle = "Корзина";
+    $rootScope.pagetitle = "Корзина";
     $scope.formUser = {};
+    $window.ga('send', 'pageview', { page: $location.url() });
     $scope.deliveryDate;
     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
@@ -109,6 +110,7 @@ angular.module('ocean04App')
       api.receipe.orders($scope.formUser).then(function(response){
         $scope.notification = true;
         $scope.successOrder = true;
+        localStorage.removeItem('cart');
       },function(err) {
         $scope.notification = true;
         $scope.errorOrder = true;
