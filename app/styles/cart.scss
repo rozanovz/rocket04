@@ -6,6 +6,9 @@ $separator:  #d0d4d9;
 $orange-hover: #f15a22;
 
 .cart{
+	.price{
+		font-family: ACR !important;
+	}
 	background: #f4f7f8;
 	padding-top: 3%;
 	padding-bottom: 3%;
@@ -30,9 +33,9 @@ $orange-hover: #f15a22;
 
 	//first card
 	.cartInColumnWrapper{
-		background:#fff; 
+		background:#fff;
 		border: 1px solid #e8ebe9;
-		border-radius: 2px; 
+		border-radius: 2px;
 		padding: 3.5%;
 		margin-bottom: 1%;
 		width:97%;
@@ -238,6 +241,7 @@ $orange-hover: #f15a22;
 			padding-top: 1.5em;
 			font-size: 14px;
 		}
+
 	}
 
 	.cartSmallText{
@@ -269,7 +273,7 @@ $orange-hover: #f15a22;
 
 	// time interval
 	.nav-tabs > li.active > a,
-  .nav-tabs > li.active > a:hover, 
+  .nav-tabs > li.active > a:hover,
   .nav-tabs > li.active > a:focus {
     border: 1px solid #e8ebe9;
     border-bottom: 1px solid rgba(252,209,91,1);
@@ -277,7 +281,7 @@ $orange-hover: #f15a22;
 			 -moz-box-shadow: inset 0px -5px 0px 0px rgba(252,209,91,1);
 						box-shadow: inset 0px -5px 0px 0px rgba(252,209,91,1);
   }
-	
+
 	.nav-tabs > li.active:not(:nth-child(1)) > a,
   .nav-tabs > li.active:not(:nth-child(1)):hover > a,
   .nav-tabs > li.active:not(:nth-child(1)):focus > a,{
@@ -317,8 +321,8 @@ $orange-hover: #f15a22;
       &:active > a,
       &.active > a,
       &.active>a:hover{
-        background-color: #f7f7f7 !important;  
-        color: #515252 !important;     
+        background-color: #f7f7f7 !important;
+        color: #515252 !important;
       }
       &:not(:nth-child(1))>a,{
       	border-left:none;
@@ -333,6 +337,3 @@ $orange-hover: #f15a22;
     }
   }
 }
-
-
-
