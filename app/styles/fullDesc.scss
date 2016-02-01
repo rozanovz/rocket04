@@ -5,21 +5,19 @@ $orange: #f27242;
 $separator:  #d0d4d9;
 $orange-hover: #f15a22;
 
-@media screen and (max-width:767px){
-  .fullDesc.container-fluid{
-    padding-left:0;
-    padding-right:0;
-  }
-}
-
 .fullDesc{
+  &.container-fluid{
+    @media screen and (max-width:767px){
+      padding-left:0;
+      padding-right:0;
+    }
+  }
   sup {
     top: -.8em;
     font-size: 8px;
-}
+  }
   background:rgb(244,247,248);
   padding-bottom: 3%;
-
   .fullDescNav{
     margin-top: 60px;
     padding-top: 1.5%;
@@ -43,12 +41,11 @@ $orange-hover: #f15a22;
   
   .image {
     position:relative;
-  }
-
-  .image img {
-    width:100%;
-    vertical-align:top;
-    border: 1px solid #e8ebe9
+    img {
+      width:100%;
+      vertical-align:top;
+      border: 1px solid #e8ebe9
+    }
   }
 
   .heading{
@@ -115,6 +112,7 @@ $orange-hover: #f15a22;
     margin-bottom: 1%;
   }
 
+  //tabs
   .nav-tabs > li.active > a, 
   .nav-tabs > li.active > a:hover, 
   .nav-tabs > li.active > a:focus {
@@ -129,7 +127,6 @@ $orange-hover: #f15a22;
     color: #515252 !important;
     background: none !important;
   }
-
   .nav-tabs {
     border-bottom: none;
     background: $white;
@@ -167,6 +164,7 @@ $orange-hover: #f15a22;
     }
   }
 
+  //tabs content
   .tab-content{
     border-left:1px solid #e8ebe9;
     border-right:1px solid #e8ebe9;
@@ -175,31 +173,39 @@ $orange-hover: #f15a22;
     min-height: 300px;
     background: $white;
 
-    .description{
-      ine-height: 1.6;
+    .recipeDetails{
+      border-bottom: 1px solid #e8ebe9;
+      &:last-child{
+        border-bottom:none;
+        margin-top: 2%;
+      }
     }
 
-    .description,
-    .ingredients,
-    .ingredientsHeading{
-      font-family: GL;
-      color: #515252;
-      font-size: 12px;
-    }
-    .ingredientsHeading{
-      font-family: GM;
-    }
-    .ingredientsContent{
-      -webkit-column-count: 3;
-         -moz-column-count: 3;
-              column-count: 3;
+    .ingredientsList{
+      -webkit-column-count: 2;
+         -moz-column-count: 2;
+              column-count: 2;
       @media screen and (max-width:500px){
         -webkit-column-count: 1;
          -moz-column-count: 1;
               column-count: 1;
       }
     }
-    
+
+    .description,
+    .heading{
+      font-family: GL;
+      color: #515252;
+      font-size: 12px;
+    }
+
+    .description{
+      line-height: 1.6;
+    }
+    .heading{
+      font-family: GM;
+    }
+
     .descriptionTable{
       border-left:none;
       border-right:none;
@@ -207,7 +213,7 @@ $orange-hover: #f15a22;
         border:none;
       }
       th{
-        width: 25%;
+        width: 50%;
         p{
           color: #515252;
         }
@@ -215,10 +221,6 @@ $orange-hover: #f15a22;
         border:none;
         border-bottom: 1px solid #e8ebe9;
         padding-top:2%;
-        .heading{
-          font-size:12px;
-          font-family: GM;
-        }
         .content{
           font-family: ACR;
           font-size: 14px;
@@ -229,6 +231,20 @@ $orange-hover: #f15a22;
         }
       }
     }
+
+    .nutriensTable{
+      padding: 1% 5%;
+      td{
+        border:none;
+        padding: 1% 2%;
+        vertical-align: middle;
+        line-height: 0;
+        .heading{
+          margin:0;
+        }
+      }
+    }
+
     .tab-pane:not(:last-child){
       padding: 2%;
     }
@@ -238,17 +254,17 @@ $orange-hover: #f15a22;
     }
   }
 
+  //quantity hover
   .quantity:after {
-      content:'\A';
-      position:absolute;
-      width:100%; 
-      height:15%;
-      top:85%; 
-      left:0;
-      background:rgba(254,213,90,0.95);
-      opacity:1;
+    content:'\A';
+    position:absolute;
+    width:100%; 
+    height:15%;
+    top:85%; 
+    left:0;
+    background:rgba(254,213,90,0.95);
+    opacity:1;
   }
-
   .inCart{
     position: absolute;
     text-align: center;

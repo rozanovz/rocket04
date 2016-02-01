@@ -34,6 +34,8 @@ module.exports = function(config) {
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/jquery.maskedinput/dist/jquery.maskedinput.js',
       'bower_components/angular-google-maps-native/dist/angular-google-maps-native.min.js',
+      'bower_components/angular-google-places-autocomplete/src/autocomplete.js',
+      'bower_components/angular-google-places-autocomplete/dist/autocomplete.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

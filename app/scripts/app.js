@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'ngCart.fulfilment', 
     'ui.bootstrap',
-    'GoogleMapsNative'
+    'GoogleMapsNative',
+    'google.places'
   ])
   .config(function ($routeProvider,$httpProvider) {
 

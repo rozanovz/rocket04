@@ -115,25 +115,31 @@ $orange-hover: #f15a22;
     .description{
       .title{
         h3{
-          font-size: 16px;
-          letter-spacing:0.25px;
+          font-size: 14px;
+          letter-spacing:0.0px;
           font-family: GM;
           color: #515252;
-          height: 50px;
+          height: 35px;
           margin-bottom:0;
         }
       }
       .tags{
         p{
           color: #79776b;
-          font-size: 13px;
-          font-family: GL;
+          font-size: 12px;
+          font-family: GM;
+          font-weight: 100;
         }
       }
       .price{
         font-size: 17px;
         font-family: ACR;
         color: #79776b;
+      }
+      .actions{
+        .btn{
+          padding: 3.5px 8.5px;
+        }
       }
     }
   }
@@ -186,7 +192,7 @@ $orange-hover: #f15a22;
     justify-content: center;
     overflow: hidden;
     h1{
-      font-size: 5em;
+      font-size: 4.3em;
       letter-spacing: 3px;
       line-height: 1em;
       font-family: ARB;
@@ -194,7 +200,7 @@ $orange-hover: #f15a22;
       // margin-top:-30px;
     }
     p{
-      font-size: 1em;
+      font-size: .9em;
       letter-spacing: 0.5px;
       line-height: 0.8em;
       text-transform: uppercase;
