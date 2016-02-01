@@ -3,6 +3,7 @@
 angular.module('ocean04App')
   .service('api', function ($http,$q,$window) {
     $http.defaults.useXDomain = true;
+     $http.defaults.headers.post["Content-Type"] = "text/plain";
     var url = 'https://rocket04.com/'
 
 // MAIN API REQUEST METHODS
@@ -33,24 +34,23 @@ angular.module('ocean04App')
 
     var post = function(suburl,param){
       return $q(function(resolve, reject) {
-        //  $http.post(url+suburl,param,
-        //   {
-        //     headers: {'Content-Type': 'application/json'}
-        //   }
-        // )
-        var data =  JSON.stringify(param);
-        $.ajax({
-          url: url+suburl,
-          type: 'post',
-          data: data ,
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          dataType: 'json'
-        })
+         $http.post(url+suburl,param
+        )
+        // var data =  JSON.stringify(param);
+        // $.ajax({
+        //   url: url+suburl,
+        //   type: 'post',
+        //   data: data ,
+        //   headers: {
+        //     'Content-Type': 'application/json'
+        //   },
+        //   dataType: 'json'
+        // })
         .success(function (data) {
           resolve(data);
         }).error(function (data, status, headers, config) {
+          var a = JSON.stringify(arguments);
+          alert(a);
           reject(data);
         });
       });

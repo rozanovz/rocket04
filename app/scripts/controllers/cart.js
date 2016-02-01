@@ -104,6 +104,16 @@ angular.module('ocean04App')
       // console.log(a.geometry.location.lng());
     }
 
+    $scope.destroyUI = function () {
+      localStorage.removeItem('cart');
+      $scope.formUser = {
+        email:""
+      };
+      $scope.cartItems = {};
+      $scope.cartTotal = 0;
+      $scope.address = {};
+    }
+
     $scope.getCart();
     $scope.checkShipping();
     $scope.countTotal();   
@@ -142,7 +152,7 @@ angular.module('ocean04App')
       api.receipe.orders($scope.formUser).then(function(response){
         $scope.notification = true;
         $scope.successOrder = true;
-        localStorage.removeItem('cart');
+        $scope.destroyUI ();
       },function(err) {
         $scope.notification = true;
         $scope.errorOrder = true;
