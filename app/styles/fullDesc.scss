@@ -236,11 +236,14 @@ $orange-hover: #f15a22;
       padding: 1% 5%;
       td{
         border:none;
-        padding: 1% 2%;
+        padding: 0% 0%;
         vertical-align: middle;
         line-height: 0;
         .heading{
           margin:0;
+        }
+        .description{
+          font-size: 14px;
         }
       }
     }
