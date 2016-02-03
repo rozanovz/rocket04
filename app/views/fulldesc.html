@@ -57,9 +57,9 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-xs-12 vine recipeDetails" style="display:none;">
+              <div class="col-xs-12 vine recipeDetails">
                 <p class="text-capitalize heading">Рекомендованное вино</p>
-                <p class="description">{{}}</p>
+                <p class="description">{{receipe.vine}}</p>
               </div>
             </div>
           </uib-tab>
@@ -90,12 +90,12 @@
           <uib-tab heading="Нутриенты">
             <table class="table descriptionTable">
               <tr>
-                <!-- <th>
+                <th>
                   <p class="heading">Размер Порции</p>
                   <p class="content">
-                    {{receipe.newNutrients.callories}} g
+                    {{receipe.size}} g
                   </p>
-                </th> -->
+                </th>
                 <th>
                   <p class="heading">Калории</p>
                   <p class="content">
