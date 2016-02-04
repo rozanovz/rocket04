@@ -175,10 +175,12 @@ $orange-hover: #f15a22;
 
     .recipeDetails{
       border-bottom: 1px solid #e8ebe9;
-      &:last-child{
-        border-bottom:none;
-        margin-top: 2%;
-      }
+      margin-top: 2%;
+    }
+
+    .recipeDetailsLast{
+      border-bottom:none;
+      margin-top: 2%;
     }
 
     .ingredientsList{
