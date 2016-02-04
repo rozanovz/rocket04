@@ -12,6 +12,12 @@ $orange-hover: #f15a22;
       padding-right:0;
     }
   }
+  .tabsetColumnWrapper, .tabsetColumn , .primaryColumn {
+    @media screen and (max-width: 767px){
+      padding-right:0;
+      padding-left:0;
+    }
+  }
   sup {
     top: -.8em;
     font-size: 8px;
@@ -87,6 +93,11 @@ $orange-hover: #f15a22;
     font-style: normal;
     letter-spacing: 1px;
     font-size: 15px;
+    margin-top:7px;
+    @media screen and (max-width:499px){
+      float: left!important;
+      margin-top:0;
+    }
   }
 
   .actions{
@@ -136,8 +147,8 @@ $orange-hover: #f15a22;
       border: 1px solid #e8ebe9;
       border-bottom:none;
       @media screen and (max-width: 480px){
-        width: 100%;
-        border: 1px solid #e8ebe9 !important;
+        // width: 100%;
+        // border: 1px solid #e8ebe9 !important;
       }
       a{
         margin-right: 0;
@@ -150,6 +161,9 @@ $orange-hover: #f15a22;
         text-transform:uppercase;
         font-family: GL;
         color: #79776b;
+        @media screen and (max-width: 480px){
+          font-size:.6em;
+        }
       }
       &:active>a,
       &.active>a,

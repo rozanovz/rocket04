@@ -11,7 +11,9 @@ angular.module('ocean04App')
   .controller('FulldescCtrl', function ($scope, api, $rootScope, $routeParams, loader, ngCart, $location, $window) {
     $(document).scrollTop(0);
     $rootScope.itemDescription = true;
-    $(".slicknav_menu").css('display','none !important');
+    $('.slicknav_menu').each(function () {
+        this.style.setProperty( 'display', 'none', 'important' );
+    });
     $scope.receipe;
     $rootScope.pagetitle;
     $window.ga('send', 'pageview', { page: $location.url() });

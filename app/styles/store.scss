@@ -15,8 +15,7 @@ $orange-hover: #f15a22;
   top:0; left:0;}
   .storeNav {
     @media screen and (max-width:767px){
-      position: fixed;
-      top: 88%;
+      height: 40px;
     }
     // margin-top:28px;
     padding-top:10px;
@@ -54,6 +53,9 @@ $orange-hover: #f15a22;
           outline:none;
           box-shadow:none;
         }
+        @media screen and (max-width:767px){
+          height: 39px;
+        }
       }
     }
     .searchMenu{
@@ -87,6 +89,9 @@ $orange-hover: #f15a22;
     .cartIndex{
       padding: .8%;
       border-left: 1px solid $separator;
+      @media screen and (max-width:767px){
+        height: 30px;
+      }
     }
   }
 
