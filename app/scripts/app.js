@@ -21,62 +21,62 @@ angular
     'GoogleMapsNative',
     'google.places'
   ])
-  .config(function ($routeProvider,$httpProvider) {
-
+  .config(function ($routeProvider,$httpProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: '/views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
       .when('/about', {
-        templateUrl: 'views/about.html',
+        templateUrl: '/views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
       .when('/gifts', {
-        templateUrl: 'views/gifts.html',
+        templateUrl: '/views/gifts.html',
         controller: 'GiftsCtrl',
         controllerAs: 'gifts'
       })
       .when('/how', {
-        templateUrl: 'views/how.html',
+        templateUrl: '/views/how.html',
         controller: 'HowCtrl',
         controllerAs: 'how'
       })
       .when('/rocket04', {
-        templateUrl: 'views/store.html',
+        templateUrl: '/views/store.html',
         controller: 'storeCtrl',
         controllerAs: 'store'
       })
       .when('/cart', {
-        templateUrl: 'views/cart.html',
+        templateUrl: '/views/cart.html',
         controller: 'cartCtrl',
         controllerAs: 'cart'
       })
       .when('/desc/:id', {
-        templateUrl: 'views/fulldesc.html',
+        templateUrl: '/views/fulldesc.html',
         controller: 'FulldescCtrl',
         controllerAs: 'f'
       })
       .when('/gMap', {
-        templateUrl: 'views/gmap.html',
+        templateUrl: '/views/gmap.html',
         controller: 'GmapCtrl',
         controllerAs: 'gMap'
       })
       .when('/contract', {
-        templateUrl: 'views/contract.html',
+        templateUrl: '/views/contract.html',
         controller: 'ContractCtrl',
         controllerAs: 'contract'
       })
       .when('/contacts', {
-        templateUrl: 'views/contacts.html',
+        templateUrl: '/views/contacts.html',
         controller: 'ContactsCtrl',
         controllerAs: 'contacts'
       })
       .otherwise({
         redirectTo: '/'
       });
+      // $locationProvider.html5Mode(true);
   }).run(['$location',function($scope){
     $scope.storeLoader = false;
     $('#menuStick').slicknav({

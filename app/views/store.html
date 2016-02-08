@@ -1,5 +1,14 @@
 <div ng-controller="storeCtrl as s" class="store">
   <!-- <rocket-navstore></rocket-navstore> -->
+  <div class="container-fluid notification fadein fadeout" ng-show="countDownFlag">
+    <div class="col-xs-12 text-center">
+      <h5 class="fadein fadeout">
+        <span class="clock"></span><span class="ACR">{{countDown}}</span> Минут до окончания приёма заказов для доставки на сегодня!
+        <span ng-click="countDownFlag=false" class="pull-right">x</span>
+      </h5>
+    </div>
+  </div>
+
   <div ng-include="'views/navigation-store.html'" ng-hide="itemDescription"></div>
   <div class="container-fluid">
     <div class="banner">

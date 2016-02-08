@@ -8,7 +8,7 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart, ngCartItem, $location,$window, Page) {
+  .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart, ngCartItem, $location,$window, Page, $interval) {
     $(document).scrollTop(0);
     $rootScope.itemDescription = false;
     $rootScope.pagetitle = "Ежедневное Меню";
@@ -31,7 +31,31 @@ angular.module('ocean04App')
         loader.allowed();
       });
     };
-      
+
+    var countDownTimer = new Date().getHours();
+    $scope.countDownFlag = false;
+    
+
+    if(countDownTimer == 21){
+      $scope.countDownFlag = true;
+      $scope.countDown = 59-new Date().getMinutes();
+      $interval(function() {
+        $scope.countDown = $scope.countDown - 1
+        if ($scope.countDown == 0){
+          $scope.stopCountDown();
+          $scope.countDownFlag = false;
+        }
+        console.log($scope.countDown);
+      }, 60000);
+    }
+
+    $scope.stopCountDown = function() {
+      if (angular.isDefined(stop)) {
+        $interval.cancel(stop);
+        stop = undefined;
+      }
+    };
+
     $scope.includeColour = function(colour) {
       var i = $.inArray(colour, $scope.colourIncludes);
       if (i > -1) {

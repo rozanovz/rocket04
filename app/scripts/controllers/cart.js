@@ -17,9 +17,9 @@ angular.module('ocean04App')
     $scope.formUser = {
       email:""
     };
+    $scope.delivery;
     $scope.address = {};
     $window.ga('send', 'pageview', { page: $location.url() });
-    $scope.deliveryDate;
     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
     $scope.checkShipping = function () {
@@ -30,52 +30,32 @@ angular.module('ocean04App')
       }
     }
 
-    $scope.getDeliveryDate = function (){
-      var a = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][new Date().getDay()];
-      switch(a){
-        case "Пн":
-          $scope.setDeliveryDate('Пн', 6);
-          break;
-        case "Вт":
-          $scope.setDeliveryDate('Вт', 5);
-          break;
-        case "Ср":
-          $scope.setDeliveryDate('Ср', 4);
-          break;
-        case "Чт":
-          $scope.setDeliveryDate('Чт', 3);
-          break;
-        case "Пт":
-          $scope.setDeliveryDate('Пт', 2);
-          break;
-        case "Сб":
-          $scope.setDeliveryDate('Сб', 1);
-          break;
-        case "Вс":
-          $scope.setDeliveryDate('Вс', 7);
-          break;
-        default:
-          break;
+    $scope.setDeliveryDates = function(){
+      $scope.dates = [{
+        day:["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][new Date().getDay()],
+        date: new Date().getDate(),
+        originalDate: new Date(), 
+        isActive:true
+      }];
+      for (var i=1; i<6;i++){
+        $scope.dates.push({
+          day:["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][new Date().getDay()+i],
+          date:new Date(+new Date()+(86400000*i)).getDate(),
+          originalDate: new Date(+new Date()+(86400000*i))
+        });
       }
+      console.log($scope.dates);
     }
 
-    $scope.setDeliveryDate = function (day, count){
-      if(day == 'Сб'){
-        var hours = new Date().getHours();
-        if(hours >= 16 && hours <= 17){
-          console.log("у вас осталось мало времени");
-          $scope.deliveryDate = new Date(+new Date()+(86400000*1));
-        } else if(hours >= 17) {
-          $scope.deliveryDate = new Date(+new Date()+(86400000*7));
-        } else {
-          $scope.deliveryDate = new Date(+new Date()+(86400000*1));
-        }
-      } else {
-        $scope.deliveryDate = new Date(+new Date()+(86400000*count));
-      }
+    $scope.setDeliveryDates();
+
+    $scope.setActiveDelivery = function (choosen){
+      $('.dateWrapper').click(function(){
+        $('.dateWrapper').removeClass('active');
+        $(this).addClass('active');
+      });
+      $scope.deliveryDate = choosen.originalDate;
     }
-    $scope.getDeliveryDate();
-    // 86400000 - one day in miliseconds
 
     $scope.cartItems = ngCart.getCart();
 
@@ -96,14 +76,6 @@ angular.module('ocean04App')
       $scope.totalWithShipping = ngCart.totalCost() + $scope.shipping;
     }
 
-    $scope.deliveryCost = function (a) {
-      // if(a.vicinity = "Індустріальний район"){
-      //   $scope.shipping = 50;
-      // // }
-      // console.log(a.geometry.location.lat());
-      // console.log(a.geometry.location.lng());
-    }
-
     $scope.destroyUI = function () {
       localStorage.removeItem('cart');
       $scope.formUser = {
@@ -120,6 +92,9 @@ angular.module('ocean04App')
 
     $scope.checkout = function () {
       $('#myModal').modal('show');
+      if(!$scope.address.formatted_address){
+        $scope.address.formatted_address = $('#adress').val();
+      }
       $scope.formUser.address = $scope.address.formatted_address;
       $scope.formUser.total = (ngCart.totalCost() + $scope.shipping);
 
@@ -129,7 +104,7 @@ angular.module('ocean04App')
       });
       $scope.formUser.order_details = order_details.join(", ");
 
-      var b = new Date ($scope.deliveryDate);
+      var b = new Date($scope.deliveryDate);
       var date = b.getDate()+' '+monthNames[b.getMonth()];
 
       $scope.formUser.timegap = date + '|' + $("li.active>a")[0].innerHTML;
