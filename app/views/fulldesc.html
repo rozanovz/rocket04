@@ -15,7 +15,12 @@
         <div ng-hide="!f.getInCartQuantity(receipe.id)" class="inCart fadein fadeout"> 
           <p>{{f.getInCartQuantity(receipe.id)}} в Вашей корзине</p>
         </div>
-        <img ng-src="{{receipe.photo}}">
+        <!-- <img ng-src="{{receipe.photo}}"> -->
+        <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+          <uib-slide ng-repeat="slide in receipe.slides">
+            <img ng-src="{{slide}}">
+          </uib-slide>
+        </uib-carousel>
       </div>
     </div>
 

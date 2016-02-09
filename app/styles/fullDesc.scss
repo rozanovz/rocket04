@@ -18,6 +18,14 @@ $orange-hover: #f15a22;
       padding-left:0;
     }
   }
+
+  .carousel-control.right,
+  .carousel-control.left{
+    background:none;
+    &:hover{
+      color: $orange-hover !important;
+    }
+  }
   sup {
     top: -.8em;
     font-size: 8px;

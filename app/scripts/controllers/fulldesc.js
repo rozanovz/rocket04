@@ -35,6 +35,9 @@ angular.module('ocean04App')
         grand:oldPrice[0],
         cents:oldPrice[1]
       }
+      data.slides=[];
+      data.slides.push(data.photo);
+      data.slides.push(data.ingredients_photo);
       data.newNutrients= {
         callories: oldNutrients[0],
         proteins: oldNutrients[1],
