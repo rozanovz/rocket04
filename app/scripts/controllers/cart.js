@@ -26,20 +26,30 @@ angular.module('ocean04App')
       if(ngCart.totalCost()>500){
         $scope.shipping = 0;
       }else{
-        $scope.shipping = 20;
+        $scope.shipping = 40;
       }
     }
 
     $scope.setDeliveryDates = function(){
       $scope.dates = [{
-        day:["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][new Date().getDay()],
+        day:[
+        "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
+        "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
+        "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
+        "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"
+        ][new Date().getDay()],
         date: new Date().getDate(),
         originalDate: new Date(), 
         isActive:true
       }];
       for (var i=1; i<6;i++){
         $scope.dates.push({
-          day:["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][new Date().getDay()+i],
+          day:[
+          "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
+          "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
+          "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
+          "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"
+          ][new Date().getDay()+i],
           date:new Date(+new Date()+(86400000*i)).getDate(),
           originalDate: new Date(+new Date()+(86400000*i))
         });
@@ -88,7 +98,7 @@ angular.module('ocean04App')
 
     $scope.getCart();
     $scope.checkShipping();
-    $scope.countTotal();   
+    $scope.countTotal();
 
     $scope.checkout = function () {
       $('#myModal').modal('show');

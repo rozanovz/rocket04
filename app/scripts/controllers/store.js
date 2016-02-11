@@ -34,9 +34,8 @@ angular.module('ocean04App')
 
     var countDownTimer = new Date().getHours();
     $scope.countDownFlag = false;
-    
 
-    if(countDownTimer == 21){
+    if(countDownTimer == 17){
       $scope.countDownFlag = true;
       $scope.countDown = 59-new Date().getMinutes();
       $interval(function() {
