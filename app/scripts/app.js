@@ -21,7 +21,7 @@ angular
     'GoogleMapsNative',
     'google.places'
   ])
-  .config(function ($routeProvider,$httpProvider, $locationProvider) {
+  .config(function ($routeProvider,$httpProvider, $locationProvider, $rootScopeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: '/views/main.html',
@@ -76,6 +76,7 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
       // $locationProvider.html5Mode(true);
   }).run(['$location',function($scope){
     $scope.storeLoader = false;
@@ -85,7 +86,7 @@ angular
       closeOnClick: true
     });
 
-    function centerin () {
+    $scope.centerin = function centerin () {
       var b = (((document.body.clientWidth - 120) / 2)/document.body.clientWidth)*100;
       var c = b + "%";
       $('.slicknav_brand').css('left', c);
@@ -95,12 +96,10 @@ angular
       var a = f + "%";
       $('.spinner').css ('left', a);
     };
-      
     $(window).resize(function(){
-      centerin();
+      $scope.centerin();
     });
-
-    centerin();
+    $scope.centerin();
   }]).animation('.rocket-view', function() {
     return {
       enter: function(element, done) {
@@ -116,11 +115,5 @@ angular
           element.stop();
         };
       }
-    };
-  }).factory('Page', function(){
-    var title = 'default';
-    return {
-      title: function() { return title; },
-      setTitle: function(newTitle) { title = newTitle; }
     };
   });

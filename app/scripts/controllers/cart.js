@@ -8,53 +8,38 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('cartCtrl', function ($scope, $rootScope, ngCart, api, $timeout, $location,$window) {
-    $(document).scrollTop(0);
+  .controller('cartCtrl', function ($scope, $rootScope, $timeout, loader, ngCart, api) {
+    loader.gaTitleScroll("Корзина");
     $("#phone").mask("+38(999)999-99-99");
     $(".slicknav_menu").show();
     $rootScope.itemDescription = false;
-    $rootScope.pagetitle = "Корзина";
-    $scope.formUser = {
-      email:""
-    };
+    $scope.formUser = {email:""};
     $scope.delivery;
     $scope.address = {};
-    $window.ga('send', 'pageview', { page: $location.url() });
     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
     $scope.checkShipping = function () {
-      if(ngCart.totalCost()>500){
-        $scope.shipping = 0;
-      }else{
-        $scope.shipping = 40;
-      }
+      ngCart.totalCost()>500 ? $scope.shipping = 0 : $scope.shipping = 40;
     }
 
-    $scope.setDeliveryDates = function(){
-      $scope.dates = [{
+    $scope.getWeekDay = function (i) {
+      return {
         day:[
-        "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
-        "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
-        "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
-        "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"
-        ][new Date().getDay()],
-        date: new Date().getDate(),
-        originalDate: new Date(), 
-        isActive:true
-      }];
-      for (var i=1; i<6;i++){
-        $scope.dates.push({
-          day:[
           "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
           "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
           "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
           "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"
-          ][new Date().getDay()+i],
-          date:new Date(+new Date()+(86400000*i)).getDate(),
-          originalDate: new Date(+new Date()+(86400000*i))
-        });
-      }
-      console.log($scope.dates);
+        ][new Date().getDay()+i],
+        date:new Date(+new Date()+(86400000*i)).getDate(),
+        originalDate: new Date(+new Date()+(86400000*i))
+      };
+    }
+
+    $scope.setDeliveryDates = function(){
+      $scope.dates = [$scope.getWeekDay(0)];
+      $scope.dates[0].isActive = true;
+      $scope.deliveryDate = $scope.dates[0].originalDate;
+      for (var i=1;i<6;i++) $scope.dates.push($scope.getWeekDay(i));
     }
 
     $scope.setDeliveryDates();
@@ -102,9 +87,9 @@ angular.module('ocean04App')
 
     $scope.checkout = function () {
       $('#myModal').modal('show');
-      if(!$scope.address.formatted_address){
+      if(!$scope.address.formatted_address)
         $scope.address.formatted_address = $('#adress').val();
-      }
+      
       $scope.formUser.address = $scope.address.formatted_address;
       $scope.formUser.total = (ngCart.totalCost() + $scope.shipping);
 
@@ -114,8 +99,7 @@ angular.module('ocean04App')
       });
       $scope.formUser.order_details = order_details.join(", ");
 
-      var b = new Date($scope.deliveryDate);
-      var date = b.getDate()+' '+monthNames[b.getMonth()];
+      var date = new Date($scope.deliveryDate).getDate()+' '+monthNames[new Date($scope.deliveryDate).getMonth()];
 
       $scope.formUser.timegap = date + '|' + $("li.active>a")[0].innerHTML;
 
