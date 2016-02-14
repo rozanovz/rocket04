@@ -58,10 +58,10 @@ angular.module('ocean04App')
     })
 
     $scope.getDirection = (address) => {
-      var directionsService = new google.maps.DirectionsService();
-      var start = new google.maps.LatLng(48.466392, 35.025341);
-      var end = new google.maps.LatLng(address.lat, address.lng);
-      var bounds = new google.maps.LatLngBounds();
+      var directionsService = new google.maps.DirectionsService(),
+          start = new google.maps.LatLng(48.466392, 35.025341),
+          end = new google.maps.LatLng(address.lat, address.lng),
+          bounds = new google.maps.LatLngBounds();
       bounds.extend(start);
       bounds.extend(end);
       var request = {
@@ -70,12 +70,8 @@ angular.module('ocean04App')
         travelMode: google.maps.TravelMode.DRIVING
       };
       directionsService.route(request, function (response, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-          console.log(response.routes[0].legs[0].distance.value / 1000);
+        if (status == google.maps.DirectionsStatus.OK)
           $scope.checkShipping(response.routes[0].legs[0].distance.value / 1000);
-        } else {
-          alert("Directions Request from " + start.toUrlValue(6) + " to " + end.toUrlValue(6) + " failed: " + status);
-        }
       });
     }
 
@@ -136,16 +132,6 @@ angular.module('ocean04App')
 
       $scope.formUser.timegap = date + '|' + $("li.active>a")[0].innerHTML;
 
-      // var newPhone = [];
-      // for (var i = 0; i<$scope.formUser.phone.length;i++){
-      //   if($scope.formUser.phone[i] !== ")"){
-      //     if($scope.formUser.phone[i] !== "("){
-      //       if($scope.formUser.phone[i] !== "-"){
-      //         newPhone.push($scope.formUser.phone[i]);
-      //       }
-      //     }
-      //   } 
-      // }
       $scope.formUser.phone = "+"+$scope.formUser.phone.replace(/\W/g,"");
       console.log($scope.formUser);
     }
