@@ -26,6 +26,7 @@ angular.module('ocean04App')
     }
 
     $scope.getWeekDay = function (i) {
+      if(new Date().getHours() >= 18) i=i+1;
       return {
         day:[
           "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
@@ -134,18 +135,14 @@ angular.module('ocean04App')
 
       var date = new Date($scope.deliveryDate).getDate()+' '+monthNames[new Date($scope.deliveryDate).getMonth()];
 
-      $scope.formUser.timegap = date + '|' + $("li.active>a")[0].innerHTML;
+      var time = $("li.active>a")[0].innerHTML;
 
-      // var newPhone = [];
-      // for (var i = 0; i<$scope.formUser.phone.length;i++){
-      //   if($scope.formUser.phone[i] !== ")"){
-      //     if($scope.formUser.phone[i] !== "("){
-      //       if($scope.formUser.phone[i] !== "-"){
-      //         newPhone.push($scope.formUser.phone[i]);
-      //       }
-      //     }
-      //   } 
-      // }
+      if(time == "НА СЕЙЧАС"){
+        time = (new Date().getHours() + 1) + ":" + (new Date().getMinutes());
+      }
+
+      $scope.formUser.timegap = date + '|' + time;
+
       $scope.formUser.phone = "+"+$scope.formUser.phone.replace(/\W/g,"");
       console.log($scope.formUser);
     }
