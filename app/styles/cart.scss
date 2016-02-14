@@ -56,12 +56,51 @@ $orange-hover: #f15a22;
 
 		.date{
 			h3{
-				font-family: GL;
-				font-weight: 400;
-				font-style: normal;
-				letter-spacing: 0.5px;
-				font-size: 14px;
+				font-size: 11px;
 				color: #515252;
+				letter-spacing: 1.5px;
+				font-family: GM;
+			}
+		}
+		
+		.dateWrapper{
+			.dateCircle{
+				border-radius:50%;
+				width: 80px;
+				height: 80px;
+				cursor: pointer;
+				padding-top: 18px;
+				display: inline-block;
+				&:hover{
+					.day{
+						color: #f15a22;
+					}
+				}
+				.day{
+					font-size: 9px;
+					letter-spacing: 2px;
+					line-height: 10px;
+					color: #cdcdce;
+					font-family: GL;
+				}
+				.dateNumber{
+					font-size: 20px;
+					letter-spacing: 3px;
+					color: #515252;
+					font-family: ACR;
+				}
+			}
+			&.active{
+				.dateCircle{
+					background-color: #f7f7f7;
+					display: inline-block;
+					width: 80px;
+					height: 80px;
+					padding-top: 18px;
+					.day{
+						color: #f15a22;
+					}
+				}
 			}
 		}
 
@@ -71,7 +110,7 @@ $orange-hover: #f15a22;
 
 		.firstStep{
 			.intervalItem{
-				width: 25%;
+				width: 20%;
 				display:inline-block;
 			}
 			.imgPreview{
@@ -200,9 +239,6 @@ $orange-hover: #f15a22;
 			color: #515252;
 			font-size: 15px;
 			font-family: GL;
-			// text-align: left;
-			// margin-left: 30px;
-			// margin-top: 30px;
 			font-weight: 400;
 			letter-spacing: 0.5px;
 		}
@@ -215,6 +251,7 @@ $orange-hover: #f15a22;
 				font-weight: 400;
 				letter-spacing: 0.5px;
 				font-size: 12px;
+				padding-left:0;
 			}
 		}
 
@@ -224,7 +261,7 @@ $orange-hover: #f15a22;
 			font-size: 12px;
 			line-height: 14px;
 			margin-top: 1em;
-			letter-spacing: 0.5px;
+			letter-spacing: 0.25px;
 		}
 
 		.separator{
@@ -298,10 +335,14 @@ $orange-hover: #f15a22;
     border-bottom: none;
     background: $white;
     li{
-      width: 25%;
+      width: 20%;
       text-align: center;
-      // border: 1px solid #e8ebe9;
       border-bottom:none;
+			&:not(:first-child){
+				a{
+					font-family:ACR !important;
+				}
+			}
       a{
         margin-right: 0;
         line-height: 1.428571429;

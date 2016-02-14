@@ -8,16 +8,11 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart, ngCartItem, $location,$window, Page) {
-    $(document).scrollTop(0);
+  .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart, ngCartItem, $interval) {
+    loader.gaTitleScroll("Ежедневное Меню");
     $rootScope.itemDescription = false;
-    $rootScope.pagetitle = "Ежедневное Меню";
-    Page.setTitle('Ежедневное Меню');
     $(".slicknav_menu").show();
     $scope.receipeLst1 = [];
-    $scope.recepie;
-    $window.ga('send', 'pageview', { page: $location.url() });
-    $scope.spinner=false;
     $scope.colourIncludes = [];
 
     //getting data from server Artem
@@ -31,7 +26,30 @@ angular.module('ocean04App')
         loader.allowed();
       });
     };
-      
+
+    var countDownTimer = new Date().getHours();
+    $scope.countDownFlag = false;
+
+    if(countDownTimer == 17){
+      $scope.countDownFlag = true;
+      $scope.countDown = 59-new Date().getMinutes();
+      $interval(function() {
+        $scope.countDown = $scope.countDown - 1
+        if ($scope.countDown == 0){
+          $scope.stopCountDown();
+          $scope.countDownFlag = false;
+        }
+        console.log($scope.countDown);
+      }, 60000);
+    }
+
+    $scope.stopCountDown = function() {
+      if (angular.isDefined(stop)) {
+        $interval.cancel(stop);
+        stop = undefined;
+      }
+    };
+
     $scope.includeColour = function(colour) {
       var i = $.inArray(colour, $scope.colourIncludes);
       if (i > -1) {
@@ -52,46 +70,43 @@ angular.module('ocean04App')
     $scope.clearFilter = function () {
       $scope.colourIncludes = [];
       $('input[type="checkbox"]').prop( "checked", false ).parent().css('background', 'white');
-      // $('input[type="checkbox"]')
     }
 
     //getting quantity in cart by its id 
     this.getInCartQuantity = function (id) {
-      var inCartQunatity = ngCart.getItemById(id);
-      var a = inCartQunatity._quantity;
-      this.inCartQunatity = a;
-      return this.inCartQunatity;
+      // var inCartQunatity = ngCart.getItemById(id);
+      // var a = inCartQunatity._quantity;
+      // this.inCartQunatity = ngCart.getItemById(id)._quantity;
+      // return this.inCartQunatity;
+      return ngCart.getItemById(id)._quantity;
     };
 
     //removing or decrementing item quantity in cart
     this.removeFromCart = function (id) {
-      var inCart = ngCart.getItemById(id);
-      if(inCart._quantity === 1){
-        ngCart.removeItemById(id);
-      }else if(inCart._quantity > 1){
-        inCart.setQuantity(-1, true)
-      }else{
-        return;
-      }
+      // var inCart = ngCart.getItemById(id);
+      // if(inCart._quantity === 1){
+      //   ngCart.removeItemById(id);
+      // }else if(inCart._quantity > 1){
+      //   inCart.setQuantity(-1, true)
+      // }else{
+      //   return;
+      // }
+      ngCart.getItemById(id)._quantity === 1 ? 
+        ngCart.removeItemById(id) : 
+          ngCart.getItemById(id).setQuantity(-1, true);
       this.getInCartQuantity(id);
     };
 
     //adding or incrementing item quantity in cart
     this.AddToCart = function (id, name, price, q, data) {
-      var a = ngCart.getItemById(id);
-      var q = q;
-      if(a._quantity >= 1){
-        q = a._quantity + 1;
-      }
+      if(ngCart.getItemById(id)._quantity >= 1) q = ngCart.getItemById(id)._quantity + 1;
       ngCart.addItem(id, name, price, q, data);
       this.getInCartQuantity(id);
     };
 
     $(window).scroll(function(){
-      var sticky = $('.storeNav'),
-          scroll = $(window).scrollTop();
-      if (scroll >= 80) sticky.addClass('fixed');
-      else sticky.removeClass('fixed');
+      if ($(window).scrollTop() >= 79) $('.storeNav').addClass('fixed');
+      else $('.storeNav').removeClass('fixed');
     });
 
     this.getReceipesList();

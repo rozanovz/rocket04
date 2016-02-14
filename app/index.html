@@ -6,7 +6,23 @@
       //   window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
       // }
     </script>
+    <meta property="place:location:latitude" content="48.462134"/>
+    <meta property="place:location:longitude" content="35.052646"/>
+    <meta property="business:contact_data:street_address" content="Barrikadna 4-B"/>
+    <meta property="business:contact_data:locality" content="Dnipropetrovsk"/>
+    <meta property="business:contact_data:postal_code" content="49000"/>
+    <meta property="business:contact_data:country_name" content="Ukraine"/>
+    <meta property="business:contact_data:email" content="support@rocket04.com"/>
+    <meta property="business:contact_data:phone_number" content="+38 0504802319"/>
+    <meta property="business:contact_data:website" content="https://www.rocket04.com"/>
+    <meta property="og:image" content="https://rocket04.imgix.net/main_1.png?s=bb1632e76cca5.."/>
+    <meta property="og:title" content="Rocket 04 - Сервис Доставки Продуктов"/>
+    <meta property="og:description" content="Свежие органические ингредиенты для приготовления блюд по рецептам с доставкой в Днепропетровске."/>
+    <meta name="description" content="Свежие органические ингредиенты для приготовления блюд по рецептам с доставкой в Днепропетровске." />
+    <meta name="title" content="Rocket 04 - Сервис Доставки Продуктов" />
+    <meta name="keywords" content="доставка продуктов Днепропетровск,доставка продуктов,Днепропетровск,еда,продукты,рецепты" />
     <meta charset="utf-8">
+    <base href="/">
     <title ng-bind="'Rocket04' + (pagetitle ? ' | '+pagetitle:'')"></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
@@ -94,19 +110,19 @@
     <!-- endbuild -->
     <!-- build:js({.tmp,app}) static/build/scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+
+    <script src="scripts/directives/ngCart/ngCart.js"></script>
+
+    <script src="scripts/services/loader.js"></script>
+    <script src="scripts/services/api.js"></script>
+
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
     <script src="scripts/controllers/gifts.js"></script>
     <script src="scripts/controllers/how.js"></script>
     <script src="scripts/controllers/store.js"></script>
     <script src="scripts/controllers/cart.js"></script>
-    <script src="scripts/services/api.js"></script>
     <script src="scripts/controllers/fulldesc.js"></script>
-    <script src="scripts/services/loader.js"></script>
-    <script src="scripts/directives/nav/nav.js"></script>
-    <script src="scripts/directives/footer/footer.js"></script>
-    <script src="scripts/directives/ngCart/ngCart.js"></script>
-    <script src="scripts/directives/navStore/navStore.js"></script>
     <script src="scripts/controllers/gmap.js"></script>
     <script src="scripts/controllers/contract.js"></script>
     <script src="scripts/controllers/contacts.js"></script>

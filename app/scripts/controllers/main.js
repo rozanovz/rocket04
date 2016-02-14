@@ -7,9 +7,6 @@
  * # MainCtrl
  * Controller of the ocean04App
  */
-angular.module('ocean04App')
-  .controller('MainCtrl', function ($rootScope, $location,$window) {
-  	$(document).scrollTop(0);
-  	$window.ga('send', 'pageview', { page: $location.url() });
-  	$rootScope.pagetitle = 'Главная Страница';
-  });
+angular.module('ocean04App').controller('MainCtrl', function (loader) {
+	loader.gaTitleScroll("Главная Страница");
+});
