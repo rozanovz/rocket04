@@ -18,8 +18,11 @@ angular.module('ocean04App')
     $scope.address = {};
     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
-    $scope.checkShipping = function () {
-      ngCart.totalCost()>500 ? $scope.shipping = 0 : $scope.shipping = 40;
+    $scope.checkShipping = function (km) {
+      ngCart.totalCost()>500 ? $scope.shipping = 0 : $scope.shipping = 50;
+      if($scope.shipping == 50){
+        km>5 ? $scope.shipping=Math.round(((km-5)*0.5+$scope.shipping)) : $scope.shipping = 50;
+      }
     }
 
     $scope.getWeekDay = function (i) {
@@ -43,6 +46,38 @@ angular.module('ocean04App')
     }
 
     $scope.setDeliveryDates();
+
+    $scope.$watch("address", function (data) {
+      if(data){
+        var coor = {
+          lat:data.geometry.location.lat(),
+          lng:data.geometry.location.lng()
+        };
+        $scope.getDirection(coor);
+      }
+    })
+
+    $scope.getDirection = (address) => {
+      var directionsService = new google.maps.DirectionsService();
+      var start = new google.maps.LatLng(48.466392, 35.025341);
+      var end = new google.maps.LatLng(address.lat, address.lng);
+      var bounds = new google.maps.LatLngBounds();
+      bounds.extend(start);
+      bounds.extend(end);
+      var request = {
+        origin: start,
+        destination: end,
+        travelMode: google.maps.TravelMode.DRIVING
+      };
+      directionsService.route(request, function (response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          console.log(response.routes[0].legs[0].distance.value / 1000);
+          $scope.checkShipping(response.routes[0].legs[0].distance.value / 1000);
+        } else {
+          alert("Directions Request from " + start.toUrlValue(6) + " to " + end.toUrlValue(6) + " failed: " + status);
+        }
+      });
+    }
 
     $scope.setActiveDelivery = function (choosen){
       $('.dateWrapper').click(function(){
@@ -73,9 +108,7 @@ angular.module('ocean04App')
 
     $scope.destroyUI = function () {
       localStorage.removeItem('cart');
-      $scope.formUser = {
-        email:""
-      };
+      $scope.formUser = {email:""};
       $scope.cartItems = {};
       $scope.cartTotal = 0;
       $scope.address = {};
@@ -103,17 +136,18 @@ angular.module('ocean04App')
 
       $scope.formUser.timegap = date + '|' + $("li.active>a")[0].innerHTML;
 
-      var newPhone = [];
-      for (var i = 0; i<$scope.formUser.phone.length;i++){
-        if($scope.formUser.phone[i] !== ")"){
-          if($scope.formUser.phone[i] !== "("){
-            if($scope.formUser.phone[i] !== "-"){
-              newPhone.push($scope.formUser.phone[i]);
-            }
-          }
-        } 
-      }
-      $scope.formUser.phone = newPhone.join('');
+      // var newPhone = [];
+      // for (var i = 0; i<$scope.formUser.phone.length;i++){
+      //   if($scope.formUser.phone[i] !== ")"){
+      //     if($scope.formUser.phone[i] !== "("){
+      //       if($scope.formUser.phone[i] !== "-"){
+      //         newPhone.push($scope.formUser.phone[i]);
+      //       }
+      //     }
+      //   } 
+      // }
+      $scope.formUser.phone = "+"+$scope.formUser.phone.replace(/\W/g,"");
+      console.log($scope.formUser);
     }
 
     $scope.makeOrder = function () {
