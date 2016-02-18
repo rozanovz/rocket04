@@ -18,6 +18,41 @@ $orange-hover: #f15a22;
       padding-left:0;
     }
   }
+
+  .carousel-indicators{
+    display:none;
+  }
+
+  .carousel-control.right,
+  .carousel-control.left{
+    background:none;
+    width: 50%;
+    @media screen and (max-width: 767px){
+      display: none;
+    }
+    .glyphicon-chevron-left,
+    .glyphicon-chevron-right{
+      &:before{
+        content:'';
+      }
+    }
+    span{
+      width: 16px;
+      height: 30px;
+    }
+  }
+  .carousel-control.left{
+    span{
+      left: -15px;
+      background: url(arrows.svg) no-repeat -20px -341px;
+    }
+  }
+  .carousel-control.right{
+    span{
+      right: -15px;
+      background: url(arrows.svg) no-repeat -20px -420px;
+    }
+  }
   sup {
     top: -.8em;
     font-size: 8px;

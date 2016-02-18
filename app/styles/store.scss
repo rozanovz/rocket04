@@ -10,6 +10,16 @@ $orange-hover: #f15a22;
     top: -1em;
     font-size: 8px;
   }
+  .clock{
+    width: 35px;
+    display: inline-block;
+    height: 25px;
+    vertical-align: middle;
+    background: url("clock.svg") no-repeat 0 0;
+    background-size: 55px 50px;
+    position: relative;
+    top: -1px;
+  }
   .fixed {
   position: fixed;
   top:0; left:0;}

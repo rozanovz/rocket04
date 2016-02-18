@@ -8,74 +8,81 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('cartCtrl', function ($scope, $rootScope, ngCart, api, $timeout, $location,$window) {
-    $(document).scrollTop(0);
+  .controller('cartCtrl', function ($scope, $rootScope, $timeout, loader, ngCart, api) {
+    loader.gaTitleScroll("Корзина");
     $("#phone").mask("+38(999)999-99-99");
     $(".slicknav_menu").show();
     $rootScope.itemDescription = false;
-    $rootScope.pagetitle = "Корзина";
-    $scope.formUser = {
-      email:""
-    };
+    $scope.formUser = {email:""};
+    $scope.delivery;
     $scope.address = {};
-    $window.ga('send', 'pageview', { page: $location.url() });
-    $scope.deliveryDate;
     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
-    $scope.checkShipping = function () {
-      if(ngCart.totalCost()>500){
-        $scope.shipping = 0;
-      }else{
-        $scope.shipping = 20;
+    $scope.checkShipping = function (km) {
+      ngCart.totalCost()>500 ? $scope.shipping = 0 : $scope.shipping = 50;
+      if($scope.shipping == 50){
+        km>5 ? $scope.shipping=Math.round(((km-5)*0.5+$scope.shipping)) : $scope.shipping = 50;
       }
     }
 
-    $scope.getDeliveryDate = function (){
-      var a = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][new Date().getDay()];
-      switch(a){
-        case "Пн":
-          $scope.setDeliveryDate('Пн', 6);
-          break;
-        case "Вт":
-          $scope.setDeliveryDate('Вт', 5);
-          break;
-        case "Ср":
-          $scope.setDeliveryDate('Ср', 4);
-          break;
-        case "Чт":
-          $scope.setDeliveryDate('Чт', 3);
-          break;
-        case "Пт":
-          $scope.setDeliveryDate('Пт', 2);
-          break;
-        case "Сб":
-          $scope.setDeliveryDate('Сб', 1);
-          break;
-        case "Вс":
-          $scope.setDeliveryDate('Вс', 7);
-          break;
-        default:
-          break;
-      }
+    $scope.getWeekDay = function (i) {
+      if(new Date().getHours() >= 18) i=i+1;
+      return {
+        day:[
+          "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
+          "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
+          "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб",
+          "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"
+        ][new Date().getDay()+i],
+        date:new Date(+new Date()+(86400000*i)).getDate(),
+        originalDate: new Date(+new Date()+(86400000*i))
+      };
     }
 
-    $scope.setDeliveryDate = function (day, count){
-      if(day == 'Сб'){
-        var hours = new Date().getHours();
-        if(hours >= 16 && hours <= 17){
-          console.log("у вас осталось мало времени");
-          $scope.deliveryDate = new Date(+new Date()+(86400000*1));
-        } else if(hours >= 17) {
-          $scope.deliveryDate = new Date(+new Date()+(86400000*7));
-        } else {
-          $scope.deliveryDate = new Date(+new Date()+(86400000*1));
-        }
-      } else {
-        $scope.deliveryDate = new Date(+new Date()+(86400000*count));
-      }
+    $scope.setDeliveryDates = function(){
+      $scope.dates = [$scope.getWeekDay(0)];
+      $scope.dates[0].isActive = true;
+      $scope.deliveryDate = $scope.dates[0].originalDate;
+      for (var i=1;i<6;i++) $scope.dates.push($scope.getWeekDay(i));
     }
-    $scope.getDeliveryDate();
-    // 86400000 - one day in miliseconds
+
+    $scope.setDeliveryDates();
+
+    $scope.$watch("address", function (data) {
+      if(data){
+        var coor = {
+          lat:data.geometry.location.lat(),
+          lng:data.geometry.location.lng()
+        };
+        $scope.getDirection(coor);
+      }
+    })
+
+    $scope.getDirection = (address) => {
+      var directionsService = new google.maps.DirectionsService(),
+          start = new google.maps.LatLng(48.466392, 35.025341),
+          end = new google.maps.LatLng(address.lat, address.lng),
+          bounds = new google.maps.LatLngBounds();
+      bounds.extend(start);
+      bounds.extend(end);
+      var request = {
+        origin: start,
+        destination: end,
+        travelMode: google.maps.TravelMode.DRIVING
+      };
+      directionsService.route(request, function (response, status) {
+        if (status == google.maps.DirectionsStatus.OK)
+          $scope.checkShipping(response.routes[0].legs[0].distance.value / 1000);
+      });
+    }
+
+    $scope.setActiveDelivery = function (choosen){
+      $('.dateWrapper').click(function(){
+        $('.dateWrapper').removeClass('active');
+        $(this).addClass('active');
+      });
+      $scope.deliveryDate = choosen.originalDate;
+    }
 
     $scope.cartItems = ngCart.getCart();
 
@@ -96,19 +103,9 @@ angular.module('ocean04App')
       $scope.totalWithShipping = ngCart.totalCost() + $scope.shipping;
     }
 
-    $scope.deliveryCost = function (a) {
-      // if(a.vicinity = "Індустріальний район"){
-      //   $scope.shipping = 50;
-      // // }
-      // console.log(a.geometry.location.lat());
-      // console.log(a.geometry.location.lng());
-    }
-
     $scope.destroyUI = function () {
       localStorage.removeItem('cart');
-      $scope.formUser = {
-        email:""
-      };
+      $scope.formUser = {email:""};
       $scope.cartItems = {};
       $scope.cartTotal = 0;
       $scope.address = {};
@@ -116,10 +113,13 @@ angular.module('ocean04App')
 
     $scope.getCart();
     $scope.checkShipping();
-    $scope.countTotal();   
+    $scope.countTotal();
 
     $scope.checkout = function () {
       $('#myModal').modal('show');
+      if(!$scope.address.formatted_address)
+        $scope.address.formatted_address = $('#adress').val();
+      
       $scope.formUser.address = $scope.address.formatted_address;
       $scope.formUser.total = (ngCart.totalCost() + $scope.shipping);
 
@@ -129,22 +129,17 @@ angular.module('ocean04App')
       });
       $scope.formUser.order_details = order_details.join(", ");
 
-      var b = new Date ($scope.deliveryDate);
-      var date = b.getDate()+' '+monthNames[b.getMonth()];
+      var date = new Date($scope.deliveryDate).getDate()+' '+monthNames[new Date($scope.deliveryDate).getMonth()];
+      var time = $("li.active>a")[0].innerHTML;
 
-      $scope.formUser.timegap = date + '|' + $("li.active>a")[0].innerHTML;
-
-      var newPhone = [];
-      for (var i = 0; i<$scope.formUser.phone.length;i++){
-        if($scope.formUser.phone[i] !== ")"){
-          if($scope.formUser.phone[i] !== "("){
-            if($scope.formUser.phone[i] !== "-"){
-              newPhone.push($scope.formUser.phone[i]);
-            }
-          }
-        } 
+      if(time == "НА СЕЙЧАС"){
+        time = (new Date().getHours() + 1) + ":" + (new Date().getMinutes());
       }
-      $scope.formUser.phone = newPhone.join('');
+
+      $scope.formUser.timegap = date + '|' + time;
+
+      $scope.formUser.phone = "+"+$scope.formUser.phone.replace(/\W/g,"");
+      console.log($scope.formUser);
     }
 
     $scope.makeOrder = function () {

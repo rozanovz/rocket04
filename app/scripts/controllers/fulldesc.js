@@ -8,16 +8,12 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('FulldescCtrl', function ($scope, api, $rootScope, $routeParams, loader, ngCart, $location, $window) {
-    $(document).scrollTop(0);
+  .controller('FulldescCtrl', function ($scope, $rootScope, $routeParams, api, loader, ngCart) {
     $rootScope.itemDescription = true;
     $('.slicknav_menu').each(function () {
         this.style.setProperty( 'display', 'none', 'important' );
     });
     $scope.receipe;
-    $rootScope.pagetitle;
-    $window.ga('send', 'pageview', { page: $location.url() });
-
     this.getRecepieById = function (id) {
       var items = JSON.parse(localStorage.getItem('items')).filter(function (obj) {
         if(obj.id == id){
@@ -35,6 +31,9 @@ angular.module('ocean04App')
         grand:oldPrice[0],
         cents:oldPrice[1]
       }
+      data.slides=[];
+      data.slides.push(data.photo);
+      data.slides.push(data.ingredients_photo);
       data.newNutrients= {
         callories: oldNutrients[0],
         proteins: oldNutrients[1],
@@ -42,7 +41,7 @@ angular.module('ocean04App')
         carbohydrates: oldNutrients[3]
       };
       $scope.receipe = data;
-      $rootScope.pagetitle = $scope.receipe.title;
+      loader.gaTitleScroll($scope.receipe.title);
     }
 
     $scope.diet = [
@@ -82,32 +81,28 @@ angular.module('ocean04App')
 
     //getting quantity in cart by its id 
     this.getInCartQuantity = function (id) {
-      var inCartQunatity = ngCart.getItemById(id);
-      var a = inCartQunatity._quantity;
-      this.inCartQunatity = a;
-      return this.inCartQunatity;
+      return ngCart.getItemById(id)._quantity;
     };
 
     //removing or decrementing item quantity in cart
     this.removeFromCart = function (id) {
-      var inCart = ngCart.getItemById(id);
-      if(inCart._quantity === 1){
-        ngCart.removeItemById(id);
-      }else if(inCart._quantity > 1){
-        inCart.setQuantity(-1, true)
-      }else{
-        return;
-      }
+      // var inCart = ngCart.getItemById(id);
+      // if(inCart._quantity === 1){
+      //   ngCart.removeItemById(id);
+      // }else if(inCart._quantity > 1){
+      //   inCart.setQuantity(-1, true)
+      // }else{
+      //   return;
+      // }
+      ngCart.getItemById(id)._quantity === 1 ? 
+        ngCart.removeItemById(id) : 
+          ngCart.getItemById(id).setQuantity(-1, true);
       this.getInCartQuantity(id);
     };
 
     //adding or incrementing item quantity in cart
     this.AddToCart = function (id, name, price, q, data) {
-      var a = ngCart.getItemById(id);
-      var q = q;
-      if(a._quantity >= 1){
-        q = a._quantity + 1;
-      }
+      if(ngCart.getItemById(id)._quantity >= 1) q = ngCart.getItemById(id)._quantity + 1;
       ngCart.addItem(id, name, price, q, data);
       this.getInCartQuantity(id);
     };

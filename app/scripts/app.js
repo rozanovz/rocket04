@@ -21,62 +21,63 @@ angular
     'GoogleMapsNative',
     'google.places'
   ])
-  .config(function ($routeProvider,$httpProvider) {
-
+  .config(function ($routeProvider,$httpProvider, $locationProvider, $rootScopeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: '/views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
       .when('/about', {
-        templateUrl: 'views/about.html',
+        templateUrl: '/views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
       .when('/gifts', {
-        templateUrl: 'views/gifts.html',
+        templateUrl: '/views/gifts.html',
         controller: 'GiftsCtrl',
         controllerAs: 'gifts'
       })
       .when('/how', {
-        templateUrl: 'views/how.html',
+        templateUrl: '/views/how.html',
         controller: 'HowCtrl',
         controllerAs: 'how'
       })
       .when('/rocket04', {
-        templateUrl: 'views/store.html',
+        templateUrl: '/views/store.html',
         controller: 'storeCtrl',
         controllerAs: 'store'
       })
       .when('/cart', {
-        templateUrl: 'views/cart.html',
+        templateUrl: '/views/cart.html',
         controller: 'cartCtrl',
         controllerAs: 'cart'
       })
       .when('/desc/:id', {
-        templateUrl: 'views/fulldesc.html',
+        templateUrl: '/views/fulldesc.html',
         controller: 'FulldescCtrl',
         controllerAs: 'f'
       })
       .when('/gMap', {
-        templateUrl: 'views/gmap.html',
+        templateUrl: '/views/gmap.html',
         controller: 'GmapCtrl',
         controllerAs: 'gMap'
       })
       .when('/contract', {
-        templateUrl: 'views/contract.html',
+        templateUrl: '/views/contract.html',
         controller: 'ContractCtrl',
         controllerAs: 'contract'
       })
       .when('/contacts', {
-        templateUrl: 'views/contacts.html',
+        templateUrl: '/views/contacts.html',
         controller: 'ContactsCtrl',
         controllerAs: 'contacts'
       })
       .otherwise({
         redirectTo: '/'
       });
+
+      // $locationProvider.html5Mode(true);
   }).run(['$location',function($scope){
     $scope.storeLoader = false;
     $('#menuStick').slicknav({
@@ -85,7 +86,7 @@ angular
       closeOnClick: true
     });
 
-    function centerin () {
+    $scope.centerin = function centerin () {
       var b = (((document.body.clientWidth - 120) / 2)/document.body.clientWidth)*100;
       var c = b + "%";
       $('.slicknav_brand').css('left', c);
@@ -95,12 +96,10 @@ angular
       var a = f + "%";
       $('.spinner').css ('left', a);
     };
-      
     $(window).resize(function(){
-      centerin();
+      $scope.centerin();
     });
-
-    centerin();
+    $scope.centerin();
   }]).animation('.rocket-view', function() {
     return {
       enter: function(element, done) {
@@ -116,11 +115,5 @@ angular
           element.stop();
         };
       }
-    };
-  }).factory('Page', function(){
-    var title = 'default';
-    return {
-      title: function() { return title; },
-      setTitle: function(newTitle) { title = newTitle; }
     };
   });

@@ -13,7 +13,7 @@ $orange-hover: #f15a22;
     }
   }
   .intro{
-    background-image: url("https://rocket04.imgix.net/main_1.png?s=bb1632e76cca545ea114f1fb3b40cf58");
+    background-image: url("http://rocket04.imgix.net/main_1.jpg?s=e8b3e2785611ee9e88044a13ded27097");
   }
 
   .ending{
@@ -30,6 +30,7 @@ $orange-hover: #f15a22;
     font-size: 2em !important;
     letter-spacing: 0.125rem !important;
     margin-bottom: 2.5% !important;
+    margin-top:0;
   }
 
   .cardText{
@@ -82,7 +83,7 @@ $orange-hover: #f15a22;
       font-style: normal;
       font-size: 3.6rem;
       letter-spacing: 0.125rem;
-      line-height: 3rem;
+      line-height: 4rem;
       &:after{
         display: block;
         height: .4rem;
@@ -123,7 +124,7 @@ $orange-hover: #f15a22;
 
   .content{
     background: $white;
-    padding-top: 7%;
+    padding-top: 4%;
     padding-bottom: 0%;
     .advantages{
       margin-bottom: 7%;
