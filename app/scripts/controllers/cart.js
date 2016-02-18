@@ -35,7 +35,8 @@ angular.module('ocean04App')
           "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"
         ][new Date().getDay()+i],
         date:new Date(+new Date()+(86400000*i)).getDate(),
-        originalDate: new Date(+new Date()+(86400000*i))
+        originalDate: new Date(+new Date()+(86400000*i)),
+        isActive:false 
       };
     }
 
@@ -77,10 +78,8 @@ angular.module('ocean04App')
     }
 
     $scope.setActiveDelivery = function (choosen){
-      $('.dateWrapper').click(function(){
-        $('.dateWrapper').removeClass('active');
-        $(this).addClass('active');
-      });
+      $scope.dates.forEach(function (key) {key.isActive = false;});
+      $scope.dates[$scope.dates.indexOf(choosen)].isActive = true;
       $scope.deliveryDate = choosen.originalDate;
     }
 

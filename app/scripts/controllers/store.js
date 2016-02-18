@@ -8,7 +8,7 @@
  * Controller of the ocean04App
  */
 angular.module('ocean04App')
-  .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart, ngCartItem, $interval) {
+  .controller('storeCtrl', function ($scope, $rootScope, api, loader, ngCart, ngCartItem, $interval, $timeout) {
     loader.gaTitleScroll("Ежедневное Меню");
     $rootScope.itemDescription = false;
     $(".slicknav_menu").show();
@@ -74,10 +74,10 @@ angular.module('ocean04App')
 
     //getting quantity in cart by its id 
     this.getInCartQuantity = function (id) {
-      // var inCartQunatity = ngCart.getItemById(id);
-      // var a = inCartQunatity._quantity;
-      // this.inCartQunatity = ngCart.getItemById(id)._quantity;
-      // return this.inCartQunatity;
+      // // var inCartQunatity = ngCart.getItemById(id);
+      // // var a = inCartQunatity._quantity;
+      // // this.inCartQunatity = ngCart.getItemById(id)._quantity;
+      // // return this.inCartQunatity;      
       return ngCart.getItemById(id)._quantity;
     };
 
@@ -94,7 +94,9 @@ angular.module('ocean04App')
       ngCart.getItemById(id)._quantity === 1 ? 
         ngCart.removeItemById(id) : 
           ngCart.getItemById(id).setQuantity(-1, true);
+
       this.getInCartQuantity(id);
+      // this.showQuantity(id);
     };
 
     //adding or incrementing item quantity in cart
@@ -102,6 +104,7 @@ angular.module('ocean04App')
       if(ngCart.getItemById(id)._quantity >= 1) q = ngCart.getItemById(id)._quantity + 1;
       ngCart.addItem(id, name, price, q, data);
       this.getInCartQuantity(id);
+      // this.showQuantity(id);
     };
 
     $(window).scroll(function(){

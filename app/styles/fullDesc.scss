@@ -313,18 +313,17 @@ $orange-hover: #f15a22;
     content:'\A';
     position:absolute;
     width:100%; 
-    height:15%;
-    top:85%; 
+    height:8%;
+    top:92%; 
     left:0;
-    background:rgba(254,213,90,0.95);
-    opacity:1;
+    background:rgba(254,213,90,0.9);
   }
   .inCart{
     position: absolute;
     text-align: center;
     width: 100%;
-    height: 59%;
-    top: 65%;
+    height: 60%;
+    top: 67%;
     z-index:2;
     display: flex;
     align-items: center;
