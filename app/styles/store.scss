@@ -121,10 +121,47 @@ $orange-hover: #f15a22;
       color: $orange;
     }
   }
+  .menuHeaderContainer{
+    margin-bottom: 1em;
+  }
   .menuHeader{
-    font-size: 14px;
+    font-size: 30px;
     font-family: GM;
     color: #515252;
+    font-weight: normal;
+    font-style:normal;
+    line-height: 1.2em;
+    letter-spacing: 1.5px;
+    &:before,
+    &:after{
+      content: '\00a0';
+      display: table-cell;
+      width: 50%;
+      position: absolute;
+      top: 1.184em;
+      border-top: 1px solid #b9b9af;
+    }
+    &:after{
+      right: 16px;
+    }
+    &:before{
+      left: 16px;
+    }
+    span{
+      background: #F4F7F8;
+      padding: 1%;
+      z-index: 2;
+      position: relative;
+    }
+  }
+  .menuSubHeader{
+    font-size: 14px;
+    font-family: GL;
+    color: #515252;
+    font-weight: normal;
+    font-style:normal;
+    line-height: 1.75em;
+    letter-spacing: 1.5px;
   }
   .card{
     margin-bottom: 15px;

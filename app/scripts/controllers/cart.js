@@ -16,6 +16,35 @@ angular.module('ocean04App')
     $scope.formUser = {email:""};
     $scope.delivery;
     $scope.address = {};
+    $scope.discount ={
+      code: ''
+    };
+    $scope.timeGaps = [
+      {
+        isAvailable: true,
+        gap: "НА СЕЙЧАС",
+        isActive: true
+      },{
+        isAvailable: true,
+        gap: "18.00 - 19.00",
+        isActive: false
+      },{
+        isAvailable: true,
+        gap: "19.00 - 20.00",
+        isActive: false
+      },{
+        isAvailable: true,
+        gap: "20.00 - 21.00",
+        isActive: false
+      },{
+        isAvailable: true,
+        gap: "21.00 - 22.00",
+        isActive: false
+      }
+    ];
+
+    $scope.selectedGap = $scope.timeGaps[0].gap;
+
     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
     $scope.checkShipping = function (km) {
@@ -23,7 +52,7 @@ angular.module('ocean04App')
       if($scope.shipping == 50){
         km>5 ? $scope.shipping=Math.round(((km-5)*0.5+$scope.shipping)) : $scope.shipping = 50;
       }
-    }
+    };
 
     $scope.getWeekDay = function (i) {
       if(new Date().getHours() >= 18) i=i+1;
@@ -38,26 +67,26 @@ angular.module('ocean04App')
         originalDate: new Date(+new Date()+(86400000*i)),
         isActive:false 
       };
-    }
+    };
 
     $scope.setDeliveryDates = function(){
       $scope.dates = [$scope.getWeekDay(0)];
       $scope.dates[0].isActive = true;
       $scope.deliveryDate = $scope.dates[0].originalDate;
       for (var i=1;i<6;i++) $scope.dates.push($scope.getWeekDay(i));
-    }
+    };
 
     $scope.setDeliveryDates();
 
     $scope.$watch("address", function (data) {
-      if(data){
+      if(data.geometry){
         var coor = {
           lat:data.geometry.location.lat(),
           lng:data.geometry.location.lng()
         };
         $scope.getDirection(coor);
       }
-    })
+    });
 
     $scope.getDirection = (address) => {
       var directionsService = new google.maps.DirectionsService(),
@@ -75,32 +104,39 @@ angular.module('ocean04App')
         if (status == google.maps.DirectionsStatus.OK)
           $scope.checkShipping(response.routes[0].legs[0].distance.value / 1000);
       });
-    }
+    };
 
     $scope.setActiveDelivery = function (choosen){
       $scope.dates.forEach(function (key) {key.isActive = false;});
       $scope.dates[$scope.dates.indexOf(choosen)].isActive = true;
       $scope.deliveryDate = choosen.originalDate;
-    }
+    };
 
     $scope.cartItems = ngCart.getCart();
 
     $scope.getCart = function(){
       $scope.cartTotal = ngCart.totalCost();
-    }
+    };
 
     $scope.autocompleteOptions = {
       componentRestrictions: { country: 'ua' }
-    }
+    };
 
     $scope.removeItem = function(id){
       ngCart.removeItemById(id);
-    }
+    };
 
     $scope.countTotal = function () {
       $scope.checkShipping();
       $scope.totalWithShipping = ngCart.totalCost() + $scope.shipping;
-    }
+      $scope.percent = '';
+    };
+
+    $scope.enterPress = function(e){
+      if(e.keyCode == 13){
+        $scope.discountCheck();
+      }
+    };
 
     $scope.destroyUI = function () {
       localStorage.removeItem('cart');
@@ -108,7 +144,22 @@ angular.module('ocean04App')
       $scope.cartItems = {};
       $scope.cartTotal = 0;
       $scope.address = {};
-    }
+    };
+
+    $scope.setGap = function (gap){
+      $scope.selectedGap = gap.gap;
+    };
+
+    $scope.checkGaps = function () {
+      var checkGap = new Date().getHours();
+      console.log(checkGap);
+      if(18>=checkGap<=10){
+        $scope.selectedGap = $scope.timeGaps[1].gap;
+        $scope.timeGaps[0].isAvailable = false;
+        $scope.timeGaps[0].isActive = false;
+        $scope.timeGaps[0].isActive = true;
+      }
+    };
 
     $scope.getCart();
     $scope.checkShipping();
@@ -129,7 +180,7 @@ angular.module('ocean04App')
       $scope.formUser.order_details = order_details.join(", ");
 
       var date = new Date($scope.deliveryDate).getDate()+' '+monthNames[new Date($scope.deliveryDate).getMonth()];
-      var time = $("li.active>a")[0].innerHTML;
+      var time = $scope.selectedGap;
 
       if(time == "НА СЕЙЧАС"){
         time = (new Date().getHours() + 1) + ":" + (new Date().getMinutes());
@@ -139,6 +190,21 @@ angular.module('ocean04App')
 
       $scope.formUser.phone = "+"+$scope.formUser.phone.replace(/\W/g,"");
       console.log($scope.formUser);
+    };
+
+    $scope.discountCheck = function () {
+      $scope.discountLoader = true;
+      api.receipe.discount($scope.discount).then(function(data){
+        $scope.totalWithShipping = $scope.totalWithShipping - ($scope.totalWithShipping/100*data.discount);
+        $scope.percent = data.discount;
+        if(data.discount == 0) {
+          $scope.discountError = true;
+        }
+        $scope.discountLoader = false;
+      }, function (err) {
+        console.log(err);
+        $scope.discountLoader = false;
+      })
     }
 
     $scope.makeOrder = function () {
@@ -152,5 +218,4 @@ angular.module('ocean04App')
         $scope.errorOrder = true;
       });
     }
-
   });

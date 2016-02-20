@@ -115,9 +115,6 @@ $orange-hover: #f15a22;
 			}
 			.imgPreview{
 				padding:0;
-				// img{
-				// 	width:100px;
-				// }
 				width: 48px;
 				height: 48px;
 				background-size: auto 48px;
@@ -187,34 +184,36 @@ $orange-hover: #f15a22;
 				}
 			}
 		}
+
 		.secondStep{
 			sup{
 				top: -0.5em;
 			}
-			.form{
-				div{
-					margin-bottom: 2%;
-					.adressDetails{
-					  width: 100%;
-					  padding-left: 8px !important;
-					  padding-right: 8px !important;
-					  font-weight: 400;
-						font-style: normal;
-						letter-spacing: 0.5px;
-						font-size: 14px;
-						color: #42413e;
-						border: 1px solid #b9b9af;
-						background-color: #FFF;
-						min-height: 35px;
-						border-radius: 2px;
-						outline: none !important;
-					}
-					label{
-						font-family: GL;
-						letter-spacing: 0.5px;
-						color: #515252;
-						font-size: 12px;
-					}
+		}
+
+		.form{
+			div{
+				margin-bottom: 2%;
+				.adressDetails{
+				  width: 100%;
+				  padding-left: 8px !important;
+				  padding-right: 8px !important;
+				  font-weight: 400;
+					font-style: normal;
+					letter-spacing: 0.5px;
+					font-size: 14px;
+					color: #42413e;
+					border: 1px solid #b9b9af;
+					background-color: #FFF;
+					min-height: 35px;
+					border-radius: 2px;
+					outline: none !important;
+				}
+				label{
+					font-family: GL;
+					letter-spacing: 0.5px;
+					color: #515252;
+					font-size: 12px;
 				}
 			}
 		}
@@ -263,6 +262,35 @@ $orange-hover: #f15a22;
 			margin-top: 1em;
 			letter-spacing: 0.25px;
 		}
+		.discountForm{
+			div{
+				padding-left: 2%;
+				input{
+					width: 50% !important;	
+				}
+			}
+			.discountButton{
+				width: 0px !important;
+				margin-right: 10px !important;
+				height: 34.5px;
+				padding: 1% 30% 1% 6%;
+				margin-left: 10px !important;
+				.discountSpinner{
+					background: url(spinner.svg) no-repeat;
+					width: 30px;
+					height: 16.5px;
+					display: inline-block;
+					background-size: 60%;
+					position: absolute;
+					margin-left: 38px;
+					margin-top: -9px;
+				}
+			}
+			.discountError{
+				color: #f15a22;
+			}
+		}
+		
 
 		.separator{
 			border-color:#79776b !important;
@@ -280,14 +308,12 @@ $orange-hover: #f15a22;
 		}
 
 	}
-
 	.cartSmallText{
 		margin-top:10px;
 		h6{
 			font-family: GL;
 			font-weight:100;
 			font-style:normal;
-			// letter-spacing:1px;
 			font-size:11px;
 			color:#b9b9af;
 			text-align:center;
@@ -323,6 +349,10 @@ $orange-hover: #f15a22;
   .nav-tabs > li.active:not(:nth-child(1)):hover > a,
   .nav-tabs > li.active:not(:nth-child(1)):focus > a,{
   	border-left:none;
+  }
+
+  .nav li[disabled="disabled"]{
+  	opacity:0.5;
   }
 
   .nav > li > a:hover,
