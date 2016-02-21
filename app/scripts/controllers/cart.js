@@ -183,7 +183,7 @@ angular.module('ocean04App')
       var time = $scope.selectedGap;
 
       if(time == "НА СЕЙЧАС"){
-        time = (new Date().getHours() + 1) + ":" + (new Date().getMinutes());
+        time = (new Date().getHours() + 3) + ":" + (new Date().getMinutes());
       }
 
       $scope.formUser.timegap = date + '|' + time;
