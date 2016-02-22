@@ -19,7 +19,8 @@ angular.module('ocean04App')
     $scope.discount ={
       code: ''
     };
-    $scope.timeGaps = [
+    $scope.timeGaps = [];
+    var timeGaps = [
       {
         isAvailable: true,
         gap: "НА СЕЙЧАС",
@@ -43,7 +44,7 @@ angular.module('ocean04App')
       }
     ];
 
-    $scope.selectedGap = $scope.timeGaps[0].gap;
+    $scope.selectedGap = timeGaps[0].gap;
 
     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
@@ -152,12 +153,16 @@ angular.module('ocean04App')
 
     $scope.checkGaps = function () {
       var checkGap = new Date().getHours();
-      console.log(checkGap);
-      if(18>=checkGap<=10){
-        $scope.selectedGap = $scope.timeGaps[1].gap;
-        $scope.timeGaps[0].isAvailable = false;
-        $scope.timeGaps[0].isActive = false;
-        $scope.timeGaps[0].isActive = true;
+      if(checkGap >= 18 && checkGap<=10){
+        $scope.selectedGap = timeGaps[1].gap;
+        timeGaps[0].isAvailable = false;
+        timeGaps[0].isActive = false;
+        timeGaps[0].isActive = true;
+        timeGaps.forEach(function(key){
+          $scope.timeGaps.push(key);
+        });
+      }else{
+        $scope.timeGaps = timeGaps;
       }
     };
 
@@ -218,4 +223,5 @@ angular.module('ocean04App')
         $scope.errorOrder = true;
       });
     }
+    $scope.checkGaps();
   });
