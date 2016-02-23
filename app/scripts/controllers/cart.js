@@ -153,11 +153,11 @@ angular.module('ocean04App')
 
     $scope.checkGaps = function () {
       var checkGap = new Date().getHours();
-      if(checkGap >= 18 && checkGap<=10){
+      if(checkGap >= 18 || checkGap<=10){
         $scope.selectedGap = timeGaps[1].gap;
         timeGaps[0].isAvailable = false;
         timeGaps[0].isActive = false;
-        timeGaps[0].isActive = true;
+        timeGaps[1].isActive = true;
         timeGaps.forEach(function(key){
           $scope.timeGaps.push(key);
         });
