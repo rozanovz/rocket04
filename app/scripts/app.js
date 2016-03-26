@@ -33,7 +33,7 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .when('/gifts', {
+      .when('', {
         templateUrl: '/views/gifts.html',
         controller: 'GiftsCtrl',
         controllerAs: 'gifts'
@@ -76,31 +76,51 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  }).run(function($location, $rootScope, loader){
 
-      // $locationProvider.html5Mode(true);
-  }).run(['$location',function($scope){
-    $scope.storeLoader = false;
+    if(localStorage.getItem('items')){
+      $location.path('/rocket04');
+    }
+
+    var pages = {
+      "/": "Главная Страница",
+      "/how": "Принцип Работы",
+      "/about": "О Нас",
+      "/gifts": "Подарки",
+      "/gMap": "Зона Доставки",
+      "/contract": "Приватность и Условия",
+      "/contacts": "Контакты"
+    }
+
+    angular.extend($rootScope, {
+      storeLoader: false,
+      centerin: function centerin () {
+        var b = (((document.body.clientWidth - 120) / 2)/document.body.clientWidth)*100;
+        var c = b + "%";
+        $('.slicknav_brand').css('left', c);
+        $('.navbar-header').css('left', c);
+
+        var f = (((document.body.clientWidth - 105) / 2)/document.body.clientWidth)*100;
+        var a = f + "%";
+        $('.spinner').css ('left', a);
+      }
+    });
     $('#menuStick').slicknav({
       brand:"<a href=\"#/\"><img src=\"https://rocket04.imgix.net/logo.svg?s=533089706d3998f2811d218fd2fe2fa5\" alt=\"\"></a>",
       label:"  ",
       closeOnClick: true
     });
-
-    $scope.centerin = function centerin () {
-      var b = (((document.body.clientWidth - 120) / 2)/document.body.clientWidth)*100;
-      var c = b + "%";
-      $('.slicknav_brand').css('left', c);
-      $('.navbar-header').css('left', c);
-
-      var f = (((document.body.clientWidth - 105) / 2)/document.body.clientWidth)*100;
-      var a = f + "%";
-      $('.spinner').css ('left', a);
-    };
     $(window).resize(function(){
-      $scope.centerin();
+      $rootScope.centerin();
     });
-    $scope.centerin();
-  }]).animation('.rocket-view', function() {
+    $rootScope.centerin();
+
+    $rootScope.$watch(function () {
+      return $location.url();
+    }, function () {
+      loader.gaTitleScroll(pages[$location.url()]);
+    })
+  }).animation('.rocket-view', function() {
     return {
       enter: function(element, done) {
         element.css('display', 'none');

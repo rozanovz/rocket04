@@ -74,23 +74,11 @@ angular.module('ocean04App')
 
     //getting quantity in cart by its id 
     this.getInCartQuantity = function (id) {
-      // var inCartQunatity = ngCart.getItemById(id);
-      // var a = inCartQunatity._quantity;
-      // this.inCartQunatity = ngCart.getItemById(id)._quantity;
-      // return this.inCartQunatity;
       return ngCart.getItemById(id)._quantity;
     };
 
     //removing or decrementing item quantity in cart
     this.removeFromCart = function (id) {
-      // var inCart = ngCart.getItemById(id);
-      // if(inCart._quantity === 1){
-      //   ngCart.removeItemById(id);
-      // }else if(inCart._quantity > 1){
-      //   inCart.setQuantity(-1, true)
-      // }else{
-      //   return;
-      // }
       ngCart.getItemById(id)._quantity === 1 ? 
         ngCart.removeItemById(id) : 
           ngCart.getItemById(id).setQuantity(-1, true);

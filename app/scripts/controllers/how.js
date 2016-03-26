@@ -6,6 +6,4 @@
  * # HowCtrl
  * Controller of the ocean04App
  */
-angular.module('ocean04App').controller('HowCtrl', function (loader) {
-	loader.gaTitleScroll("Принцип Работы");
-});
+angular.module('ocean04App').controller('HowCtrl', function () {});

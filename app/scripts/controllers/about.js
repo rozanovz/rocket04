@@ -6,6 +6,4 @@
  * # AboutCtrl
  * Controller of the ocean04App
  */
-angular.module('ocean04App').controller('AboutCtrl', function (loader) {
-	loader.gaTitleScroll("О Нас");
-});
+angular.module('ocean04App').controller('AboutCtrl', function () {});

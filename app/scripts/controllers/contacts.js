@@ -7,6 +7,4 @@
  * # ContactsCtrl
  * Controller of the ocean04App
  */
-angular.module('ocean04App').controller('ContactsCtrl', function (loader) {
-  loader.gaTitleScroll("Контакты");
-});
+angular.module('ocean04App').controller('ContactsCtrl', function () {});

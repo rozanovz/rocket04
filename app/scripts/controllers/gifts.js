@@ -9,7 +9,6 @@
  */
 angular.module("ocean04App")
   .controller("GiftsCtrl", function ($scope, api, loader) {
-    loader.gaTitleScroll("Подарки");
     $scope.gifts = [
       {
         img:"https://rocket04.imgix.net/gifts_1.jpg?s=fa9dea2977649ce50e30185840863067",

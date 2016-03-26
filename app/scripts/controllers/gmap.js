@@ -6,6 +6,4 @@
  * # GmapCtrl
  * Controller of the ocean04App
  */
-angular.module('ocean04App').controller('GmapCtrl', function (loader) {
-	loader.gaTitleScroll("Зона Доставки");
-});
+angular.module('ocean04App').controller('GmapCtrl', function () {});

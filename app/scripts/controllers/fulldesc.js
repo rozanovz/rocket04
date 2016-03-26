@@ -105,14 +105,6 @@ angular.module('ocean04App')
 
     //removing or decrementing item quantity in cart
     this.removeFromCart = function (id) {
-      // var inCart = ngCart.getItemById(id);
-      // if(inCart._quantity === 1){
-      //   ngCart.removeItemById(id);
-      // }else if(inCart._quantity > 1){
-      //   inCart.setQuantity(-1, true)
-      // }else{
-      //   return;
-      // }
       ngCart.getItemById(id)._quantity === 1 ? 
         ngCart.removeItemById(id) : 
           ngCart.getItemById(id).setQuantity(-1, true);
