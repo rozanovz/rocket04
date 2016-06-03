@@ -1,7 +1,7 @@
-<!doctype html>
-<html ng-app="ocean04App">
-  <head>
-    <script type="text/javascript">
+<!DOCTYPE html>
+<html lang="en" ng-app="ocean04App">
+<head>
+	<script type="text/javascript">
       // if (window.location.protocol !== "https:"){
       //   window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
       // }
@@ -27,12 +27,18 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
     <!-- build:css(.tmp) static/build/styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="./styles/main.css">
     <!-- endbuild -->
     <!-- build:css(.tmp) static/build/styles/styles.css -->
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="./styles/styles.css">
     <!-- endbuild -->  
+    
     <link rel="apple-touch-icon" sizes="57x57" href="../static/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="../static/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="../static/apple-touch-icon-72x72.png">
@@ -63,72 +69,32 @@
     </script>
     <!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter34937420 = new Ya.Metrika({ id:34937420, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/34937420" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
   </head>
-  <body>
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    <!-- mainNav -->
-<!--     <rocket-navigation ng-hide="itemDescription"></rocket-navigation> -->
-    <div ng-include="'views/navigation.html'" ng-hide="itemDescription"></div>
-    <!--Slick nav menu-->
+<body>
+	
+	<div ng-include="'views/navigation.html'" ng-hide="itemDescription"></div>
+
     <ul id="menuStick" style="display:none;" ng-hide="itemDescription">
       <li><a href="#/how">Принцип Работы</a></li>
       <li><a href="#/gifts">Подарки</a></li>
       <li><a href="#/about">О Нас</a></li>
       <li><a href="#/rocket04">Посмотреть Меню</a></li>
     </ul>
-    <!-- Loader -->
+    
     <div class="loader text-center" ng-show="storeLoader">
       <div class="loaderContainer">
         <p class="spinner"></p>
         <p>Загружаем Меню</p>
       </div>
     </div>
-    <!--Main view-->
+    
     <div ng-view ng-hide="storeLoader" class="rocket-view"></div>
-    <!-- footer -->
-    <!-- <rocket-footer></rocket-footer> -->
+    
     <div ng-include="'views/footer.html'"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-    <!-- build:js(.) static/build/scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/jquery.maskedinput/dist/jquery.maskedinput.js"></script>
-    <script src="bower_components/angular-google-maps-native/dist/angular-google-maps-native.min.js"></script>
-    <script src="bower_components/angular-google-places-autocomplete/src/autocomplete.js"></script>
-    <script src="bower_components/angular-google-places-autocomplete/dist/autocomplete.min.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:js({.tmp,app}) static/build/scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
 
-    <script src="scripts/directives/ngCart/ngCart.js"></script>
-
-    <script src="scripts/services/loader.js"></script>
-    <script src="scripts/services/api.js"></script>
-
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/about.js"></script>
-    <script src="scripts/controllers/gifts.js"></script>
-    <script src="scripts/controllers/how.js"></script>
-    <script src="scripts/controllers/store.js"></script>
-    <script src="scripts/controllers/cart.js"></script>
-    <script src="scripts/controllers/fulldesc.js"></script>
-    <script src="scripts/controllers/gmap.js"></script>
-    <script src="scripts/controllers/contract.js"></script>
-    <script src="scripts/controllers/contacts.js"></script>
-    <!-- endbuild -->
-    <!-- build:js(app) static/build/scripts/slicknav.min.js -->
-    <script src="scripts/slicknav.min.js"></script>
-    <!-- endbuild -->
-  </body>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+	<script src="./scripts/vendor.js"></script>
+	<script src="./scripts/app.js"></script>
+  <script src="./scripts/ngCart.js"></script>
+	<script src="./scripts/slicknav.js"></script>
+</body>
 </html>
