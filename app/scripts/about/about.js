@@ -1,1 +1,2 @@
-export default function AboutCtrl() {}
+class AboutCtrl {};
+export { AboutCtrl };

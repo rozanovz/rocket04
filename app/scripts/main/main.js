@@ -1,1 +1,2 @@
-export default function MainCtrl () {};
+class MainCtrl {};
+export { MainCtrl };

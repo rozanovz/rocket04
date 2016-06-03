@@ -1,1 +1,3 @@
-export default function ContactsCtrl () {};
+class ContactsCtrl {};
+
+export { ContactsCtrl }

@@ -1,4 +1,4 @@
-export default function routing($routeProvider) {
+let routing = ($routeProvider) => {
   $routeProvider
       .when('/', {
         templateUrl: '/views/main.html',
@@ -54,3 +54,5 @@ export default function routing($routeProvider) {
         redirectTo: '/'
       });
 }
+
+export { routing }

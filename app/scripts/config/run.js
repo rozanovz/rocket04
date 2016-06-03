@@ -1,11 +1,11 @@
 import $ from 'jquery';
 
-export default function running($location, $rootScope, loader) {
-	if(localStorage.getItem('items')){
+let running = ($location, $rootScope, loader) => {
+    if(localStorage.getItem('items')){
       $location.path('/rocket04');
     }
 
-    var pages = {
+    let pages = {
       "/": "Главная Страница",
       "/how": "Принцип Работы",
       "/about": "О Нас",
@@ -17,7 +17,7 @@ export default function running($location, $rootScope, loader) {
 
     angular.extend($rootScope, {
       storeLoader: false,
-      centerin: function centerin () {
+      centerin: () => {
         var b = (((document.body.clientWidth - 120) / 2)/document.body.clientWidth)*100;
         var c = b + "%";
         $('.slicknav_brand').css('left', c);
@@ -28,19 +28,25 @@ export default function running($location, $rootScope, loader) {
         $('.spinner').css ('left', a);
       }
     });
+
     $('#menuStick').slicknav({
       brand:"<a href=\"#/\"><img src=\"https://rocket04.imgix.net/logo.svg?s=533089706d3998f2811d218fd2fe2fa5\" alt=\"\"></a>",
       label:"  ",
       closeOnClick: true
     });
-    $(window).resize(function(){
+    
+    $(window).resize(() => {
       $rootScope.centerin();
     });
+    
     $rootScope.centerin();
 
-    $rootScope.$watch(function () {
+    $rootScope.$watch( ()  => {
       return $location.url();
-    }, function () {
+    },  () => {
       loader.gaTitleScroll(pages[$location.url()]);
     })
 };
+
+
+export { running };

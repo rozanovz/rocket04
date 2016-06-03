@@ -1,1 +1,2 @@
-export default function ContractCtrl () {};
+class ContractCtrl {};
+export { ContractCtrl }

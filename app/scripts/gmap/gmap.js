@@ -1,1 +1,2 @@
-export default function GmapCtrl () {};
+class GmapCtrl {};
+export { GmapCtrl };

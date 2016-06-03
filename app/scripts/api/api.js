@@ -1,10 +1,10 @@
-export default function api ($http,$q,$window) {
+let api = ($http,$q,$window) => {
     $http.defaults.useXDomain = true;
     $http.defaults.headers.post["Content-Type"] = "text/plain";
-    var url = 'https://rocket04.com/'
+    const url = 'https://rocket04.com/'
 
 // MAIN API REQUEST METHODS
-    var list =  function (suburl,field,param){
+    let list = (suburl,field,param) => {
       return $q(function(resolve, reject) {
         $http({
           method:'GET',
@@ -29,7 +29,7 @@ export default function api ($http,$q,$window) {
       });
     };
 
-    var post = function(suburl,param){
+    let post = (suburl,param) => {
       return $q(function(resolve, reject) {
          $http.post(url+suburl,param)
         .success(function (data) {
@@ -45,12 +45,14 @@ export default function api ($http,$q,$window) {
 //API functionality
     return {
       receipe: {
-        store: function () {
+        store: () => {
           return list('get_recipes');
         },
-        orders: function (order) {
+        orders: (order) => {
           return post('order', order);
         }
       }
     };
 };
+
+export { api }

@@ -1,4 +1,6 @@
-export default function animate() {
+import $ from 'jquery';
+
+let animate = () => {
   return {
     enter: function(element, done) {
       element.css('display', 'none');
@@ -15,3 +17,5 @@ export default function animate() {
     }
   };
 }
+
+export { animate }
