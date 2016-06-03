@@ -8,7 +8,10 @@ import angularRoute from 'angular-route';
 import angularSanitize from 'angular-sanitize';
 import angularTouch from 'angular-touch';
 
-window.$ = require('jquery');
-window.jQuery = require('jquery');
+import $ from 'jquery';
+import jQuery from 'jquery';
+
+window.$ = jQuery;
+window.jQuery = jQuery;
 var Bootstrap = require('bootstrap-sass');
 Bootstrap.$ = window.$;
